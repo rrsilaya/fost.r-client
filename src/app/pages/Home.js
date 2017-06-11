@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-// import { Redirect } from 'react-router-dom';
+import DocumentTitle from 'react-document-title';
 
 class Home extends Component {
   render() {
     return (
-      <div>
-        This is home.
-      </div>
+      <DocumentTitle title="fost.r • Home">
+        <div>
+          This is home.
+        </div>
+      </DocumentTitle>
     );
   }
 }

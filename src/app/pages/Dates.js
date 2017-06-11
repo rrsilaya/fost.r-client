@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import DocumentTitle from 'react-document-title';
 
 class Dates extends Component {
   render() {
     return (
-      <div>
-        This is Dates.
-      </div>
+      <DocumentTitle title="fost.r • Dates">
+        <div>
+          This is Dates.
+        </div>
+      </DocumentTitle>
     );
   }
 }
