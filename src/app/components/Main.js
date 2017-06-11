@@ -11,15 +11,17 @@ import NoPage from '../pages/NoPage';
 class Main extends Component {
   render() {
     return (
-      <Switch>
-        <Route exact path="/" component={ Home } />
-        <Route exact path="/adopt" component={ Adopt } />
-        <Route exact path="/dates" component={ Dates } />
-        <Route exact path="/rescue" component={ Rescue } />
-        <Route exact path="/community" component={ Community } />
+      <div className="uk-margin-small-top">
+        <Switch>
+          <Route exact path="/" component={ Home } />
+          <Route exact path="/adopt" component={ Adopt } />
+          <Route exact path="/dates" component={ Dates } />
+          <Route exact path="/rescue" component={ Rescue } />
+          <Route exact path="/community" component={ Community } />
 
-        <Route component={ NoPage } />
-      </Switch>
+          <Route component={ NoPage } />
+        </Switch>
+      </div>
     );
   }
 }
