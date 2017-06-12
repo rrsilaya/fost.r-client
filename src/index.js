@@ -6,6 +6,8 @@ import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
 import './assets/css/uikit.min.css';
 
+import './assets/css/index.css';
+
 UIkit.use(Icons);
 
 ReactDOM.render(
