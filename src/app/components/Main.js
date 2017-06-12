@@ -11,7 +11,7 @@ import NoPage from '../pages/NoPage';
 class Main extends Component {
   render() {
     return (
-      <div className="uk-margin-small-top">
+      <div className="uk-margin-small-top uk-margin-large-left uk-margin-large-right">
         <Switch>
           <Route exact path="/" component={ Home } />
           <Route exact path="/adopt" component={ Adopt } />

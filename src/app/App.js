@@ -11,7 +11,7 @@ class App extends Component {
       <Router history={ withRouter }>
         <div>
           <Navigation />
-          <Main />          
+          <Main />
         </div>
       </Router>
     );
