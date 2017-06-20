@@ -1,4 +1,4 @@
-# fost.r ![octal](https://img.shields.io/badge/Batch o%28ctal%29-fost.r-blue.svg?style=flat-square?colorA=000000)
+# fost.r ![octal](https://img.shields.io/badge/Batch_o%28ctal%29-fost.r-blue.svg?style=flat-square?colorA=000000)
 ![status](https://img.shields.io/badge/status-development-yellow.svg)
 ![yarn](https://img.shields.io/badge/yarn-v0.24.5-green.svg)
 ![react](https://img.shields.io/badge/react-v15.5.4-green.svg)
