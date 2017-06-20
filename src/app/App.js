@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, withRouter } from 'react-router-dom';
 import '../assets/css/App.css';
 
-import Navigation from './components/Navigation';
-import Main from './components/Main';
+import LoggedIn from './pages/LoggedIn';
+import AnonUser from './pages/AnonUser';
 
 class App extends Component {
   render() {
     return (
       <Router history={withRouter}>
-        <div>
-          <Navigation />
-          <Main />
-        </div>
+        {
+          this.props.auth ?
+          <LoggedIn />
+          :
+          <AnonUser />
+        }
       </Router>
     );
   }
