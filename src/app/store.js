@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
 // Reducers
-import auth from './actions/auth';
+import auth from './ducks/auth';
 
 const initialState = {
   auth: true
