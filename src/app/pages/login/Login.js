@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
 
-class Home extends Component {
+class Login extends Component {
   render() {
     return (
-      <DocumentTitle title="fost.r • Home">
+      <DocumentTitle title="fost.r • Login">
         <div>
-          This is home.
+          <p>This is login page.</p>
         </div>
       </DocumentTitle>
     );
   }
 }
 
-export default Home;
+export default Login;
