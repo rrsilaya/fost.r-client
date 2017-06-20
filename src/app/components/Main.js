@@ -13,13 +13,13 @@ class Main extends Component {
     return (
       <div className="uk-margin-small-top uk-margin-large-left uk-margin-large-right">
         <Switch>
-          <Route exact path="/" component={ Home } />
-          <Route exact path="/adopt" component={ Adopt } />
-          <Route exact path="/dates" component={ Dates } />
-          <Route exact path="/rescue" component={ Rescue } />
-          <Route exact path="/community" component={ Community } />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/adopt" component={Adopt} />
+          <Route exact path="/dates" component={Dates} />
+          <Route exact path="/rescue" component={Rescue} />
+          <Route exact path="/community" component={Community} />
 
-          <Route component={ NoPage } />
+          <Route component={NoPage} />
         </Switch>
       </div>
     );

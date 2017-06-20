@@ -8,7 +8,7 @@ import Main from './components/Main';
 class App extends Component {
   render() {
     return (
-      <Router history={ withRouter }>
+      <Router history={withRouter}>
         <div>
           <Navigation />
           <Main />
