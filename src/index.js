@@ -16,7 +16,8 @@ import './assets/css/index.css';
 UIkit.use(Icons);
 
 ReactDOM.render(
-	<Provider store={ store }>
-		<AppContainer />
-	</Provider>
-, document.getElementById('root'));
+  <Provider store={store}>
+    <AppContainer />
+  </Provider>,
+  document.getElementById('root')
+);

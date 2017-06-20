@@ -7,7 +7,7 @@ import auth from './actions/auth';
 
 const initialState = {
   auth: true
-}
+};
 
 const store = createStore(
   combineReducers({

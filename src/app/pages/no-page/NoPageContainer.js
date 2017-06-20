@@ -1,9 +1,7 @@
 import { connect } from 'react-redux';
 import NoPage from './NoPage';
 
-const mapStateToProps = state => ({
-
-});
+const mapStateToProps = state => ({});
 
 const NoPageContainer = connect(mapStateToProps, {})(NoPage);
 

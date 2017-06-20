@@ -8,8 +8,7 @@ class Navigation extends Component {
         <nav
           className="uk-navbar-container uk-navbar-transparent uk-margin-medium-left uk-margin-medium-right"
           data-uk-navbar
-          data-uk-sticky
-        >
+          data-uk-sticky>
           <div className="uk-navbar-left">
             <Link to="/adopt" className="uk-navbar-item uk-logo">fost.r</Link>
           </div>
@@ -17,34 +16,22 @@ class Navigation extends Component {
           <div className="uk-navbar-right">
             <ul className="uk-navbar-nav">
               <li>
-                <NavLink
-                  to="/adopt"
-                  activeClassName="active"
-                >
+                <NavLink to="/adopt" activeClassName="active">
                   Adopt
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/dates"
-                  activeClassName="active"
-                >
+                <NavLink to="/dates" activeClassName="active">
                   Dates
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/rescue"
-                  activeClassName="active"
-                >
+                <NavLink to="/rescue" activeClassName="active">
                   Rescue
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/community"
-                  activeClassName="active"
-                >
+                <NavLink to="/community" activeClassName="active">
                   Community
                 </NavLink>
               </li>

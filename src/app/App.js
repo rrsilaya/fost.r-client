@@ -9,12 +9,7 @@ class App extends Component {
   render() {
     return (
       <Router history={withRouter}>
-        {
-          this.props.auth ?
-          <LoggedIn />
-          :
-          <AnonUser />
-        }
+        {this.props.auth ? <LoggedIn /> : <AnonUser />}
       </Router>
     );
   }
