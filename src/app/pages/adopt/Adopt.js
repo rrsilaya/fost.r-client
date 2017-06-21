@@ -16,8 +16,12 @@ class Adopt extends Component {
           <div className="uk-section tm-sidebar-left">
             <Sidebar pets={this.props.pets} />
           </div>
-          <div className="uk-margin-large-top uk-margin-large-bottom uk-position-relative tm-main">
-            <Feed isLoading={this.props.isFeedLoading} feed={this.props.feed} />
+          <div className="uk-margin-medium-top uk-margin-large-bottom uk-position-relative tm-main">
+            <Feed
+              isLoading={this.props.isFeedLoading}
+              hasErrorLoading={this.props.hasErrorLoading}
+              feed={this.props.feed}
+            />
           </div>
         </div>
       </DocumentTitle>

@@ -2,6 +2,7 @@
   "name": "fost.r",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://api.myjson.com/bins",
   "dependencies": {
     "axios": "^0.16.2",
     "jquery": "^3.2.1",
@@ -12,6 +13,7 @@
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
+    "react-stack-grid": "^0.2.2",
     "redux": "^3.6.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
@@ -36,6 +38,5 @@
       "prettier --tab-width 2 --single-quote --write",
       "git add"
     ]
-  },
-  "proxy": "https://jsonplaceholder.typicode.com/"
+  }
 }

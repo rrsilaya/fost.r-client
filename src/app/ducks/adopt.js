@@ -13,11 +13,11 @@ export const loadPets = () => {
     });
 
     axios
-      .get('/photos')
+      .get('/hdcgn')
       .then(pets => {
         dispatch({
           type: LOAD_PETS_SUCCESS,
-          payload: pets.data.splice(0, 10)
+          payload: pets.data
         });
       })
       .catch(err => {
@@ -32,6 +32,7 @@ export const loadPets = () => {
 // Initial State
 const initialState = {
   isFeedLoading: true,
+  hasErrorLoading: false,
   pets: ['Dog', 'Cat', 'Snake', 'Turtle', 'Rodent'],
   feed: []
 };
@@ -42,14 +43,22 @@ export const reducer = (state = initialState, action) => {
     case LOAD_PETS_REQ:
       return {
         ...state,
-        isFeedLoading: true
+        isFeedLoading: true,
+        hasErrorLoading: false
       };
     case LOAD_PETS_SUCCESS:
       return {
         ...state,
         isFeedLoading: false,
+        hasErrorLoading: false,
         feed: action.payload
       };
+    case LOAD_PETS_FAIL:
+      return {
+        ...state,
+        isFeedLoading: false,
+        hasErrorLoading: true
+      }
 
     default:
       return state;
