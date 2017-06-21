@@ -10,11 +10,9 @@ class Sidebar extends Component {
             <div className="uk-form-controls">
               <select id="kind_of_pet" className="uk-select">
                 <option value="all">All</option>
-                {
-                  this.props.pets.map((pet, id) => (
-                    <option key={id} value={ pet.toLowerCase() }>{ pet }</option>
-                  ))
-                }
+                {this.props.pets.map((pet, id) =>
+                  <option key={id} value={pet.toLowerCase()}>{pet}</option>
+                )}
               </select>
             </div>
           </div>

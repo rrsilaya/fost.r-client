@@ -12,7 +12,8 @@ export const loadPets = () => {
       type: LOAD_PETS_REQ
     });
 
-    axios.get('/photos')
+    axios
+      .get('/photos')
       .then(pets => {
         dispatch({
           type: LOAD_PETS_SUCCESS,
@@ -25,7 +26,7 @@ export const loadPets = () => {
           payload: err
         });
       });
-  }
+  };
 };
 
 // Initial State
@@ -42,13 +43,13 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFeedLoading: true
-      }
+      };
     case LOAD_PETS_SUCCESS:
       return {
         ...state,
         isFeedLoading: false,
         feed: action.payload
-      }
+      };
 
     default:
       return state;

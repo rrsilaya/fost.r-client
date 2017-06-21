@@ -7,15 +7,15 @@ import auth from './ducks/auth';
 import adopt from './ducks/adopt';
 
 const store = createStore(
-	combineReducers({
-		auth,
-		adopt
+  combineReducers({
+    auth,
+    adopt
 
-		// Update this with all the reducers
-		// to be used in the project
-	}),
-	{},
-	applyMiddleware(thunk, logger)
+    // Update this with all the reducers
+    // to be used in the project
+  }),
+  {},
+  applyMiddleware(thunk, logger)
 );
 
 export default store;
