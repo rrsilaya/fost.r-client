@@ -4,11 +4,10 @@ import { NavLink, Link } from 'react-router-dom';
 class Navigation extends Component {
   render() {
     return (
-      <div className="uk-section-primary" id="nav">
+      <div className="uk-section-primary" id="nav" data-uk-sticky>
         <nav
           className="uk-navbar-container uk-navbar-transparent uk-margin-medium-left uk-margin-medium-right"
-          data-uk-navbar
-          data-uk-sticky>
+          data-uk-navbar>
           <div className="uk-navbar-left">
             <Link to="/adopt" className="uk-navbar-item uk-logo">fost.r</Link>
           </div>

@@ -4,19 +4,17 @@ import logger from 'redux-logger';
 
 // Reducers
 import auth from './ducks/auth';
-
-const initialState = {
-  auth: true
-};
+import adopt from './ducks/adopt';
 
 const store = createStore(
   combineReducers({
-    auth
+    auth,
+    adopt
 
     // Update this with all the reducers
     // to be used in the project
   }),
-  initialState,
+  {},
   applyMiddleware(thunk, logger)
 );
 

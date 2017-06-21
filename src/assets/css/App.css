@@ -5,3 +5,12 @@
 .active {
 	color: #2ec4b6 !important;
 }
+
+.tm-sidebar-left {
+	width: 25vw;
+}
+
+.tm-main {
+	margin-left: 25vw;
+	padding-left: 0 !important;
+}
