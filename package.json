@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.16.2",
     "jquery": "^3.2.1",
     "prettier": "^1.4.4",
     "react": "^15.5.4",
@@ -35,5 +36,6 @@
       "prettier --tab-width 2 --single-quote --write",
       "git add"
     ]
-  }
+  },
+  "proxy": "https://jsonplaceholder.typicode.com/"
 }
