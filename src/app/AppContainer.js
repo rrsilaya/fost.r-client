@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import App from './App';
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  isAuth: state.auth.isAuth
 });
 
 const AppContainer = connect(mapStateToProps, {})(App);
