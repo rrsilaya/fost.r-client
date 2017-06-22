@@ -8,9 +8,21 @@ const { fadeUp } = transitions;
 class Feed extends Component {
   render() {
     const grids = (
-      <StackGrid appear={fadeUp.appear} columnWidth={300} gutterHeight={10} gutterWidth={10}>
+      <StackGrid
+        appear={fadeUp.appear}
+        columnWidth={300}
+        gutterHeight={10}
+        gutterWidth={10}>
         {this.props.feed.map((pet, id) =>
-          <Tile key={id} img={pet.img} name={pet.name} age={pet.age} location={pet.location} gender={pet.gender} kind={pet.kind}/>
+          <Tile
+            key={id}
+            img={pet.img}
+            name={pet.name}
+            age={pet.age}
+            location={pet.location}
+            gender={pet.gender}
+            kind={pet.kind}
+          />
         )}
       </StackGrid>
     );

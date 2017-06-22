@@ -58,7 +58,7 @@ export const reducer = (state = initialState, action) => {
         ...state,
         isFeedLoading: false,
         hasErrorLoading: true
-      }
+      };
 
     default:
       return state;

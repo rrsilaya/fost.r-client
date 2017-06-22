@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
   pets: state.adopt.pets,
   isFeedLoading: state.adopt.isFeedLoading,
   hasErrorLoading: state.adopt.hasErrorLoading,
-  feed: state.adopt.feed,
+  feed: state.adopt.feed
 });
 
 const AdoptContainer = connect(mapStateToProps, { loadPets })(Adopt);
