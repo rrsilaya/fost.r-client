@@ -7,7 +7,6 @@ class Login extends Component {
       <DocumentTitle title="fost.r • Login">
         <div className="">
           <div>
-
             <div className="uk-card uk-card-default uk-width-1-2@m">
               <div className="uk-card-header">
                 <div className="uk-grid-small uk-flex-middle" data-uk-grid>
@@ -33,22 +32,27 @@ class Login extends Component {
 
                 <form>
                   <div className="uk-margin">
-                    <input
-                      className="uk-input"
-                      type="text"
-                      placeholder="Username"
-                    />
+                    <div className="uk-inline">
+                      <span
+                        className="uk-form-icon"
+                        data-uk-icon="icon: user"
+                      />
+                      <input className="uk-input" type="text" />
+                    </div>
                   </div>
+
                   <div className="uk-margin">
-                    <input
-                      className="uk-input"
-                      type="text"
-                      placeholder="Password"
-                    />
+                    <div className="uk-inline">
+                      <span
+                        className="uk-form-icon uk-form-icon-flip"
+                        data-uk-icon="icon: lock"
+                      />
+                      <input className="uk-input" type="text" />
+                    </div>
                   </div>
                   <div
                     className="uk-margin uk-grid-small uk-child-width-auto"
-                    uk-grid
+                    data-uk-grid
                   >
                     <label>
                       <input
