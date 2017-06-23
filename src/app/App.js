@@ -9,7 +9,9 @@ class App extends Component {
   render() {
     return (
       <Router history={withRouter}>
-        {this.props.isAuth ? <LoggedIn /> : <AnonUser />}
+        <div className="uk-offcanvas-content">
+          {this.props.isAuth ? <LoggedIn /> : <AnonUser />}
+        </div>
       </Router>
     );
   }

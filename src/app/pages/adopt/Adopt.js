@@ -13,7 +13,7 @@ class Adopt extends Component {
     return (
       <DocumentTitle title="fost.r • Adopt">
         <div>
-          <div className="uk-section tm-sidebar-left">
+          <div className="uk-section tm-sidebar-left uk-visible@m">
             <Sidebar pets={this.props.pets} />
           </div>
           <div className="uk-margin-medium-top uk-margin-large-bottom uk-position-relative tm-main">

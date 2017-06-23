@@ -1,6 +1,9 @@
 #nav {
 	background-color: #011627;
 }
+	#nav nav {
+		height: 80px;
+	}
 
 .active {
 	color: #2ec4b6 !important;
@@ -11,6 +14,22 @@
 }
 
 .tm-main {
-	margin-left: 25vw;
 	padding-left: 0 !important;
+}
+
+/* Medium */
+@media (min-width: 960px) {
+	.tm-main {
+		margin-left: 25vw;
+	}
+}
+
+@media (max-width: 959px) {
+	#nav nav {
+		height: 65px;
+	}
+
+	.tm-main {
+		margin-left: 0;
+	}
 }

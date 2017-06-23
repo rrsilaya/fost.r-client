@@ -1,4 +1,5 @@
 import axios from 'axios';
+import pets from './mock';
 
 // Actions
 const LOAD_PETS_REQ = 'LOAD_PETS_REQ';
@@ -34,7 +35,7 @@ const initialState = {
   isFeedLoading: true,
   hasErrorLoading: false,
   pets: ['Dog', 'Cat', 'Snake', 'Turtle', 'Rodent'],
-  feed: []
+  feed: pets
 };
 
 // Reducer
@@ -58,7 +59,7 @@ export const reducer = (state = initialState, action) => {
         ...state,
         isFeedLoading: false,
         hasErrorLoading: true
-      }
+      };
 
     default:
       return state;
