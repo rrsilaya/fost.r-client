@@ -12,8 +12,7 @@ class Feed extends Component {
         appear={fadeUp.appear}
         columnWidth={280}
         gutterHeight={10}
-        gutterWidth={10}
-      >
+        gutterWidth={10}>
         {this.props.feed.map((pet, id) =>
           <Tile
             key={id}

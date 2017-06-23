@@ -7,8 +7,7 @@ class Navigation extends Component {
       <div className="uk-section-primary" id="nav" data-uk-sticky>
         <nav
           className="uk-navbar-container uk-navbar-transparent"
-          data-uk-navbar
-        >
+          data-uk-navbar>
           <div className="uk-navbar-left">
             <div className="uk-margin-large-left uk-visible@m">
               <Link to="/adopt" className="uk-navbar-item uk-logo">
