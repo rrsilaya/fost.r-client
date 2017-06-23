@@ -35,7 +35,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "prettier --tab-width 2 --single-quote --write",
+      "prettier --tab-width 2 --single-quote --jsx-bracket-same-line --write",
       "git add"
     ]
   }
