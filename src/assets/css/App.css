@@ -17,6 +17,10 @@
 	padding-left: 0 !important;
 }
 
+.tm-topbar {
+	border-bottom: 1px solid #e5e5e5;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {
@@ -24,6 +28,7 @@
 	}
 }
 
+/* Small */
 @media (max-width: 959px) {
 	#nav nav {
 		height: 65px;
