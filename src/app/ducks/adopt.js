@@ -14,11 +14,11 @@ export const loadPets = () => {
     });
 
     axios
-      .get('/hdcgn')
+      .get('/adopt')
       .then(pets => {
         dispatch({
           type: LOAD_PETS_SUCCESS,
-          payload: pets.data
+          payload: pets.data.splice(0, 15)
         });
       })
       .catch(err => {
@@ -35,7 +35,7 @@ const initialState = {
   isFeedLoading: true,
   hasErrorLoading: false,
   pets: ['Dog', 'Cat', 'Snake', 'Turtle', 'Rodent'],
-  feed: pets
+  feed: []
 };
 
 // Reducer

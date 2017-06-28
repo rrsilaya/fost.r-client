@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Filters from './Filters';
+import HorizontalFormSelect from '../../../components/HorizontalFormSelect';
 
 class Topbar extends Component {
   render() {
@@ -8,19 +9,13 @@ class Topbar extends Component {
       <div className="uk-section-xsmall uk-container tm-topbar">
         <form className="uk-grid-small uk-flex uk-flex-center" data-uk-grid>
           <div className="uk-grid-match  uk-width-2-3" data-uk-grid>
-            <div className="uk-flex uk-flex-middle uk-width-1-4">
-              <label htmlFor="top_kind_of_pet" className="uk-form-label">
-                Kind
-              </label>
-            </div>
-            <div className="uk-form-controls uk-width-3-4">
-              <select id="top_kind_of_pet" className="uk-select">
-                <option value="all">All</option>
-                {this.props.pets.map((pet, id) =>
-                  <option key={id} value={pet.toLowerCase()}>{pet}</option>
-                )}
-              </select>
-            </div>
+            <HorizontalFormSelect
+              id="top_kind_of_pet"
+              label="Kind"
+              options={this.props.pets.map((pet, id) =>
+                <option key={id} value={pet.toLowerCase()}>{pet}</option>
+              )}
+            />
           </div>
 
           <div className="uk-width-1-3">

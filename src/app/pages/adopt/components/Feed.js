@@ -14,25 +14,25 @@ class Feed extends Component {
         gutterHeight={10}
         gutterWidth={10}>
         {this.props.feed.map((pet, id) =>
-          <Tile
-            key={id}
-            img={pet.img}
-            name={pet.name}
-            age={pet.age}
-            location={pet.location}
-            gender={pet.gender}
-            kind={pet.kind}
-          />
+          <div key={id}>
+            <Tile
+              img={pet.img}
+              name={pet.name}
+              age={pet.age}
+              location={pet.location}
+              gender={pet.gender}
+              kind={pet.kind}
+            />
+          </div>
         )}
       </StackGrid>
     );
 
     return (
       <div>
-        {/*this.props.isLoading
+        {this.props.isLoading
           ? <div className="uk-text-center"><div data-uk-spinner={''} /></div>
-          : this.props.hasErrorLoading ? <p>An error occured.</p> : grids*/}
-        {grids}
+          : this.props.hasErrorLoading ? <p>An error occured.</p> : grids}
       </div>
     );
   }

@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 class Tile extends Component {
   render() {
     const style = {
-      backgroundImage: `url(${this.props.img})`,
+      // backgroundImage: `url(${this.props.img})`,
+      backgroundColor: 'black',
       overflowX: 'hidden'
     };
 
@@ -13,7 +14,6 @@ class Tile extends Component {
           <div className="uk-card-media-top">
             <div className="uk-background-cover" style={style}>
               <img
-                src={this.props.img}
                 alt={this.props.key}
                 style={{
                   minWidth: '100%',
