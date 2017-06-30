@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
 
 import Sidebar from './components/Sidebar';
+import Topbar from './components/Topbar';
 import Feed from './components/Feed';
 
 class Adopt extends Component {
@@ -13,7 +14,12 @@ class Adopt extends Component {
     return (
       <DocumentTitle title="fost.r • Adopt">
         <div>
-          <div className="uk-section tm-sidebar-left">
+          <div
+            className="uk-hidden@m uk-background-default"
+            data-uk-sticky="offset: 65">
+            <Topbar pets={this.props.pets} />
+          </div>
+          <div className="uk-section tm-sidebar-left uk-visible@m">
             <Sidebar pets={this.props.pets} />
           </div>
           <div className="uk-margin-medium-top uk-margin-large-bottom uk-position-relative tm-main">

@@ -6,14 +6,27 @@ class Navigation extends Component {
     return (
       <div className="uk-section-primary" id="nav" data-uk-sticky>
         <nav
-          className="uk-navbar-container uk-navbar-transparent uk-margin-medium-left uk-margin-medium-right"
+          className="uk-navbar-container uk-navbar-transparent"
           data-uk-navbar>
           <div className="uk-navbar-left">
+            <div className="uk-margin-large-left uk-visible@m">
+              <Link to="/adopt" className="uk-navbar-item uk-logo">
+                fost.r
+              </Link>
+            </div>
+            <button
+              className="uk-button uk-hidden@m"
+              data-uk-icon="icon: menu"
+              data-uk-toggle="target: #main"
+            />
+          </div>
+
+          <div className="uk-navbar-center uk-hidden@m">
             <Link to="/adopt" className="uk-navbar-item uk-logo">fost.r</Link>
           </div>
 
-          <div className="uk-navbar-right">
-            <ul className="uk-navbar-nav">
+          <div className="uk-navbar-right uk-margin-large-right">
+            <ul className="uk-navbar-nav uk-visible@m">
               <li>
                 <NavLink to="/adopt" activeClassName="active">
                   Adopt
