@@ -7,7 +7,7 @@ class Login extends Component {
   render() {
     return (
       <DocumentTitle title="fost.r • Login">
-        <div>
+        <div className="uk-width-medium-1-2 uk-container-center">
           <LoginPanel panel={this.props.panel} />
         </div>
       </DocumentTitle>
