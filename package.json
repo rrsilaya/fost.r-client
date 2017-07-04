@@ -2,7 +2,7 @@
   "name": "fost.r",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://api.myjson.com/bins",
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "axios": "^0.16.2",
     "jquery": "^3.2.1",
@@ -10,6 +10,7 @@
     "react": "^15.5.4",
     "react-document-title": "^2.0.3",
     "react-dom": "^15.5.4",
+    "react-image-holder": "^2.0.1",
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",

@@ -2093,7 +2093,7 @@ es6-weak-map@^2.0.1:
     es6-iterator "^2.0.1"
     es6-symbol "^3.1.1"
 
-escape-html@~1.0.3:
+escape-html@~1.0.1, escape-html@~1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
 
@@ -2865,6 +2865,12 @@ hoek@2.x.x:
 hoist-non-react-statics@^1.0.3, hoist-non-react-statics@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
+
+holderjs@~2.8.1:
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/holderjs/-/holderjs-2.8.2.tgz#622676b8e29982902e7fd7441bb017adce2b3178"
+  dependencies:
+    shaven "^0.7.3"
 
 home-or-tmp@^2.0.0:
   version "2.0.0"
@@ -3950,6 +3956,10 @@ lodash.uniq@^4.5.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
+lodash@~4.11.1:
+  version "4.11.2"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.11.2.tgz#d6b4338b110a58e21dae5cebcfdbbfd2bc4cdb3b"
+
 log-symbols@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-1.0.2.tgz#376ff7b58ea3086a0f09facc74617eca501e1a18"
@@ -5013,6 +5023,12 @@ query-string@^4.1.0:
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
 
+query-string@~2.4.0:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/query-string/-/query-string-2.4.2.tgz#7db0666420804baa92ae9f268962855a76143dfb"
+  dependencies:
+    strict-uri-encode "^1.0.0"
+
 querystring-es3@^0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/querystring-es3/-/querystring-es3-0.2.1.tgz#9ec61f79049875707d69414596fd907a4d711e73"
@@ -5103,6 +5119,14 @@ react-error-overlay@^1.0.7:
     react-dev-utils "^3.0.0"
     settle-promise "1.0.0"
     source-map "0.5.6"
+
+react-image-holder@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/react-image-holder/-/react-image-holder-2.0.1.tgz#b210361a6c0ad1258c1fa9ef026bcba651684da3"
+  dependencies:
+    holderjs "~2.8.1"
+    lodash "~4.11.1"
+    query-string "~2.4.0"
 
 react-redux@^5.0.5:
   version "5.0.5"
@@ -5677,6 +5701,12 @@ sha.js@^2.4.0, sha.js@^2.4.8:
 shallowequal@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-1.0.1.tgz#4349160418200bad3b82d723ded65f2354db2a23"
+
+shaven@^0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/shaven/-/shaven-0.7.3.tgz#3ed2a66c4bdc7053afc1407b168379d4f77424da"
+  dependencies:
+    escape-html "~1.0.1"
 
 shebang-command@^1.2.0:
   version "1.2.0"

@@ -4,6 +4,7 @@ class Tile extends Component {
   render() {
     const style = {
       backgroundImage: `url(${this.props.img})`,
+      backgroundColor: '#efefef',
       overflowX: 'hidden'
     };
 
@@ -30,13 +31,25 @@ class Tile extends Component {
 
             <div className="uk-grid uk-grid-small uk-grid-divider" data-uk-grid>
               <div className="uk-width-1-2">
-                <span className="uk-margin-small-right uk-icon" data-uk-icon="icon: calendar" />{this.props.age}
+                <span
+                  className="uk-margin-small-right uk-icon"
+                  data-uk-icon="icon: calendar"
+                />
+                {this.props.age}
               </div>
               <div className="uk-width-1-2">
-                <span className="uk-margin-small-right uk-icon" data-uk-icon="icon: info" />{this.props.gender}
+                <span
+                  className="uk-margin-small-right uk-icon"
+                  data-uk-icon="icon: info"
+                />
+                {this.props.gender}
               </div>
               <div className="uk-width-1-1">
-                <span className="uk-margin-small-right uk-icon" data-uk-icon="icon: location" />{this.props.location}
+                <span
+                  className="uk-margin-small-right uk-icon"
+                  data-uk-icon="icon: location"
+                />
+                {this.props.location}
               </div>
             </div>
           </div>

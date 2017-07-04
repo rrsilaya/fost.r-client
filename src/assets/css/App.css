@@ -1,6 +1,9 @@
 #nav {
 	background-color: #011627;
 }
+	#nav nav {
+		height: 80px;
+	}
 
 .active {
 	color: #2ec4b6 !important;
@@ -11,6 +14,27 @@
 }
 
 .tm-main {
-	margin-left: 25vw;
 	padding-left: 0 !important;
+}
+
+.tm-topbar {
+	border-bottom: 1px solid #e5e5e5;
+}
+
+/* Medium */
+@media (min-width: 960px) {
+	.tm-main {
+		margin-left: 25vw;
+	}
+}
+
+/* Small */
+@media (max-width: 959px) {
+	#nav nav {
+		height: 65px;
+	}
+
+	.tm-main {
+		margin-left: 0;
+	}
 }
