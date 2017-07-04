@@ -6,7 +6,7 @@ class LoginPanel extends Component {
       //
       <div className="">
         <div className="uk-flex uk-flex-center uk-flex-middle">
-          <div className="uk-card uk-card-default uk-width-1-3@m uk-position-center">
+          <div className="uk-card uk-card-default uk-width-1-4@m uk-position-center uk-text-center">
             <div className="uk-card-header">
               <div className="uk-grid-small uk-flex-middle" data-uk-grid>
                 <div className="uk-width-auto">
@@ -55,7 +55,7 @@ class LoginPanel extends Component {
                     Stay signed in
                   </label>
                 </div>
-                <button className="uk-button uk-button-primary">
+                <button className="uk-button uk-button-primary uk-container-center">
                   Log In
                 </button>
 
