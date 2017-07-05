@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 class LoginPanel extends Component {
   render() {
     return (
-      //
-      <div className="">
+      <div className="uk-background-secondary uk-background-cover">
         <div className="uk-flex uk-flex-center uk-flex-middle">
           <div className="uk-card uk-card-default uk-width-1-4@m uk-position-center uk-text-center">
             <div className="uk-card-header">
