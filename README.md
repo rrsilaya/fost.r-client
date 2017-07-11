@@ -1,11 +1,16 @@
-# fost.r ![octal](https://img.shields.io/badge/Batch_o%28ctal%29-fost.r-blue.svg?style=flat-square?colorA=000000)
-![status](https://img.shields.io/badge/status-development-yellow.svg)
-![yarn](https://img.shields.io/badge/yarn-v0.24.5-green.svg)
-![react](https://img.shields.io/badge/react-v15.5.4-green.svg)
+<h1 align="center">
+	<img alt="fost.r" src="./src/assets/images/logo2-dblue.png" height="256px" />
+	<br />
+	fost.r Client
+	<br />
+	<img src="https://img.shields.io/badge/status-development-yellow.svg" />
+	<img src="https://img.shields.io/badge/node-v7.8.0-green.svg" />
+	<img src="https://img.shields.io/badge/react-v15.5.4-green.svg" />
+	<br />
+</h1>
+<h4 align="center">Raise the awareness on homeless animals because of neglect or abuse</h4>
 
-fost.r aims to raise awareness about the animals that are not able to have a home because of neglect or abuse. It will also serve people who needs to have companion or friend.
-
-### Installing
+### Installation
 1. Have the latest version of [yarn](http://www.yarnpkg.com/).
 2. Install all the dependencies using `yarn install`.
 3. Start the react app with `yarn start`.

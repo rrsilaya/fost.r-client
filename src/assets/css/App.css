@@ -21,6 +21,10 @@
 	border-bottom: 1px solid #e5e5e5;
 }
 
+.nav-logo {
+	height: 30px;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {
