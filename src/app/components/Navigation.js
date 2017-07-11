@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
+import logo from '../../assets/images/logo1-white.png';
+
 class Navigation extends Component {
   render() {
     return (
@@ -11,7 +13,7 @@ class Navigation extends Component {
           <div className="uk-navbar-left">
             <div className="uk-margin-large-left uk-visible@m">
               <Link to="/adopt" className="uk-navbar-item uk-logo">
-                fost.r
+                <img src={logo} alt="fost.r" className="nav-logo" />
               </Link>
             </div>
             <button
@@ -22,7 +24,9 @@ class Navigation extends Component {
           </div>
 
           <div className="uk-navbar-center uk-hidden@m">
-            <Link to="/adopt" className="uk-navbar-item uk-logo">fost.r</Link>
+            <Link to="/adopt" className="uk-navbar-item uk-logo">
+              <img src={logo} alt="fost.r" className="nav-logo" />
+            </Link>
           </div>
 
           <div className="uk-navbar-right uk-margin-large-right">
