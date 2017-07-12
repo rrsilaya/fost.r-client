@@ -39,7 +39,7 @@ const initialState = {
 };
 
 // Reducer
-export const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_PETS_REQ:
       return {
