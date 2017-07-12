@@ -15,6 +15,7 @@ class Main extends Component {
         <Redirect exact from="/login" to="/feed" />
 
         <Route exact path="/feed" component={FeedContainer} />
+        <Route exact path="/feed/:id" />
         <Route exact path="/dates" component={DatesContainer} />
         <Route exact path="/community" component={CommunityContainer} />
 

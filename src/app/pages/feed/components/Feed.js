@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import StackGrid, { transitions } from 'react-stack-grid';
 
 import Tile from './Tile';
+import QuickPreview from './QuickPreview';
 
 const { fadeUp } = transitions;
 
@@ -33,6 +34,16 @@ class Feed extends Component {
         {this.props.isLoading
           ? <div className="uk-text-center"><div data-uk-spinner={''} /></div>
           : this.props.hasErrorLoading ? <p>An error occured.</p> : grids}
+        {this.props.feed.map((pet, key) =>
+          <QuickPreview
+            key={key}
+            id={pet.name.toLowerCase()}
+            img={pet.img}
+            name={pet.name}
+            location={pet.location}
+            gender={pet.gender}
+          />
+        )}
       </div>
     );
   }
