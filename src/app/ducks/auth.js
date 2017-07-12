@@ -2,7 +2,7 @@
 
 // Initial State
 const initialState = {
-  isAuth: true
+  isAuth: false
 };
 
 // Reducer
