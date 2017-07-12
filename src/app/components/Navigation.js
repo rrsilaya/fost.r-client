@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
+import navpages from './navpages';
 import logo from '../../assets/images/logo3-white.png';
 
 class Navigation extends Component {
@@ -12,7 +13,7 @@ class Navigation extends Component {
           data-uk-navbar>
           <div className="uk-navbar-left">
             <div className="uk-margin-large-left uk-visible@m">
-              <Link to="/adopt" className="uk-navbar-item uk-logo">
+              <Link to="/feed" className="uk-navbar-item uk-logo">
                 <img src={logo} alt="fost.r" className="nav-logo" />
               </Link>
             </div>
@@ -24,33 +25,20 @@ class Navigation extends Component {
           </div>
 
           <div className="uk-navbar-center uk-hidden@m">
-            <Link to="/adopt" className="uk-navbar-item uk-logo">
+            <Link to="/feed" className="uk-navbar-item uk-logo">
               <img src={logo} alt="fost.r" className="nav-logo" />
             </Link>
           </div>
 
           <div className="uk-navbar-right uk-margin-large-right">
             <ul className="uk-navbar-nav uk-visible@m">
-              <li>
-                <NavLink to="/adopt" activeClassName="active">
-                  Adopt
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dates" activeClassName="active">
-                  Dates
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/rescue" activeClassName="active">
-                  Rescue
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/community" activeClassName="active">
-                  Community
-                </NavLink>
-              </li>
+              {navpages.map((link, key) =>
+                <li key={key}>
+                  <NavLink to={link.href} activeClassName="active">
+                    {link.label}
+                  </NavLink>
+                </li>
+              )}
             </ul>
           </div>
         </nav>
