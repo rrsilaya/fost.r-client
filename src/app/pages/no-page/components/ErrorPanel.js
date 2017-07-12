@@ -3,71 +3,30 @@ import React, { Component } from 'react';
 class NoPage extends Component {
   render() {
     return (
-      <div className="uk-background-secondary uk-background-cover">
-        <div className="uk-flex uk-flex-center uk-flex-middle">
-          <div className="uk-card uk-card-default uk-width-1-4@m uk-position-center uk-text-center">
-            <div className="uk-card-header">
-              <div className="uk-grid-small uk-flex-middle" data-uk-grid>
-                <div className="uk-width-auto">
-                  <img
-                    className="uk-border-circle"
-                    width="40"
-                    height="40"
-                    src="https:static.pexels.com/photos/7720/night-animal-dog-pet.jpg"
-                  />
-                </div>
-                <div className="uk-width-expand">
-                  <h3 className="uk-card-title uk-margin-remove-bottom">
-                    Sign In
-                  </h3>
-                  <p className="uk-text-meta uk-margin-remove-top">
-                    "tagline...whenever, wherever."
-                  </p>
-                </div>
-              </div>
+      <div className="uk-text-center uk-position-center">
+        <div className="uk-inline-clip uk-transition-toggle uk-light">
+          <img
+            className="uk-border-circle"
+            src="https://i.ytimg.com/vi/Mq0yEI_xpb8/hqdefault.jpg"
+            alt="image"
+          />
+          <div className="uk-position-center">
+            <div className="uk-transition-slide-top-small">
+              <h2 className="uk-margin-remove"><b>You can try: </b></h2>
             </div>
-            <div className="uk-card-body">
-
-              <form>
-                <div className="uk-margin">
-                  <div className="uk-inline">
-                    <span className="uk-form-icon" data-uk-icon="icon: user" />
-                    <input className="uk-input" type="text" />
-                  </div>
-                </div>
-
-                <div className="uk-margin">
-                  <div className="uk-inline">
-                    <span
-                      className="uk-form-icon uk-form-icon-flip"
-                      data-uk-icon="icon: lock"
-                    />
-                    <input className="uk-input" type="text" />
-                  </div>
-                </div>
-                <div
-                  className="uk-margin uk-grid-small uk-child-width-auto"
-                  data-uk-grid>
-                  <label>
-                    <input className="uk-checkbox" type="checkbox" checked />{' '}
-                    Stay signed in
-                  </label>
-                </div>
-                <button className="uk-button uk-button-primary uk-container-center">
-                  Log In
-                </button>
-
-              </form>
-
+            <div className="uk-transition-slide-bottom-small">
+              <h4 className="uk-margin-remove"><b>• Reloading the page</b></h4>
             </div>
-            <div className="uk-card-footer">
-              <a href="#" className="uk-button uk-button-text">
-                No account? Create one.
-              </a>
+            <div className="uk-transition-slide-bottom-small">
+              <h4 className="uk-margin-remove">
+                <b>• Choose another route</b>
+              </h4>
             </div>
           </div>
-
         </div>
+        <h1 className="uk-margin-small-top">
+          Oops! You have reached 404 page!
+        </h1>
       </div>
     );
   }
