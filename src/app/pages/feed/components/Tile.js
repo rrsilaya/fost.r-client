@@ -4,7 +4,7 @@ class Tile extends Component {
   render() {
     return (
       <button
-        className="uk-button flat"
+        className="uk-button flat uk-box-shadow-hover-xlarge"
         data-uk-toggle={`target: #${this.props.pet_id}`}>
         <div className="uk-card uk-card-small uk-card-default">
           <div className="uk-card-media-top">
