@@ -44,14 +44,13 @@
 }
 
 .feed-modal {
-	max-height: 100%;
-	overflow: hidden;
-}
-
-.feed-modal img {
 	object-fit: cover;
 	min-width: 100%;
 	min-height: 100%;
+}
+
+.btn-overlay {
+	width: 10rem !important;
 }
 
 /* Medium */

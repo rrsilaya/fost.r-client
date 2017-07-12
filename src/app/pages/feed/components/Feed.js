@@ -23,6 +23,7 @@ class Feed extends Component {
               location={pet.location}
               gender={pet.gender}
               kind={pet.kind}
+              pet_id={pet._id}
             />
           </div>
         )}
@@ -37,7 +38,7 @@ class Feed extends Component {
         {this.props.feed.map((pet, key) =>
           <QuickPreview
             key={key}
-            id={pet.name.toLowerCase()}
+            id={pet._id}
             img={pet.img}
             name={pet.name}
             location={pet.location}

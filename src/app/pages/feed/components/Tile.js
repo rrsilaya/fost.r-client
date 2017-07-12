@@ -5,7 +5,7 @@ class Tile extends Component {
     return (
       <button
         className="uk-button flat"
-        data-uk-toggle={`target: #${this.props.name.toLowerCase()}`}>
+        data-uk-toggle={`target: #${this.props.pet_id}`}>
         <div className="uk-card uk-card-small uk-card-default">
           <div className="uk-card-media-top">
             <div className="uk-background-cover">
