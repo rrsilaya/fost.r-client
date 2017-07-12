@@ -4,12 +4,12 @@ import logger from 'redux-logger';
 
 // Reducers
 import auth from './ducks/auth';
-import adopt from './ducks/adopt';
+import feed from './ducks/feed';
 
 const store = createStore(
   combineReducers({
     auth,
-    adopt
+    feed
 
     // Update this with all the reducers
     // to be used in the project
