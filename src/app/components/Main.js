@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 import FeedContainer from '../pages/feed/FeedContainer';
 import PetProfileContainer from '../pages/pet-profile/PetProfileContainer';
-import RescueContainer from '../pages/rescue/RescueContainer';
+import PetRequestContainer from '../pages/pet-request/PetRequestContainer';
 import CommunityContainer from '../pages/community/CommunityContainer';
 import NoPageContainer from '../pages/no-page/NoPageContainer';
 
@@ -16,6 +16,7 @@ class Main extends Component {
 
         <Route exact path="/feed" component={FeedContainer} />
         <Route exact path="/feed/:id" component={PetProfileContainer} />
+        <Route exact path="/feed/:id/:action" component={PetRequestContainer} />
         <Route exact path="/community" component={CommunityContainer} />
 
         <Route component={NoPageContainer} />
