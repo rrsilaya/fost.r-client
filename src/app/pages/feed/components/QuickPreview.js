@@ -14,19 +14,25 @@ const QuickPreview = ({ id, img, name, location, gender }) => {
             <img src={img} alt={id} className="feed-modal" />
             <div className="uk-visible@m uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-middle uk-flex-center">
               <div className="uk-text-center">
-                <button className="uk-button uk-button-default uk-margin-small btn-overlay">
+                <Link
+                  to={`/feed/${id}/date`}
+                  className="uk-button uk-button-default uk-margin-small btn-overlay"
+                  data-uk-toggle={`target: #${id}`}>
                   <span
                     className="uk-margin-small-right"
                     data-uk-icon="icon: heart; ratio: 0.75"
                   />Date
-                </button>
+                </Link>
                 <br />
-                <button className="uk-button uk-button-default uk-margin-small btn-overlay">
+                <Link
+                  to={`/feed/${id}/adopt`}
+                  className="uk-button uk-button-default uk-margin-small btn-overlay"
+                  data-uk-toggle={`target: #${id}`}>
                   <span
                     className="uk-margin-small-right"
                     data-uk-icon="icon: happy; ratio: 0.75"
                   />Adopt
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -69,20 +75,26 @@ const QuickPreview = ({ id, img, name, location, gender }) => {
 
               <div className="uk-text-center uk-margin-small-top">
                 <div className="uk-button-group uk-hidden@m uk-margin-small-bottom uk-width-1-1 uk-child-width-1-2">
-                  <button className="uk-button uk-button-default">
+                  <Link
+                    to={`/feed/${id}/date`}
+                    className="uk-button uk-button-default"
+                    data-uk-toggle={`target: #${id}`}>
                     <span
                       className="uk-margin-small-right"
                       data-uk-icon="icon: heart; ratio: 0.75"
                     />
                     <span className="uk-visible@s">Date</span>
-                  </button>
-                  <button className="uk-button uk-button-default">
+                  </Link>
+                  <Link
+                    to={`/feed/${id}/adopt`}
+                    className="uk-button uk-button-default"
+                    data-uk-toggle={`target: #${id}`}>
                     <span
                       className="uk-margin-small-right"
                       data-uk-icon="icon: happy; ratio: 0.75"
                     />
                     <span className="uk-visible@s">Adopt</span>
-                  </button>
+                  </Link>
                 </div>
                 <Link
                   to={`/feed/${id}`}
