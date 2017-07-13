@@ -11,7 +11,7 @@ const QuickPreview = ({ id, img, name, location, gender }) => {
           className="uk-grid uk-child-width-1-2@s uk-grid-collapse"
           data-uk-grid>
           <div className="uk-inline uk-transition-toggle">
-            <img src={img} className="feed-modal" />
+            <img src={img} alt={id} className="feed-modal" />
             <div className="uk-visible@m uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-middle uk-flex-center">
               <div className="uk-text-center">
                 <button className="uk-button uk-button-default uk-margin-small btn-overlay">
