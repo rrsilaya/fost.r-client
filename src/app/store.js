@@ -6,12 +6,14 @@ import logger from 'redux-logger';
 import auth from './ducks/auth';
 import feed from './ducks/feed';
 import petProfile from './ducks/pet-profile';
+import petRequest from './ducks/pet-request';
 
 const store = createStore(
   combineReducers({
     auth,
     feed,
-    petProfile
+    petProfile,
+    petRequest
     // Update this with all the reducers
     // to be used in the project
   }),

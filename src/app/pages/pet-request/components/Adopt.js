@@ -1,11 +1,11 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 
-const Adopt = ({ id }) => {
+const Adopt = ({ id, petData }) => {
   return (
     <DocumentTitle title="fost.r • Adopt Request">
       <div>
-        <h1>Adopt {id}</h1>
+        <h1>Adopt {petData}</h1>
       </div>
     </DocumentTitle>
   );

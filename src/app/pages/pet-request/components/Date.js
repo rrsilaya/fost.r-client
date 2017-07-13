@@ -1,11 +1,11 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 
-const Date = ({ id }) => {
+const Date = ({ id, petData }) => {
   return (
     <DocumentTitle title="fost.r • Date Request">
       <div>
-        <h1>Date {id}</h1>
+        <h1>Date {petData}</h1>
       </div>
     </DocumentTitle>
   );
