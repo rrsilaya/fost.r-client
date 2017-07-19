@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import image from './../../../../assets/images/logo2-dblue.png';
+import f1 from './../../../../assets/images/feature1.png';
+import f2 from './../../../../assets/images/feature2.png';
+import f3 from './../../../../assets/images/feature3.png';
+import f4 from './../../../../assets/images/feature4.png';
 
 class SelectionPanel extends Component {
   render() {
@@ -12,7 +16,7 @@ class SelectionPanel extends Component {
           <div>
             <div className="uk-card uk-card-default uk-animation-scale-down">
               <div className="uk-card-media-top">
-                <img src={image} alt="" />
+                <img src={f1} alt="" />
               </div>
               <div className="uk-card-body">
                 <h3 className="uk-card-title">Media Top</h3>
@@ -28,7 +32,7 @@ class SelectionPanel extends Component {
           <div>
             <div className="uk-card uk-card-default uk-animation-scale-down">
               <div className="uk-card-media-top">
-                <img src={image} alt="" />
+                <img src={f2} alt="" />
               </div>
               <div className="uk-card-body">
                 <h3 className="uk-card-title">Media Top</h3>
@@ -44,7 +48,7 @@ class SelectionPanel extends Component {
           <div>
             <div className="uk-card uk-card-default uk-animation-scale-down">
               <div className="uk-card-media-top">
-                <img src={image} alt="" />
+                <img src={f3} alt="" />
               </div>
               <div className="uk-card-body">
                 <h3 className="uk-card-title">Media Top</h3>
@@ -60,7 +64,7 @@ class SelectionPanel extends Component {
           <div>
             <div className="uk-card uk-card-default uk-animation-scale-down">
               <div className="uk-card-media-top">
-                <img src={image} alt="" />
+                <img src={f4} alt="" />
               </div>
               <div className="uk-card-body">
                 <h3 className="uk-card-title">Media Top</h3>

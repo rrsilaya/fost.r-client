@@ -8,8 +8,8 @@ class FeaturePanel extends Component {
       <div className="uk-position-top-center">
         <ul data-uk-tab>
           <li className=""> <a href="#"> Contact Us </a> </li>
-          <li className="uk-active"><a href="#">Sign Up</a></li>
-          <li><Link to="/login">Login</Link></li>
+          <li className="uk-active"><a href="#">Help</a></li>
+          <li><Link to="/login">Sign Up</Link></li>
         </ul>
       </div>
     );
