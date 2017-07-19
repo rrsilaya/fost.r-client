@@ -25,10 +25,18 @@
 	height: 30px;
 }
 
+.no-page {
+	height: 200px;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {
 		margin-left: 25vw;
+	}
+	
+	.full {
+		height: calc(100vh - 80px);
 	}
 }
 
@@ -40,5 +48,9 @@
 
 	.tm-main {
 		margin-left: 0;
+	}
+	
+	.full {
+		height: calc(100vh - 65px);
 	}
 }

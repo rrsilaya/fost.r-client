@@ -5,4 +5,5 @@ html {
 
 html, body {
 	background-color: #fdfffc;
+  min-height: 100%;
 }
