@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
+import image from './../../../../assets/images/errorPage.png';
 
 class NoPage extends Component {
   render() {
     return (
       <div className="uk-text-center uk-position-center">
         <div className="uk-inline-clip uk-transition-toggle uk-light">
-          <img
-            className="uk-border-circle"
-            src="https://i.ytimg.com/vi/Mq0yEI_xpb8/hqdefault.jpg"
-            alt="image"
-          />
+          <img className="uk-border-circle" src={image} alt="image" />
           <div className="uk-position-center">
             <div className="uk-transition-slide-top-small">
               <h2 className="uk-margin-remove"><b>You can try: </b></h2>
