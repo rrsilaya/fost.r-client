@@ -25,6 +25,10 @@
 	height: 30px;
 }
 
+.no-page {
+	height: 200px;
+}
+
 .feed-tile {
 	object-fit: cover;
 	min-width: 100%;
@@ -66,6 +70,10 @@
 	.tm-main {
 		margin-left: 25vw;
 	}
+	
+	.full {
+		height: calc(100vh - 80px);
+	}
 }
 
 /* Small */
@@ -76,5 +84,9 @@
 
 	.tm-main {
 		margin-left: 0;
+	}
+	
+	.full {
+		height: calc(100vh - 65px);
 	}
 }
