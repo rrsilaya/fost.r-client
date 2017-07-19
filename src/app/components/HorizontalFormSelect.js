@@ -14,7 +14,8 @@ class HorizontalFormSelect extends Component {
           <select
             id={this.props.id}
             className="uk-select"
-            disabled={this.props.disabled}>
+            disabled={this.props.disabled}
+            onChange={this.props.onChange}>
             <option value="all">All</option>
             {this.props.options}
           </select>

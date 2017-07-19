@@ -30,6 +30,29 @@ export const loadPets = () => {
   };
 };
 
+export const filterFeed = (filter, key) => {
+  return dispatch => {
+    dispatch({
+      type: LOAD_PETS_REQ
+    });
+
+    axios
+      .get(key === 'all' ? '/adopt' : `/adopt/?${filter}=${key}`)
+      .then(res => {
+        dispatch({
+          type: LOAD_PETS_SUCCESS,
+          payload: res.data.splice(0, 15)
+        });
+      })
+      .catch(err => {
+        dispatch({
+          type: LOAD_PETS_FAIL,
+          payload: err
+        });
+      });
+  };
+};
+
 // Initial State
 const initialState = {
   isFeedLoading: true,

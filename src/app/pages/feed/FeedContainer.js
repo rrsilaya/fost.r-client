@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Feed from './Feed';
 
-import { loadPets } from '../../ducks/feed';
+import { loadPets, filterFeed } from '../../ducks/feed';
 
 const mapStateToProps = state => ({
   pets: state.feed.pets,
@@ -10,6 +10,6 @@ const mapStateToProps = state => ({
   feed: state.feed.feed
 });
 
-const FeedContainer = connect(mapStateToProps, { loadPets })(Feed);
+const FeedContainer = connect(mapStateToProps, { loadPets, filterFeed })(Feed);
 
 export default FeedContainer;

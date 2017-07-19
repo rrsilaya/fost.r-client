@@ -17,7 +17,7 @@ class Adopt extends Component {
           <div
             className="uk-hidden@m uk-background-default"
             data-uk-sticky="offset: 65">
-            <Topbar pets={this.props.pets} />
+            <Topbar pets={this.props.pets} filterFeed={this.props.filterFeed} />
           </div>
           <div className="uk-section tm-sidebar-left uk-visible@m">
             <Sidebar pets={this.props.pets} />
