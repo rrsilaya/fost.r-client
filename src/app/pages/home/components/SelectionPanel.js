@@ -19,7 +19,7 @@ class SelectionPanel extends Component {
                 <img src={f1} alt="" />
               </div>
               <div className="uk-card-body">
-                <h3 className="uk-card-title">Media Top</h3>
+                <h3 className="uk-card-title">Adopt</h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt.
@@ -35,7 +35,7 @@ class SelectionPanel extends Component {
                 <img src={f4} alt="" />
               </div>
               <div className="uk-card-body">
-                <h3 className="uk-card-title">Media Top</h3>
+                <h3 className="uk-card-title">Date</h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt.
@@ -51,7 +51,7 @@ class SelectionPanel extends Component {
                 <img src={f3} alt="" />
               </div>
               <div className="uk-card-body">
-                <h3 className="uk-card-title">Media Top</h3>
+                <h3 className="uk-card-title">Rescue</h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt.
@@ -67,7 +67,7 @@ class SelectionPanel extends Component {
                 <img src={f2} alt="" />
               </div>
               <div className="uk-card-body">
-                <h3 className="uk-card-title">Media Top</h3>
+                <h3 className="uk-card-title">Community</h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt.
