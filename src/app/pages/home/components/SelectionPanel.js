@@ -10,7 +10,7 @@ class SelectionPanel extends Component {
   render() {
     return (
       <div
-        className="uk-child-width-1-2 uk-child-width-1-4@s uk-grid-match"
+        className="uk-background-muted uk-light uk-padding uk-panel uk-child-width-1-2 uk-child-width-1-4@s uk-grid-match uk-text-center"
         data-uk-grid>
         <div className="uk-animation-toggle">
           <div>
@@ -32,7 +32,7 @@ class SelectionPanel extends Component {
           <div>
             <div className="uk-card uk-card-default uk-animation-scale-down">
               <div className="uk-card-media-top">
-                <img src={f2} alt="" />
+                <img src={f4} alt="" />
               </div>
               <div className="uk-card-body">
                 <h3 className="uk-card-title">Media Top</h3>
@@ -64,7 +64,7 @@ class SelectionPanel extends Component {
           <div>
             <div className="uk-card uk-card-default uk-animation-scale-down">
               <div className="uk-card-media-top">
-                <img src={f4} alt="" />
+                <img src={f2} alt="" />
               </div>
               <div className="uk-card-body">
                 <h3 className="uk-card-title">Media Top</h3>
