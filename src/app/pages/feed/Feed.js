@@ -12,7 +12,7 @@ class Adopt extends Component {
 
   render() {
     return (
-      <DocumentTitle title="fost.r • Adopt">
+      <DocumentTitle title="fost.r • Feed">
         <div>
           <div
             className="uk-hidden@m uk-background-default"

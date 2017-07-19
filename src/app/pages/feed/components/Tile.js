@@ -2,59 +2,54 @@ import React, { Component } from 'react';
 
 class Tile extends Component {
   render() {
-    const style = {
-      backgroundImage: `url(${this.props.img})`,
-      backgroundColor: '#efefef',
-      overflowX: 'hidden'
-    };
-
     return (
-      <div>
+      <button
+        className="uk-button flat uk-box-shadow-hover-xlarge"
+        data-uk-toggle={`target: #${this.props.pet_id}`}>
         <div className="uk-card uk-card-small uk-card-default">
           <div className="uk-card-media-top">
-            <div className="uk-background-cover" style={style}>
+            <div className="uk-background-cover">
               <img
                 src={this.props.img}
                 alt={this.props.key}
-                style={{
-                  minWidth: '100%',
-                  minHeight: '170px',
-                  maxHeight: '250px',
-                  visibility: 'hidden'
-                }}
+                className="feed-tile"
               />
             </div>
           </div>
           <div className="uk-card-body">
             <div className="uk-card-badge uk-label">{this.props.kind}</div>
-            <h3 className="uk-card-title">{this.props.name}</h3>
+            <h3 className="uk-card-title uk-text-center tile-header">
+              {this.props.name}
+            </h3>
 
-            <div className="uk-grid uk-grid-small uk-grid-divider" data-uk-grid>
+            <div
+              className="uk-grid uk-grid-small uk-grid-divider uk-text-small"
+              data-uk-grid>
               <div className="uk-width-1-2">
                 <span
                   className="uk-margin-small-right uk-icon"
-                  data-uk-icon="icon: calendar"
+                  data-uk-icon="icon: calendar; ratio: 0.7"
                 />
                 {this.props.age}
               </div>
               <div className="uk-width-1-2">
                 <span
                   className="uk-margin-small-right uk-icon"
-                  data-uk-icon="icon: info"
+                  data-uk-icon="icon: info; ratio: 0.7"
                 />
                 {this.props.gender}
               </div>
               <div className="uk-width-1-1">
                 <span
                   className="uk-margin-small-right uk-icon"
-                  data-uk-icon="icon: location"
+                  data-uk-icon="icon: location; ratio: 0.7"
                 />
                 {this.props.location}
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </button>
     );
   }
 }

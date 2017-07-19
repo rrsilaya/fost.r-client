@@ -2,7 +2,7 @@
   "name": "fost.r",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
+  "proxy": "http://fostr-mocks.herokuapp.com/",
   "dependencies": {
     "axios": "^0.16.2",
     "jquery": "^3.2.1",
