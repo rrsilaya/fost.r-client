@@ -11,14 +11,18 @@ const UserControls = ({ posts, isLoading, hasFailed }) => {
           ? <div className="uk-text-center"><div data-uk-spinner={''} /></div>
           : hasFailed
             ? <div className="uk-text-center">An error occured.</div>
-            : posts.map((post, key) =>
-                <ActivePostItem
-                  id={post._id}
-                  content={post.content}
-                  votes={0}
-                  key={key}
-                />
-              )}
+            : posts.length === 0
+              ? <div className="uk-text-center uk-text-muted">
+                  No active posts yet.
+                </div>
+              : posts.map((post, key) =>
+                  <ActivePostItem
+                    id={post._id}
+                    content={post.content}
+                    votes={0}
+                    key={key}
+                  />
+                )}
         <li className="uk-text-center">
           <div className="uk-button-group">
             <button

@@ -21,7 +21,7 @@ const ActivePostItem = ({ id, content, votes }) => {
           <div className="uk-width-expand uk-text-small uk-flex uk-flex-middle">
             <div>
               <h5 className="uk-text-bold uk-margin-remove">
-                lorem ipsum - dolor sit amet
+                {content.split(' ').reverse().splice(0, 5).join(' ')}
               </h5>
               <p className="uk-margin-remove uk-text-truncate">
                 {content}

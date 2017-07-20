@@ -21,7 +21,7 @@ const Post = ({ id, content, votes }) => {
         <div className="uk-width-expand uk-flex uk-flex-middle">
           <h4 className="uk-text-primary uk-margin-remove">
             <Link to={`/community/post/${id}`} className="uk-link-reset">
-              lorem ipsum - dolor sit amet
+              {content.split(' ').reverse().splice(0, 5).join(' ')}
             </Link>
           </h4>
           <p className="uk-margin-remove uk-text-truncate">
