@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ProfileSettings from './ProfileSettings';
+import PrivacySettings from './PrivacySettings';
+import ShelterSettings from './ShelterSettings';
+import TransactionsSettings from './TransactionsSettings';
 
 class Panel extends Component {
   render() {
@@ -31,3 +35,9 @@ class Panel extends Component {
 }
 
 export default Panel;
+
+<Switch>
+  <Route exact path="/settings/account" component={AccountSettings} />
+  <Route exact path="/settings/profile" component={ProfileSettings} />
+  <Route exact path="/settings/friends" component={FriendsSettings} />
+</Switch>;
