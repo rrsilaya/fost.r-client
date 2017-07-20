@@ -89,4 +89,8 @@
 	.full {
 		height: calc(100vh - 65px);
 	}
+	
+	.community-user-controls {
+		padding: 15px !important;
+	}
 }
