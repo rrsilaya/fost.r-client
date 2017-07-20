@@ -6,7 +6,10 @@ class Settings extends Component {
   render() {
     return (
       <DocumentTitle title="fost.r">
-        <div className="uk-width-1-2 uk-position-center uk-background-secondary uk-light uk-padding uk-panel">
+        <div>
+          <h1>
+            Account Settings
+          </h1>
           <Panel />
         </div>
       </DocumentTitle>
