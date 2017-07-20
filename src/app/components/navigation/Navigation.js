@@ -33,7 +33,7 @@ class Navigation extends Component {
             </Link>
           </div>
 
-          <div className="uk-navbar-right right-nav uk-text-right">
+          <div className="uk-navbar-right uk-margin-large-right uk-text-right">
             <ul className="uk-navbar-nav uk-visible@m">
               {navpages.map((link, key) =>
                 <li key={key}>
