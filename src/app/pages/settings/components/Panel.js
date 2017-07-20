@@ -6,10 +6,24 @@ class Panel extends Component {
     return (
       <div>
         <ul className="uk-tab-right" data-uk-tab>
-          <li className="uk-active"><a href="#">Profile</a></li>
-          <li><a href="#">Password and Privacy</a></li>
-          <li><a href="#">Muted Shelters</a></li>
-          <li><a href="#">Pending Transactions</a></li>
+          <li className="uk-active">
+            <a href="#">    <span data-uk-icon="icon: user" /> Profile</a>
+          </li>
+          <li>
+            <a href="#">
+              {' '}   <span data-uk-icon="icon: lock" /> Password and Privacy
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              {' '}   <span data-uk-icon="icon: home" /> Muted Shelters
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              {' '}   <span data-uk-icon="icon: push" /> Pending Transactions
+            </a>
+          </li>
         </ul>
       </div>
     );
