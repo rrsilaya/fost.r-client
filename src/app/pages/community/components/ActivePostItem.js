@@ -13,7 +13,10 @@ const ActivePostItem = () => {
           <h5 className="uk-text-bold uk-margin-remove">
             lorem ipsum - dolor sit amet
           </h5>
-          How to time delay submit button with JQuery in Wordpress Avada Theme?
+          <p className="uk-margin-remove uk-text-truncate">
+            How to time delay submit button with JQuery in Wordpress Avada
+            Theme?
+          </p>
         </div>
       </div>
     </li>

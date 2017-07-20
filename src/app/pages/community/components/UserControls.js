@@ -4,7 +4,7 @@ import ActivePostItem from './ActivePostItem';
 
 const UserControls = () => {
   return (
-    <div className="uk-section uk-padding-large community-user-controls uk-section-muted">
+    <div className="uk-section uk-padding-large community-user-controls uk-section-secondary">
       <h4>Your Active Posts</h4>
       <ul className="uk-list uk-list-divider">
         <ActivePostItem />

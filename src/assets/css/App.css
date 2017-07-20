@@ -65,6 +65,14 @@
 	display: block;
 }
 
+.post-meta {
+	font-size: 75% !important;
+}
+
+.post-meta-details {
+	line-height: 0px !important;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {
