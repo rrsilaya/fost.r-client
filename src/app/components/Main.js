@@ -17,7 +17,7 @@ class Main extends Component {
         <Route exact path="/feed" component={FeedContainer} />
         <Route exact path="/feed/:id" component={PetProfileContainer} />
         <Route exact path="/feed/:id/:action" component={PetRequestContainer} />
-        <Route exact path="/community/:feed" component={CommunityContainer} />
+        <Route exact path="/community" component={CommunityContainer} />
 
         <Route component={NoPage} />
       </Switch>

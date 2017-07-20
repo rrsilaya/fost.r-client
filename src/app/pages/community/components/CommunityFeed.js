@@ -3,24 +3,19 @@ import { Link } from 'react-router-dom';
 
 import Post from './Post';
 
-const CommunityFeed = ({ activeTab, posts, isLoading, hasFailed }) => {
-  const tabs = [
-    {
-      label: 'Top',
-      link: '/community/top'
-    },
-    {
-      label: 'Featured',
-      link: '/community/featured'
-    },
-    {
-      label: 'Unanswered',
-      link: '/community/unanswered'
-    }
-  ];
+const CommunityFeed = ({
+  activeTab,
+  handleTabChange,
+  changeCategory,
+  posts,
+  isLoading,
+  hasFailed
+}) => {
+  const tabs = ['Top', 'Featured', 'Unanswered'];
 
-  const handleTabChange = e => {
-    window.history.pushState(null, `/community/${e.target.value}`);
+  const changeTab = e => {
+    handleTabChange(e.target.name);
+    changeCategory(e.target.name);
   };
 
   return (
@@ -32,11 +27,9 @@ const CommunityFeed = ({ activeTab, posts, isLoading, hasFailed }) => {
         data-uk-tab>
         {tabs.map((link, key) =>
           <li
-            className={
-              activeTab === link.label.toLowerCase() ? 'uk-active' : ''
-            }
+            className={activeTab === link.toLowerCase() ? 'uk-active' : ''}
             key={key}>
-            <Link to={link.link} onClick={handleTabChange}>{link.label}</Link>
+            <a href="#" name={link.toLowerCase()} onClick={changeTab}>{link}</a>
           </li>
         )}
       </ul>

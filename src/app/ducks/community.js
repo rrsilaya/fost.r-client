@@ -7,8 +7,16 @@ const LOAD_ACTIVE_POSTS_FAIL = 'LOAD_ACTIVE_POSTS_FAIL';
 const LOAD_FEED_POSTS_REQ = 'LOAD_FEED_POSTS_REQ';
 const LOAD_FEED_POSTS_SUC = 'LOAD_FEED_POSTS_SUC';
 const LOAD_FEED_POSTS_FAIL = 'LOAD_FEED_POSTS_FAIL';
+const CHANGE_TAB = 'CHANGE_TAB';
 
 // Action Creators
+export const handleTabChange = activeTab => {
+  return {
+    type: CHANGE_TAB,
+    payload: activeTab
+  };
+};
+
 export const getActivePosts = () => {
   return dispatch => {
     dispatch({
@@ -57,6 +65,8 @@ export const getFeedPosts = category => {
 
 // Initial State
 const initialState = {
+  activeTab: 'top',
+
   isGettingActivePosts: true,
   isGettingActivePostsFailed: false,
   userActivePosts: [],
@@ -69,6 +79,12 @@ const initialState = {
 // Reducer
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case CHANGE_TAB:
+      return {
+        ...state,
+        activeTab: action.payload
+      };
+
     case LOAD_ACTIVE_POSTS_REQ:
       return {
         ...state,

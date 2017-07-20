@@ -5,7 +5,7 @@ const pages = [
   },
   {
     label: 'Community',
-    href: '/community/top'
+    href: '/community'
   },
   {
     label: 'Profile',
