@@ -35,7 +35,12 @@ class Community extends Component {
                 isLoading={this.props.isGettingActivePosts}
                 hasFailed={this.props.isGettingActivePostsFailed}
               />
-              <CommunityFeed activeTab={this.props.match.params.feed} />
+              <CommunityFeed
+                activeTab={this.props.match.params.feed}
+                posts={this.props.userFeedPosts}
+                isLoading={this.props.isGettingFeedPosts}
+                hasFailed={this.props.isGettingFeedPostsFailed}
+              />
             </div>
           : <Redirect to="/community/top" />}
       </DocumentTitle>

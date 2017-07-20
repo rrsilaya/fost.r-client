@@ -32,7 +32,7 @@ export const getActivePosts = () => {
   };
 };
 
-export const getFeedPosts = () => {
+export const getFeedPosts = category => {
   return dispatch => {
     dispatch({
       type: LOAD_FEED_POSTS_REQ

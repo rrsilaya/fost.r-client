@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Post from './Post';
 
-const CommunityFeed = ({ activeTab }) => {
+const CommunityFeed = ({ activeTab, posts, isLoading, hasFailed }) => {
   const tabs = [
     {
       label: 'Top',
@@ -41,19 +41,27 @@ const CommunityFeed = ({ activeTab }) => {
         )}
       </ul>
 
-      <ul className="uk-list uk-list-divider">
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-      </ul>
-
-      <div className="uk-text-center">
-        <button className="uk-button uk-button-default">Load more</button>
-      </div>
+      {isLoading
+        ? <div className="uk-text-center"><div data-uk-spiner={''} /></div>
+        : hasFailed
+          ? <div className="uk-text-center">An error occured.</div>
+          : <div>
+              <ul className="uk-list uk-list-divider">
+                {posts.map((post, key) =>
+                  <Post
+                    key={key}
+                    id={post._id}
+                    content={post.content}
+                    votes={5}
+                  />
+                )}
+              </ul>
+              <div className="uk-text-center">
+                <button className="uk-button uk-button-default">
+                  Load more
+                </button>
+              </div>
+            </div>}
     </div>
   );
 };
