@@ -18,12 +18,17 @@ const CommunityFeed = ({
     changeCategory(e.target.name);
   };
 
+  const changeSelectTab = e => {
+    handleTabChange(e.target.value);
+    changeCategory(e.target.value);
+  };
+
   return (
     <div className="uk-margin-medium-top">
       <h2 className="uk-margin-remove">Community Feed</h2>
 
       <ul
-        className="uk-flex-center uk-margin-small-top uk-margin-small-bottom"
+        className="uk-flex-center uk-margin-small-top uk-margin-small-bottom uk-visible@s"
         data-uk-tab>
         {tabs.map((link, key) =>
           <li
@@ -33,6 +38,16 @@ const CommunityFeed = ({
           </li>
         )}
       </ul>
+
+      <select
+        className="uk-select uk-hidden@s uk-margin"
+        onChange={changeSelectTab}>
+        {tabs.map((link, key) =>
+          <option key={key} value={link.toLowerCase()}>
+            {link}
+          </option>
+        )}
+      </select>
 
       {isLoading
         ? <div className="uk-text-center"><div data-uk-spiner={''} /></div>
