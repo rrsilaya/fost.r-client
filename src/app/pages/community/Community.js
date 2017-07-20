@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
-import { Redirect } from 'react-router-dom';
 
 import UserControls from './components/UserControls';
 import CommunityFeed from './components/CommunityFeed';
