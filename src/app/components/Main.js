@@ -6,6 +6,7 @@ import PetProfileContainer from '../pages/pet-profile/PetProfileContainer';
 import PetRequestContainer from '../pages/pet-request/PetRequestContainer';
 import CommunityContainer from '../pages/community/CommunityContainer';
 import NoPage from '../pages/no-page/NoPage';
+import Settings from '../pages/settings/SettingsContainer';
 
 class Main extends Component {
   render() {
@@ -18,7 +19,7 @@ class Main extends Component {
         <Route exact path="/feed/:id" component={PetProfileContainer} />
         <Route exact path="/feed/:id/:action" component={PetRequestContainer} />
         <Route exact path="/community" component={CommunityContainer} />
-
+        <Route exact path="/settings" component={Settings} />
         <Route component={NoPage} />
       </Switch>
     );
