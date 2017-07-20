@@ -15,7 +15,8 @@ const UserControls = ({ posts, isLoading, hasFailed }) => {
                 <ActivePostItem
                   id={post._id}
                   content={post.content}
-                  votes={-5}
+                  votes={0}
+                  key={key}
                 />
               )}
         <li className="uk-text-center">

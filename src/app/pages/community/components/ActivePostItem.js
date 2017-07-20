@@ -10,11 +10,11 @@ const ActivePostItem = ({ id, content, votes }) => {
             <div
               className={`uk-text-large ${votes > 0
                 ? 'uk-text-success'
-                : 'uk-text-danger'}`}>
+                : votes === 0 ? 'uk-text-warning' : 'uk-text-danger'}`}>
               <span
                 data-uk-icon={`icon: ${votes > 0
                   ? 'triangle-up'
-                  : 'triangle-down'}`}
+                  : votes === 0 ? 'triangle-right' : 'triangle-down'}`}
               />&nbsp;{Math.abs(votes)}
             </div>
           </div>
