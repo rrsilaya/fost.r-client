@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import image from './../../../../assets/images/logo2-dblue.png';
 import f1 from './../../../../assets/images/feature1.png';
 import f2 from './../../../../assets/images/feature2.png';
 import f3 from './../../../../assets/images/feature3.png';
