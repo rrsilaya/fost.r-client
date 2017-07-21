@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
 import Panel from './components/Panel';
+import Main from './components/Main';
 
 class Settings extends Component {
   render() {

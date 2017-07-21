@@ -10,9 +10,9 @@ class Panel extends Component {
             <a href="#">    <span data-uk-icon="icon: user" /> Profile</a>
           </li>
           <li>
-            <a href="#">
+            <NavLink to="/settings/privacy">
               {' '}   <span data-uk-icon="icon: lock" /> Password and Privacy
-            </a>
+            </NavLink>
           </li>
           <li>
             <a href="#">
