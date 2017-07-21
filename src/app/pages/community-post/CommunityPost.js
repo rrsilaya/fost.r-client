@@ -13,7 +13,14 @@ class CommunityPost extends Component {
 
   render() {
     return (
-      <DocumentTitle title={`fost.r`}>
+      <DocumentTitle
+        title={`fost.r${!this.props.isLoading && this.props.activePost
+          ? ` • ${this.props.activePost.content
+              .split(' ')
+              .reverse()
+              .splice(0, 5)
+              .join(' ')}`
+          : ''}`}>
         <div className="uk-container uk-container-small uk-margin-auto uk-margin-medium-top uk-margin-medium-bottom">
           {this.props.isLoading
             ? <CenterLoader />
