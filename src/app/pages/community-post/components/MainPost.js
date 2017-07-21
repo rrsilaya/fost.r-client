@@ -1,10 +1,21 @@
 import React from 'react';
+import UIkit from 'uikit';
 
 const MainPost = ({ content, author, votes, time }) => {
+  const handleUpVote = e => {
+    e.preventDefault();
+    UIkit.notification('You upvoted this post!');
+  };
+
+  const handleDownVote = e => {
+    e.preventDefault();
+    UIkit.notification('You upvoted this post!');
+  };
+
   return (
-    <div className="uk-section uk-section-muted uk-padding-small">
+    <div className="uk-section uk-section-muted uk-padding-small uk-margin-medium-bottom">
       <div className="uk-grid uk-grid-match uk-grid-small" data-uk-grid>
-        <div>
+        <div className="uk-margin-small-top">
           <div
             className={`uk-text-large ${votes > 0
               ? 'uk-text-success'
@@ -39,10 +50,12 @@ const MainPost = ({ content, author, votes, time }) => {
               <button
                 className="uk-button uk-button-default"
                 data-uk-icon="icon: arrow-up"
+                onClick={handleUpVote}
               />
               <button
                 className="uk-button uk-button-default"
                 data-uk-icon="icon: arrow-down"
+                onClick={handleDownVote}
               />
             </div>
             <div className="uk-button-group">

@@ -4,6 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 
 import CenterLoader from '../../components/CenterLoader';
 import MainPost from './components/MainPost';
+import Replies from './components/Replies';
 
 class CommunityPost extends Component {
   componentDidMount() {
@@ -37,6 +38,7 @@ class CommunityPost extends Component {
                       author={this.props.activePost.author}
                       time={this.props.activePost.date}
                     />
+                    <Replies />
                   </div>}
         </div>
       </DocumentTitle>
