@@ -9,7 +9,7 @@ const MainPost = ({ content, author, votes, time }) => {
 
   const handleDownVote = e => {
     e.preventDefault();
-    UIkit.notification('You upvoted this post!');
+    UIkit.notification('You downvoted this post!');
   };
 
   return (
