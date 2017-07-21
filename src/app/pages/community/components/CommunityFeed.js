@@ -26,17 +26,23 @@ const CommunityFeed = ({
     <div className="uk-margin-medium-top">
       <h2 className="uk-margin-remove">Community Feed</h2>
 
-      <ul
-        className="uk-flex-center uk-margin-small-top uk-margin-small-bottom uk-visible@s"
-        data-uk-tab>
-        {tabs.map((link, key) =>
-          <li
-            className={activeTab === link.toLowerCase() ? 'uk-active' : ''}
-            key={key}>
-            <a href="#" name={link.toLowerCase()} onClick={changeTab}>{link}</a>
-          </li>
-        )}
-      </ul>
+      <div
+        className="uk-background-default"
+        data-uk-sticky="offset: 80; media: 800;">
+        <ul
+          className="uk-flex-center uk-margin-small-top uk-margin-small-bottom uk-visible@s"
+          data-uk-tab>
+          {tabs.map((link, key) =>
+            <li
+              className={activeTab === link.toLowerCase() ? 'uk-active' : ''}
+              key={key}>
+              <a href="#" name={link.toLowerCase()} onClick={changeTab}>
+                {link}
+              </a>
+            </li>
+          )}
+        </ul>
+      </div>
 
       <select
         className="uk-select uk-hidden@s uk-margin"
