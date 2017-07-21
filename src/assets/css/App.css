@@ -82,6 +82,10 @@
 	.full {
 		height: calc(100vh - 80px);
 	}
+	
+	.post-breadcrumb {
+		width: 15rem;
+	}
 }
 
 /* Small */
@@ -100,5 +104,9 @@
 	
 	.community-user-controls {
 		padding: 15px !important;
+	}
+	
+	.post-breadcrumb {
+		width: 10rem;
 	}
 }
