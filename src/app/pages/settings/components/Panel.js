@@ -26,62 +26,52 @@ class Panel extends Component {
             <form>
               <fieldset className="uk-fieldset">
 
-                <legend className="uk-legend">Legend</legend>
+                <legend className="uk-legend">Edit Profile</legend>
 
                 <div className="uk-margin">
-                  <input className="uk-input" type="text" placeholder="Input" />
+                  <input className="uk-input" type="text" placeholder="Name" />
                 </div>
 
                 <div className="uk-margin">
+                  <input
+                    className="uk-input"
+                    type="text"
+                    placeholder="Username"
+                  />
+                </div>
+
+                <div className="uk-margin">
+                  <input className="uk-input" type="text" placeholder="Email" />
+                </div>
+
+                <div className="uk-margin">
+                  <input
+                    className="uk-input"
+                    type="text"
+                    placeholder="Address"
+                  />
+                </div>
+
+                <div className="uk-margin">
+                  <p>User Type </p>
                   <select className="uk-select">
-                    <option>Option 01</option>
-                    <option>Option 02</option>
+                    <option>Normal User</option>
+                    <option>Shelter</option>
                   </select>
                 </div>
 
                 <div className="uk-margin">
                   <textarea
                     className="uk-textarea"
-                    rows="5"
-                    placeholder="Textarea"
+                    rows="3"
+                    placeholder="Interests, Bio, ..."
                   />
                 </div>
-
-                <div className="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-                  <label>
-                    <input
-                      className="uk-radio"
-                      type="radio"
-                      name="radio2"
-                      checked
-                    />{' '}
-                    A
-                  </label>
-                  <label>
-                    <input className="uk-radio" type="radio" name="radio2" /> B
-                  </label>
+                <div className="uk-text-center">
+                  <button className="uk-button uk-button-secondary">
+                    Secondary
+                  </button>
                 </div>
-
-                <div className="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-                  <label>
-                    <input className="uk-checkbox" type="checkbox" checked /> A
-                  </label>
-                  <label>
-                    <input className="uk-checkbox" type="checkbox" /> B
-                  </label>
-                </div>
-
-                <div className="uk-margin">
-                  <input
-                    className="uk-range"
-                    type="range"
-                    value="2"
-                    min="0"
-                    max="10"
-                    step="0.1"
-                  />
-                </div>
-
               </fieldset>
             </form>
 
