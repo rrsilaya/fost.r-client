@@ -14,7 +14,7 @@ class SelectionPanel extends Component {
         data-uk-grid>
         <div className="uk-animation-toggle">
           <div>
-            <div className="uk-card uk-card-default uk-animation-scale-down">
+            <div className="uk-card uk-card-default">
               <div className="uk-card-media-top">
                 <img src={f1} alt="" />
               </div>
@@ -30,7 +30,7 @@ class SelectionPanel extends Component {
         </div>
         <div className="uk-animation-toggle">
           <div>
-            <div className="uk-card uk-card-default uk-animation-scale-down">
+            <div className="uk-card uk-card-default">
               <div className="uk-card-media-top">
                 <img src={f4} alt="" />
               </div>
@@ -46,7 +46,7 @@ class SelectionPanel extends Component {
         </div>
         <div className="uk-animation-toggle">
           <div>
-            <div className="uk-card uk-card-default uk-animation-scale-down">
+            <div className="uk-card uk-card-default">
               <div className="uk-card-media-top">
                 <img src={f3} alt="" />
               </div>
@@ -62,7 +62,7 @@ class SelectionPanel extends Component {
         </div>
         <div className="uk-animation-toggle">
           <div>
-            <div className="uk-card uk-card-default uk-animation-scale-down">
+            <div className="uk-card uk-card-default">
               <div className="uk-card-media-top">
                 <img src={f2} alt="" />
               </div>
