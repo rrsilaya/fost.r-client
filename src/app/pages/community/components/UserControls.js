@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ActivePostItem from './ActivePostItem';
+import CenterLoader from '../../../components/CenterLoader';
 
 const UserControls = ({ posts, isLoading, hasFailed }) => {
   return (
@@ -8,7 +9,7 @@ const UserControls = ({ posts, isLoading, hasFailed }) => {
       <h4>Your Active Posts</h4>
       <ul className="uk-list uk-list-divider">
         {isLoading
-          ? <div className="uk-text-center"><div data-uk-spinner={''} /></div>
+          ? <CenterLoader />
           : hasFailed
             ? <div className="uk-text-center">An error occured.</div>
             : posts.length === 0

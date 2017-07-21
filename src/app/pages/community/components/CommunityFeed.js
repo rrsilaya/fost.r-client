@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Post from './Post';
+import CenterLoader from '../../../components/CenterLoader';
 
 const CommunityFeed = ({
   activeTab,
@@ -54,27 +55,37 @@ const CommunityFeed = ({
         )}
       </select>
 
-      {isLoading
-        ? <div className="uk-text-center"><div data-uk-spiner={''} /></div>
-        : hasFailed
+      <div className="uk-margin-small-top">
+        {hasFailed
           ? <div className="uk-text-center">An error occured.</div>
-          : <div>
-              <ul className="uk-list uk-list-divider">
-                {posts.map((post, key) =>
-                  <Post
-                    key={key}
-                    id={post._id}
-                    content={post.content}
-                    votes={5}
-                  />
-                )}
-              </ul>
-              <div className="uk-text-center">
-                <button className="uk-button uk-button-default">
-                  Load more
-                </button>
+          : <div className="uk-inline uk-width-1-1">
+              <div>
+                <ul className="uk-list uk-list-divider">
+                  {posts.map((post, key) =>
+                    <Post
+                      key={key}
+                      id={post._id}
+                      content={post.content}
+                      votes={5}
+                    />
+                  )}
+                </ul>
+                <div className="uk-text-center">
+                  <button className="uk-button uk-button-default">
+                    Load more
+                  </button>
+                </div>
               </div>
+              {isLoading
+                ? [
+                    <div className="uk-overlay-default uk-position-cover" />,
+                    <div className="uk-overlay uk-position-top uk-padding-large">
+                      <CenterLoader />
+                    </div>
+                  ]
+                : ''}
             </div>}
+      </div>
     </div>
   );
 };

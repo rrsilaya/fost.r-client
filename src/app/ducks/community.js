@@ -51,7 +51,11 @@ export const getFeedPosts = category => {
       .then(res => {
         dispatch({
           type: LOAD_FEED_POSTS_SUC,
-          payload: res.data.splice(4, 20)
+          payload: category === 'top'
+            ? res.data.splice(4, 10)
+            : category === 'featured'
+              ? res.data.splice(10, 14)
+              : res.data.splice(15, 20)
         });
       })
       .catch(err => {
