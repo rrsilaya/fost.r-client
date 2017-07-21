@@ -21,8 +21,8 @@ class SelectionPanel extends Component {
               <div className="uk-card-body">
                 <h3 className="uk-card-title">Adopt</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt.
+                  Having a companion is now easy! Adopt an animal based on your
+                  interestes or preference!
                 </p>
               </div>
             </div>
@@ -37,8 +37,8 @@ class SelectionPanel extends Component {
               <div className="uk-card-body">
                 <h3 className="uk-card-title">Date</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt.
+                  Stressed? Lonely? Have a nice date with these cute animals
+                  from different shelters!
                 </p>
               </div>
             </div>
@@ -53,8 +53,8 @@ class SelectionPanel extends Component {
               <div className="uk-card-body">
                 <h3 className="uk-card-title">Rescue</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt.
+                  Help save these animals from abuse and neglect by reporting to
+                  the shelters about the incident!
                 </p>
               </div>
             </div>
@@ -69,8 +69,8 @@ class SelectionPanel extends Component {
               <div className="uk-card-body">
                 <h3 className="uk-card-title">Community</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt.
+                  Handling pet can be hard. Join the community to learn about
+                  their experiences and difficulties in handling pets!
                 </p>
               </div>
             </div>
