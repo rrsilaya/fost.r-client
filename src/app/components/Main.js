@@ -5,6 +5,7 @@ import FeedContainer from '../pages/feed/FeedContainer';
 import PetProfileContainer from '../pages/pet-profile/PetProfileContainer';
 import PetRequestContainer from '../pages/pet-request/PetRequestContainer';
 import CommunityContainer from '../pages/community/CommunityContainer';
+import CommunityPostContainer from '../pages/community-post/CommunityPostContainer';
 import NoPage from '../pages/no-page/NoPage';
 
 class Main extends Component {
@@ -18,6 +19,11 @@ class Main extends Component {
         <Route exact path="/feed/:id" component={PetProfileContainer} />
         <Route exact path="/feed/:id/:action" component={PetRequestContainer} />
         <Route exact path="/community" component={CommunityContainer} />
+        <Route
+          exact
+          path="/community/post/:id"
+          component={CommunityPostContainer}
+        />
 
         <Route component={NoPage} />
       </Switch>

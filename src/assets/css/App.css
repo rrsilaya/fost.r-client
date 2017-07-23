@@ -65,6 +65,14 @@
 	display: block;
 }
 
+.post-meta {
+	font-size: 75% !important;
+}
+
+.post-meta-details {
+	line-height: 0px !important;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {
@@ -73,6 +81,10 @@
 	
 	.full {
 		height: calc(100vh - 80px);
+	}
+	
+	.post-breadcrumb {
+		width: 15rem;
 	}
 }
 
@@ -88,5 +100,13 @@
 	
 	.full {
 		height: calc(100vh - 65px);
+	}
+	
+	.community-user-controls {
+		padding: 15px !important;
+	}
+	
+	.post-breadcrumb {
+		width: 10rem;
 	}
 }
