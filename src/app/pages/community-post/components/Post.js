@@ -80,6 +80,7 @@ const Post = ({ content, author, votes, time, type }) => {
                 ? <button
                     className="uk-button uk-button-primary"
                     data-uk-icon="icon: reply"
+                    data-uk-toggle="target: #reply-form-modal"
                   />
                 : <button
                     className="uk-button uk-button-secondary"

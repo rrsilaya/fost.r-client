@@ -5,6 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 import CenterLoader from '../../components/CenterLoader';
 import Post from './components/Post';
 import Replies from './components/Replies';
+import ReplyForm from './components/ReplyForm';
 
 class CommunityPost extends Component {
   componentDidMount() {
@@ -49,6 +50,7 @@ class CommunityPost extends Component {
                       time={this.props.activePost.date}
                       type="post"
                     />
+                    <ReplyForm id={this.props.activePost._id} />
                     <Replies
                       isLoading={this.props.isLoadingComments}
                       hasFailed={this.props.isLoadingCommentsFailed}
