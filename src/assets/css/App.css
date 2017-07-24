@@ -82,6 +82,13 @@
 
 .notif-panel {
 	z-index: 999 !important;
+
+.post-meta {
+	font-size: 75% !important;
+}
+
+.post-meta-details {
+	line-height: 0px !important;
 }
 
 /* Medium */
@@ -96,6 +103,10 @@
 	
 	.right-nav {
 		margin-right: 40px;
+  }
+  
+	.post-breadcrumb {
+		width: 15rem;
 	}
 }
 
@@ -115,5 +126,13 @@
 	
 	.right-nav {
 		margin-right: 15px;
+  }
+  
+	.community-user-controls {
+		padding: 15px !important;
+	}
+	
+	.post-breadcrumb {
+		width: 10rem;
 	}
 }

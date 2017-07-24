@@ -1,5 +1,4 @@
 import axios from 'axios';
-import pets from './mock';
 
 // Actions
 const LOAD_PETS_REQ = 'LOAD_PETS_REQ';
