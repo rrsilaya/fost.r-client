@@ -3,12 +3,16 @@ import DocumentTitle from 'react-document-title';
 import { Link, Redirect } from 'react-router-dom';
 
 import CenterLoader from '../../components/CenterLoader';
-import MainPost from './components/MainPost';
+import Post from './components/Post';
 import Replies from './components/Replies';
+import ReplyForm from './components/ReplyForm';
 
 class CommunityPost extends Component {
   componentDidMount() {
-    this.props.getPostData(this.props.match.params.id);
+    const post_uuid = this.props.match.params.id;
+
+    this.props.getPostData(post_uuid);
+    if (this.props.activePost) this.props.getPostComments(post_uuid);
   }
 
   render() {
@@ -39,13 +43,19 @@ class CommunityPost extends Component {
                           .join(' ')}
                       </li>
                     </ul>
-                    <MainPost
+                    <Post
                       votes={-3}
                       content={this.props.activePost.content}
                       author={this.props.activePost.author}
                       time={this.props.activePost.date}
+                      type="post"
                     />
-                    <Replies />
+                    <ReplyForm id={this.props.activePost._id} />
+                    <Replies
+                      isLoading={this.props.isLoadingComments}
+                      hasFailed={this.props.isLoadingCommentsFailed}
+                      comments={this.props.comments}
+                    />
                   </div>}
         </div>
       </DocumentTitle>

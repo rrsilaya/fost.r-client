@@ -1,19 +1,36 @@
 import React from 'react';
 import UIkit from 'uikit';
 
-const MainPost = ({ content, author, votes, time }) => {
+const Post = ({ content, author, votes, time, type }) => {
   const handleUpVote = e => {
     e.preventDefault();
-    UIkit.notification('You upvoted this post!');
+    UIkit.notification(`You upvoted this ${type}!`);
   };
 
   const handleDownVote = e => {
     e.preventDefault();
-    UIkit.notification('You downvoted this post!');
+    UIkit.notification(`You downvoted this ${type}!`);
+  };
+
+  const handleFavorite = e => {
+    e.preventDefault();
+    UIkit.modal
+      .confirm('You are about to favorite this comment. Continue?')
+      .then(
+        () => {
+          UIkit.notification('Successfully favorited comment.');
+        },
+        () => {
+          UIkit.notification('Cancelled comment favorite.');
+        }
+      );
   };
 
   return (
-    <div className="uk-section uk-section-muted uk-padding-small uk-margin-medium-bottom">
+    <div
+      className={`uk-section ${type === 'post'
+        ? 'uk-section-muted uk-padding-small uk-margin-medium-bottom'
+        : 'uk-padding-remove-vertical uk-margin-small-top uk-margin-small-bottom'}`}>
       <div className="uk-grid uk-grid-match uk-grid-small" data-uk-grid>
         <div className="uk-margin-small-top">
           <div
@@ -59,10 +76,17 @@ const MainPost = ({ content, author, votes, time }) => {
               />
             </div>
             <div className="uk-button-group">
-              <button
-                className="uk-button uk-button-primary"
-                data-uk-icon="icon: reply"
-              />
+              {type === 'post'
+                ? <button
+                    className="uk-button uk-button-primary"
+                    data-uk-icon="icon: reply"
+                    data-uk-toggle="target: #reply-form-modal"
+                  />
+                : <button
+                    className="uk-button uk-button-secondary"
+                    data-uk-icon="icon: star"
+                    onClick={handleFavorite}
+                  />}
             </div>
           </div>
         </div>
@@ -71,4 +95,4 @@ const MainPost = ({ content, author, votes, time }) => {
   );
 };
 
-export default MainPost;
+export default Post;
