@@ -43,7 +43,11 @@ class PetProfile extends Component {
               {this.props.match.params.page === 'profile'
                 ? <PetPage petData={this.props.data} />
                 : this.props.match.params.page === 'adopt'
-                  ? <Adopt />
+                  ? <Adopt
+                      name={this.props.data.name}
+                      house={this.props.data.location}
+                      id={this.props.data._id}
+                    />
                   : <Date />}
             </div>}
       </DocumentTitle>
