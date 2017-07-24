@@ -11,10 +11,12 @@ class Home extends Component {
     return (
       <DocumentTitle title="fost.r">
         <div className="uk-background-secondary uk-light uk-padding uk-panel">
-
           <FeaturePanel />
+
           <WelcomePanel />
+          <hr className="uk-divider-icon" />
           <SelectionPanel />
+          <hr className="uk-divider-icon" />
           <EndorsePanel />
 
         </div>
