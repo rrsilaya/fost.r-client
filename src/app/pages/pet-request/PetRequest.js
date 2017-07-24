@@ -31,7 +31,9 @@ class PetRequest extends Component {
           ? <FullLoader />
           : this.props.hasFailed
             ? <p>An error occured</p>
-            : this.renderAction()}
+            : <div className="uk-container uk-container-small uk-margin-auto uk-margin-medium-top">
+                {this.renderAction()}
+              </div>}
       </DocumentTitle>
     );
   }
