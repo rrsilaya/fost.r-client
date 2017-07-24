@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import navpages from './navpages';
-import logo from '../../assets/images/logo2-dblue.png';
+import logo from '../../../assets/images/logo2-dblue.png';
 
 class HamburgerMenu extends Component {
   render() {

@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
 import navpages from './navpages';
-import logo from '../../assets/images/logo3-white.png';
+import logo from '../../../assets/images/logo3-white.png';
+import NotificationPanel from './components/NotificationPanel';
 
 class Navigation extends Component {
   render() {
+    const hasNotif = true;
+
     return (
       <div className="uk-section-primary" id="nav" data-uk-sticky>
         <nav
@@ -30,7 +33,7 @@ class Navigation extends Component {
             </Link>
           </div>
 
-          <div className="uk-navbar-right uk-margin-large-right">
+          <div className="uk-navbar-right right-nav uk-text-right">
             <ul className="uk-navbar-nav uk-visible@m">
               {navpages.map((link, key) =>
                 <li key={key}>
@@ -40,6 +43,14 @@ class Navigation extends Component {
                 </li>
               )}
             </ul>
+
+            <button className="uk-button uk-margin-small-left uk-margin-small-right uk-padding-remove uk-icon notif-wrapper uk-inline">
+              <span className="uk-icon notif-bell" data-uk-icon="icon: bell" />
+              {hasNotif
+                ? <span className="uk-badge uk-position-top-right notif-badge" />
+                : ''}
+            </button>
+            <NotificationPanel />
           </div>
         </nav>
       </div>
