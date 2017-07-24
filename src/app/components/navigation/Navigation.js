@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 
 import navpages from './navpages';
 import logo from '../../../assets/images/logo3-white.png';
-import NotificationPanel from './components/NotificationPanel';
+import MoreOptions from './components/MoreOptions';
 
 class Navigation extends Component {
   render() {
@@ -33,7 +33,7 @@ class Navigation extends Component {
             </Link>
           </div>
 
-          <div className="uk-navbar-right right-nav uk-text-right">
+          <div className="uk-navbar-right uk-margin-large-right uk-text-right">
             <ul className="uk-navbar-nav uk-visible@m">
               {navpages.map((link, key) =>
                 <li key={key}>
@@ -44,13 +44,20 @@ class Navigation extends Component {
               )}
             </ul>
 
-            <button className="uk-button uk-margin-small-left uk-margin-small-right uk-padding-remove uk-icon notif-wrapper uk-inline">
+            <Link
+              to="/notifications"
+              className="uk-button uk-margin-small-left uk-margin-small-right uk-padding-remove uk-icon notif-wrapper uk-inline">
               <span className="uk-icon notif-bell" data-uk-icon="icon: bell" />
               {hasNotif
                 ? <span className="uk-badge uk-position-top-right notif-badge" />
                 : ''}
-            </button>
-            <NotificationPanel />
+            </Link>
+
+            <button
+              className="uk-visible@m uk-button uk-margin-small-right uk-margin-small-left uk-padding-remove"
+              data-uk-icon="icon: triangle-down"
+            />
+            <MoreOptions />
           </div>
         </nav>
       </div>

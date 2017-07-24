@@ -24,6 +24,7 @@ class Main extends Component {
           path="/community/post/:id"
           component={CommunityPostContainer}
         />
+        <Route exact path="/notifications" />
 
         <Route component={NoPage} />
       </Switch>

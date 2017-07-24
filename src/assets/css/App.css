@@ -80,7 +80,7 @@
 	line-height: 25px !important;
 }
 
-.notif-panel {
+.option-panel {
 	z-index: 999 !important;
 }
 
@@ -90,6 +90,10 @@
 
 .post-meta-details {
 	line-height: 0px !important;
+}
+
+.more-options a {
+	color: rgba(0,0,0,0.6) !important;
 }
 
 /* Medium */
