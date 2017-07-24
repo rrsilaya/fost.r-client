@@ -6,12 +6,9 @@ class EndorsePanel extends Component {
   render() {
     return (
       <div
-        className="uk-background-secondary uk-light uk-padding uk-panel uk-child-width-1-2 uk-child-width-1-1@s uk-grid-match uk-text-center"
+        className="uk-container uk-background-secondary uk-light uk-padding uk-panel uk-child-width-1-1 uk-child-width-1-1@s uk-grid-match uk-text-center"
         data-uk-grid>
-        <div className="uk-inline">
-          <img src={image} alt="" />
-          <div className="uk-overlay uk-light uk-position-bottom uk-padding-top" />
-        </div>
+        <img src={image} alt="" />
       </div>
     );
   }
