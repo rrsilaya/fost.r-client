@@ -8,12 +8,14 @@
 	<img src="https://img.shields.io/badge/react-v15.5.4-green.svg" />
 	<br />
 </h1>
-<h4 align="center">Raise the awareness on homeless animals because of neglect or abuse</h4>
+<h4 align="center">Raise awareness on homeless animals because of neglect or abuse</h4>
 
 ### Installation
 1. Have the latest version of [yarn](http://www.yarnpkg.com/).
-2. Install all the dependencies using `yarn install`.
-3. Start the react app with `yarn start`.
+2. Clone this repository.
+3. Install all the dependencies using `yarn install`.
+4. Run the [mock JSON server](https://github.com/rrsilaya/fost.r-mocks).
+5. Start the react app with `yarn start`.
 
 It is assumed that you are using [yarn](http://www.yarnpkg.com/) as your package manager. To use [npm](https://www.npmjs.com/), do:
 ```
@@ -61,22 +63,11 @@ $ npm install && npm start
 └── yarn.lock
 ```
 
-### App Routes
-| Route        | Page         | Remarks                |
-| -------------| ------------ | ---------------------- |
-| `/`          | home         | Redirects to `/adopt` if logged in |
-| `/login`     | login        | Redirects to `/adopt` if logged in |
-| `/adopt`     | adopt        |                        |
-| `/community` | community    |                        |
-| `/dates`     | dates        |                        |
-| `/rescue`    | rescue       |                        |
-| `/*`         | no-page      | Error 404 Page, redirects to `/` if not logged in |
-
 ### Developers
-##### Backend
+##### API
 * Evangelista, Erlen Mae
 * Sombaes, Kia Mei
 
-##### Frontend
+##### Client
 * Gotis, Ciara Mae
 * Silaya, Ralph Lawrence
