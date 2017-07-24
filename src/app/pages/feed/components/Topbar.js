@@ -4,6 +4,10 @@ import Filters from './Filters';
 import HorizontalFormSelect from '../../../components/HorizontalFormSelect';
 
 class Topbar extends Component {
+  handleFormChange = e => {
+    this.props.filterFeed('kind', e.target.value);
+  };
+
   render() {
     return (
       <div className="uk-section-xsmall uk-container tm-topbar">
@@ -13,8 +17,9 @@ class Topbar extends Component {
               id="top_kind_of_pet"
               label="Kind"
               options={this.props.pets.map((pet, id) =>
-                <option key={id} value={pet.toLowerCase()}>{pet}</option>
+                <option key={id} value={pet}>{pet}</option>
               )}
+              onChange={this.handleFormChange}
             />
           </div>
 

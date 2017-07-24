@@ -9,7 +9,7 @@ class SelectionPanel extends Component {
   render() {
     return (
       <div
-        className="uk-background-muted uk-light uk-padding uk-panel uk-child-width-1-2 uk-child-width-1-4@s uk-grid-match uk-text-center"
+        className="uk-background-secondary uk-light uk-padding uk-panel uk-child-width-1-2 uk-child-width-1-4@s uk-grid-match uk-text-center"
         data-uk-grid>
         <div className="uk-animation-toggle">
           <div>

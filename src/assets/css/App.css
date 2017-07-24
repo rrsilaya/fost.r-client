@@ -25,10 +25,66 @@
 	height: 30px;
 }
 
+.no-page {
+	height: 200px;
+}
+
+.feed-tile {
+	object-fit: cover;
+	min-width: 100%;
+	min-height: 170px;
+	max-height: 280px;
+	background-color: #efefef;
+}
+
+.tile-header {
+	margin-bottom: 0.3rem !important;
+}
+
+.flat {
+	padding: 0 !important;
+	text-align: left !important;
+	text-transform: none;
+}
+
+.feed-modal {
+	object-fit: cover;
+	min-width: 100%;
+	min-height: 100%;
+}
+
+.btn-overlay {
+	width: 10rem !important;
+}
+
+.pet-profile-cover {
+	height: 280px;
+	background-color: #efefef;
+	background-size: cover;
+	background-position: center center;
+	display: block;
+}
+
+.post-meta {
+	font-size: 75% !important;
+}
+
+.post-meta-details {
+	line-height: 0px !important;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {
 		margin-left: 25vw;
+	}
+	
+	.full {
+		height: calc(100vh - 80px);
+	}
+	
+	.post-breadcrumb {
+		width: 15rem;
 	}
 }
 
@@ -40,5 +96,17 @@
 
 	.tm-main {
 		margin-left: 0;
+	}
+	
+	.full {
+		height: calc(100vh - 65px);
+	}
+	
+	.community-user-controls {
+		padding: 15px !important;
+	}
+	
+	.post-breadcrumb {
+		width: 10rem;
 	}
 }

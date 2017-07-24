@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import FeedContainer from '../pages/feed/FeedContainer';
-import DatesContainer from '../pages/dates/DatesContainer';
-import RescueContainer from '../pages/rescue/RescueContainer';
+import PetProfileContainer from '../pages/pet-profile/PetProfileContainer';
+import PetRequestContainer from '../pages/pet-request/PetRequestContainer';
 import CommunityContainer from '../pages/community/CommunityContainer';
-import NoPageContainer from '../pages/no-page/NoPageContainer';
+import CommunityPostContainer from '../pages/community-post/CommunityPostContainer';
+import NoPage from '../pages/no-page/NoPage';
 
 class Main extends Component {
   render() {
@@ -15,10 +16,16 @@ class Main extends Component {
         <Redirect exact from="/login" to="/feed" />
 
         <Route exact path="/feed" component={FeedContainer} />
-        <Route exact path="/dates" component={DatesContainer} />
+        <Route exact path="/feed/:id" component={PetProfileContainer} />
+        <Route exact path="/feed/:id/:action" component={PetRequestContainer} />
         <Route exact path="/community" component={CommunityContainer} />
+        <Route
+          exact
+          path="/community/post/:id"
+          component={CommunityPostContainer}
+        />
 
-        <Route component={NoPageContainer} />
+        <Route component={NoPage} />
       </Switch>
     );
   }
