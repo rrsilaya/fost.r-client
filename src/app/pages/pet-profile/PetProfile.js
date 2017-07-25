@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import FullLoader from '../../components/FullLoader';
 import PetPage from './components/PetPage';
 import Adopt from './components/Adopt';
-import Date from './components/Date';
+import Date from './components/DateContainer';
 
 class PetProfile extends Component {
   componentWillMount() {
@@ -48,7 +48,10 @@ class PetProfile extends Component {
                       house={this.props.data.location}
                       id={this.props.data._id}
                     />
-                  : <Date />}
+                  : <Date
+                      id={this.props.data._id}
+                      name={this.props.data.name}
+                    />}
             </div>}
       </DocumentTitle>
     );
