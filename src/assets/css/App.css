@@ -101,6 +101,10 @@
 	height: 13rem !important;
 }
 
+.notification-icon {
+	padding: 0.5rem !important;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {
