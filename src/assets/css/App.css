@@ -65,6 +65,37 @@
 	display: block;
 }
 
+.notif-badge {
+	height: 6px !important;
+	min-width: 6px !important;
+	width: auto !important;
+	padding: 0 !important;
+}
+
+.notif-bell {
+	padding: 0 5px !important;
+}
+
+.notif-wrapper {
+	line-height: 25px !important;
+}
+
+.option-panel {
+	z-index: 999 !important;
+}
+
+.post-meta {
+	font-size: 75% !important;
+}
+
+.post-meta-details {
+	line-height: 0px !important;
+}
+
+.more-options a {
+	color: rgba(0,0,0,0.6) !important;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {
@@ -73,6 +104,14 @@
 	
 	.full {
 		height: calc(100vh - 80px);
+	}
+	
+	.right-nav {
+		margin-right: 40px;
+  }
+  
+	.post-breadcrumb {
+		width: 15rem;
 	}
 }
 
@@ -88,5 +127,17 @@
 	
 	.full {
 		height: calc(100vh - 65px);
+	}
+	
+	.right-nav {
+		margin-right: 15px;
+  }
+  
+	.community-user-controls {
+		padding: 15px !important;
+	}
+	
+	.post-breadcrumb {
+		width: 10rem;
 	}
 }
