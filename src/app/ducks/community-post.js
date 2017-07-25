@@ -7,6 +7,7 @@ const GET_POST_DATA_FAIL = 'GET_POST_DATA_FAIL';
 const GET_COMMENTS_REQ = 'GET_COMMENTS_REQ';
 const GET_COMMENTS_SUC = 'GET_COMMENTS_SUC';
 const GET_COMMENTS_FAIL = 'GET_COMMENTS_FAIL';
+const UPDATE_FORM = 'UPDATE_FORM';
 
 // Action Creators
 export const getPostData = id => {
@@ -55,6 +56,14 @@ export const getPostComments = id => {
   };
 };
 
+export const updateForm = (name, value) => {
+  return {
+    type: UPDATE_FORM,
+    name,
+    value
+  };
+};
+
 // Initial State
 const initialState = {
   isGettingData: true,
@@ -62,7 +71,11 @@ const initialState = {
   activePost: {},
   isLoadingComments: true,
   isLoadingCommentsFailed: false,
-  comments: []
+  comments: [],
+  replyForm: {
+    title: '',
+    content: ''
+  }
 };
 
 // Reducer
@@ -114,6 +127,17 @@ const reducer = (state = initialState, action) => {
         isLoadingComments: false,
         isLoadingCommentsFailed: true,
         comments: []
+      };
+
+    case UPDATE_FORM:
+      return {
+        ...state,
+        replyForm: {
+          title: action.name === 'title' ? action.value : state.replyForm.title,
+          content: action.name === 'content'
+            ? action.value
+            : state.replyForm.content
+        }
       };
 
     default:

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { modal } from 'uikit';
 
-const ReplyForm = ({ id }) => {
+const ReplyForm = ({ id, updateForm, replyForm }) => {
   const handleReply = e => {
     const data = {
       title: e.target.reply.value,
@@ -13,6 +13,10 @@ const ReplyForm = ({ id }) => {
     if (data.title && data.content) {
       modal('#reply-form-modal').hide();
     }
+  };
+
+  const handleFormUpdate = e => {
+    updateForm(e.target.name, e.target.value);
   };
 
   return (
@@ -35,8 +39,10 @@ const ReplyForm = ({ id }) => {
                   type="text"
                   className="uk-input"
                   id="reply-title"
-                  name="reply"
+                  name="title"
                   placeholder="Reply Description"
+                  value={replyForm.title}
+                  onChange={handleFormUpdate}
                 />
               </div>
             </div>
@@ -51,6 +57,8 @@ const ReplyForm = ({ id }) => {
                   className="uk-textarea"
                   name="content"
                   placeholder="Content"
+                  value={replyForm.content}
+                  onChange={handleFormUpdate}
                 />
               </div>
             </div>
@@ -69,7 +77,10 @@ const ReplyForm = ({ id }) => {
           <button
             className="uk-button uk-button-primary uk-margin-small-left"
             type="submit"
-            form="reply-form">
+            form="reply-form"
+            disabled={
+              replyForm.title.length === 0 || replyForm.content.length === 0
+            }>
             Reply
           </button>
         </div>
