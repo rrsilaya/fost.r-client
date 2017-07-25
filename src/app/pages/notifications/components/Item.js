@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 const Item = () => {
   return (
@@ -7,7 +8,9 @@ const Item = () => {
         <div className="uk-text-center notification-icon">
           <span data-uk-icon="icon: star; ratio: 1.25" />
           <br />
-          <div className="post-meta">1m</div>
+          <div className="post-meta">
+            {moment('Tue Jul 25 2017 22:36:06').fromNow(true)}
+          </div>
         </div>
       </div>
       <div className="uk-width-expand uk-flex uk-flex-middle">
