@@ -6,6 +6,7 @@ import PetProfileContainer from '../pages/pet-profile/PetProfileContainer';
 import PetRequestContainer from '../pages/pet-request/PetRequestContainer';
 import CommunityContainer from '../pages/community/CommunityContainer';
 import CommunityPostContainer from '../pages/community-post/CommunityPostContainer';
+import ProfileContainer from '../pages/profile-page/ProfileContainer';
 import NoPage from '../pages/no-page/NoPage';
 
 class Main extends Component {
@@ -24,6 +25,7 @@ class Main extends Component {
           path="/community/post/:id"
           component={CommunityPostContainer}
         />
+        <Route exact path="/profile" component={ProfileContainer} />
 
         <Route component={NoPage} />
       </Switch>

@@ -8,8 +8,8 @@ class Profile extends Component {
   render() {
     return (
       <DocumentTitle title="fost.r">
-        <div>
-          <ProfilePanel />
+        <div className="uk-section tm-sidebar-left uk-visible@m">
+          <ProfilePanel info={this.props.info} />
         </div>
       </DocumentTitle>
     );
