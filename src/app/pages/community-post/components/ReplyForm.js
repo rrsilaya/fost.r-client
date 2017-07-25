@@ -5,14 +5,15 @@ import { modal } from 'uikit';
 const ReplyForm = ({ id, updateForm, replyForm }) => {
   const handleReply = e => {
     const data = {
-      title: e.target.reply.value,
+      title: e.target.title.value,
       content: e.target.content.value
     };
 
     e.preventDefault();
-    if (data.title && data.content) {
-      modal('#reply-form-modal').hide();
-    }
+    // handle reply
+    modal('#reply-form-modal').hide();
+    updateForm('title', '');
+    updateForm('content', '');
   };
 
   const handleFormUpdate = e => {
