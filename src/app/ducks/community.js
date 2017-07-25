@@ -28,7 +28,7 @@ export const getActivePosts = () => {
       .then(res => {
         dispatch({
           type: LOAD_ACTIVE_POSTS_SUC,
-          payload: res.data.splice(0, 3)
+          payload: res.data.splice(0, 5)
         });
       })
       .catch(err => {

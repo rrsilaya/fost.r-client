@@ -50,7 +50,11 @@ class CommunityPost extends Component {
                       time={this.props.activePost.date}
                       type="post"
                     />
-                    <ReplyForm id={this.props.activePost._id} />
+                    <ReplyForm
+                      id={this.props.activePost._id}
+                      updateForm={this.props.updateForm}
+                      replyForm={this.props.replyForm}
+                    />
                     <Replies
                       isLoading={this.props.isLoadingComments}
                       hasFailed={this.props.isLoadingCommentsFailed}
