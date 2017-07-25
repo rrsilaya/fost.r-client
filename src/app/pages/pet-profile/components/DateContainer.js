@@ -1,11 +1,14 @@
 import { connect } from 'react-redux';
 import Date from './Date';
 
-import { setDate } from '../../../ducks/pet-date';
+import { setDate, submitRequest } from '../../../ducks/pet-date';
 
 const mapStateToProps = state => ({
-  date: state.petDate.date
+  date: state.petDate.date,
+  isLoading: state.petDate.isLoading
 });
 
-const DateContainer = connect(mapStateToProps, { setDate })(Date);
+const DateContainer = connect(mapStateToProps, { setDate, submitRequest })(
+  Date
+);
 export default DateContainer;

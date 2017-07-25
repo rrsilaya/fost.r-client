@@ -3,10 +3,17 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 
 import 'react-datepicker/dist/react-datepicker.css';
+import CenterLoader from '../../../components/CenterLoader';
 
 class Date extends Component {
   handleDatePick = date => {
     this.props.setDate(date);
+    console.log(date.diff(moment(), 'days'));
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    if (this.props.date) this.props.submitRequest(this.props.date);
   };
 
   render() {
@@ -25,26 +32,51 @@ class Date extends Component {
         </p>
 
         <div className="uk-text-center uk-section uk-section-muted uk-padding-remove-vertical">
-          <div className="uk-margin-medium-top uk-margin-medium-bottom uk-margin-medium">
-            <p>Please select date for your animal date.</p>
-
-            <DatePicker
-              className="uk-input uk-text-center uk-width-medium@s"
-              placeholderText="Click to choose date"
-              minDate={moment().add(2, 'days')}
-              maxDate={moment().add(102, 'days')}
-              value={
-                this.props.date === ''
+          <div className="uk-inline uk-width-1-1">
+            <div className="uk-margin-medium-top uk-margin-medium-bottom uk-margin-medium">
+              <p>
+                Please select date for your animal date.<br />
+                Today is {moment().format('MMMM D, YYYY')}.
+                {this.props.date === ''
                   ? ''
-                  : moment(this.props.date).format('MMMM D, YYYY')
-              }
-              selected={this.props.date}
-              onChange={this.handleDatePick}
-            />
+                  : <span>
+                      {' '}Your date is in{' '}
+                      <span className="uk-text-bold">
+                        {this.props.date.diff(moment(), 'days')} days
+                      </span>.
+                    </span>}
+              </p>
 
-            <button className="uk-button uk-button-primary uk-margin">
-              Submit
-            </button>
+              <form onSubmit={this.handleSubmit}>
+                <DatePicker
+                  className="uk-input uk-text-center uk-width-medium@s"
+                  placeholderText="Click to choose date"
+                  minDate={moment().add(2, 'days')}
+                  maxDate={moment().add(102, 'days')}
+                  value={
+                    this.props.date === ''
+                      ? ''
+                      : moment(this.props.date).format('MMMM D, YYYY')
+                  }
+                  selected={this.props.date}
+                  onChange={this.handleDatePick}
+                />
+
+                <button
+                  className="uk-button uk-button-primary uk-margin"
+                  disabled={this.props.isLoading || !this.props.date}>
+                  Submit
+                </button>
+              </form>
+            </div>
+            {this.props.isLoading
+              ? [
+                  <div className="uk-overlay-default uk-position-cover" />,
+                  <div className="uk-overlay uk-position-center uk-dark">
+                    <CenterLoader />
+                  </div>
+                ]
+              : ''}
           </div>
         </div>
       </div>
