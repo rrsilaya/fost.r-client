@@ -13,7 +13,7 @@ const store = createStore(
   combineReducers({
     auth,
     feed,
-    petProfile
+    petProfile,
     community,
     communityPost
     // Update this with all the reducers
