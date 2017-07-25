@@ -97,7 +97,7 @@ const QuickPreview = ({ id, img, name, location, gender }) => {
                   </Link>
                 </div>
                 <Link
-                  to={`/feed/${id}`}
+                  to={`/feed/${id}/profile`}
                   className="uk-button uk-button-primary uk-width-1-1@s"
                   data-uk-toggle={`target: #${id}`}>
                   View{' '}

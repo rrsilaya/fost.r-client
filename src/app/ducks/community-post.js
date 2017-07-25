@@ -4,6 +4,9 @@ import axios from 'axios';
 const GET_POST_DATA_REQ = 'GET_POST_DATA_REQ';
 const GET_POST_DATA_SUC = 'GET_POST_DATA_SUC';
 const GET_POST_DATA_FAIL = 'GET_POST_DATA_FAIL';
+const GET_COMMENTS_REQ = 'GET_COMMENTS_REQ';
+const GET_COMMENTS_SUC = 'GET_COMMENTS_SUC';
+const GET_COMMENTS_FAIL = 'GET_COMMENTS_FAIL';
 
 // Action Creators
 export const getPostData = id => {
@@ -29,11 +32,37 @@ export const getPostData = id => {
   };
 };
 
+export const getPostComments = id => {
+  return dispatch => {
+    dispatch({
+      type: GET_COMMENTS_REQ
+    });
+
+    axios
+      .get(`/community`)
+      .then(res => {
+        dispatch({
+          type: GET_COMMENTS_SUC,
+          payload: res.data.splice(30, 40)
+        });
+      })
+      .catch(err => {
+        dispatch({
+          type: GET_COMMENTS_FAIL,
+          payload: err
+        });
+      });
+  };
+};
+
 // Initial State
 const initialState = {
   isGettingData: true,
   isGettingDataFailed: false,
-  activePost: {}
+  activePost: {},
+  isLoadingComments: true,
+  isLoadingCommentsFailed: false,
+  comments: []
 };
 
 // Reducer
@@ -61,6 +90,30 @@ const reducer = (state = initialState, action) => {
         isGettingData: false,
         isGettingDataFailed: true,
         activePost: {}
+      };
+
+    case GET_COMMENTS_REQ:
+      return {
+        ...state,
+        isLoadingComments: true,
+        isLoadingCommentsFailed: false,
+        comments: []
+      };
+
+    case GET_COMMENTS_SUC:
+      return {
+        ...state,
+        isLoadingComments: false,
+        isLoadingCommentsFailed: false,
+        comments: action.payload
+      };
+
+    case GET_COMMENTS_FAIL:
+      return {
+        ...state,
+        isLoadingComments: false,
+        isLoadingCommentsFailed: true,
+        comments: []
       };
 
     default:
