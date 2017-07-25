@@ -3,13 +3,13 @@ import DocumentTitle from 'react-document-title';
 import { Link } from 'react-router-dom';
 
 import FullLoader from '../../components/FullLoader';
-import ImageSwitcher from './components/ImageSwitcher';
-import Profile from './components/Profile';
+import PetPage from './components/PetPage';
+import Adopt from './components/Adopt';
+import Date from './components/Date';
 
 class PetProfile extends Component {
   componentWillMount() {
     this.props.loadProfile(this.props.match.params.id);
-    console.log(this.props);
   }
 
   render() {
@@ -20,21 +20,35 @@ class PetProfile extends Component {
         }>
         {this.props.isLoading
           ? <FullLoader />
-          : <div className="uk-container uk-container-small uk-margin-medium">
+          : <div className="uk-container uk-container-small uk-margin-medium-top">
               <ul className="uk-breadcrumb">
                 <li><Link to="/feed">Feed</Link></li>
-                <li><span>{this.props.data.name}</span></li>
+                <li>
+                  {this.props.match.params.page === 'profile'
+                    ? <span>{this.props.data.name}</span>
+                    : <Link to={`/feed/${this.props.data._id}/profile`}>
+                        {this.props.data.name}
+                      </Link>}
+                </li>
+                {this.props.match.params.page === 'profile'
+                  ? ''
+                  : <li>
+                      <span>
+                        {this.props.match.params.page.charAt(0).toUpperCase() +
+                          this.props.match.params.page.substr(1)}
+                      </span>
+                    </li>}
               </ul>
 
-              <ImageSwitcher
-                images={[this.props.data.img, this.props.data.img]}
-              />
-              <Profile
-                id={this.props.data._id}
-                name={this.props.data.name}
-                gender={this.props.data.gender}
-                location={this.props.data.location}
-              />
+              {this.props.match.params.page === 'profile'
+                ? <PetPage petData={this.props.data} />
+                : this.props.match.params.page === 'adopt'
+                  ? <Adopt
+                      name={this.props.data.name}
+                      house={this.props.data.location}
+                      id={this.props.data._id}
+                    />
+                  : <Date />}
             </div>}
       </DocumentTitle>
     );
