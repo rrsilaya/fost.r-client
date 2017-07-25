@@ -96,6 +96,11 @@
 	color: rgba(0,0,0,0.6) !important;
 }
 
+.post-list {
+	border: none !important;
+	height: 13rem !important;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {
