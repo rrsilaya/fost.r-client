@@ -33,12 +33,15 @@ class Navigation extends Component {
 
           <div className="uk-navbar-right uk-margin-large-right uk-text-right">
             <ul className="uk-navbar-nav uk-visible@m">
-              {navpages.map((link, key) =>
-                <li key={key}>
-                  <NavLink to={link.href} activeClassName="active">
-                    {link.label}
-                  </NavLink>
-                </li>
+              {navpages.map(
+                (link, key) =>
+                  this.props.accountType === 'user' && link.label === 'Admin'
+                    ? ''
+                    : <li key={key}>
+                        <NavLink to={link.href} activeClassName="active">
+                          {link.label}
+                        </NavLink>
+                      </li>
               )}
             </ul>
 

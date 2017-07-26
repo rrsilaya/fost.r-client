@@ -18,6 +18,7 @@ class App extends Component {
                   logout={this.props.logout}
                   hasNotification={this.props.hasNotification}
                   clearNotif={this.props.clearNotif}
+                  accountType={this.props.accountType}
                 />
               : <AnonUser />}
         </div>

@@ -11,9 +11,16 @@ class LoggedIn extends Component {
         <Navigation
           logout={this.props.logout}
           hasNotification={this.props.hasNotification}
+          accountType={this.props.accountType}
         />
-        <HamburgerMenu logout={this.props.logout} />
-        <Main clearNotif={this.props.clearNotif} />
+        <HamburgerMenu
+          logout={this.props.logout}
+          accountType={this.props.accountType}
+        />
+        <Main
+          clearNotif={this.props.clearNotif}
+          accountType={this.props.accountType}
+        />
       </div>
     );
   }

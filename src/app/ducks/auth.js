@@ -21,6 +21,7 @@ export const clearNotif = () => {
 const initialState = {
   isAuth: true,
   isLoading: false,
+  accountType: 'shelter',
   hasNotification: true
 };
 

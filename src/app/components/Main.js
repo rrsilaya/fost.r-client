@@ -12,8 +12,16 @@ class Main extends Component {
   render() {
     return (
       <Switch>
-        <Redirect exact from="/" to="/feed" />
-        <Redirect exact from="/login" to="/feed" />
+        <Redirect
+          exact
+          from="/"
+          to={this.props.accountType === 'user' ? '/feed' : '/admin'}
+        />
+        <Redirect
+          exact
+          from="/login"
+          to={this.props.accountType === 'user' ? '/feed' : '/admin'}
+        />
 
         <Route exact path="/feed" component={FeedContainer} />
         <Route exact path="/feed/:id/:page" component={PetProfileContainer} />

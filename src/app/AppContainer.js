@@ -6,7 +6,8 @@ import { logout, clearNotif } from './ducks/auth';
 const mapStateToProps = state => ({
   isAuth: state.auth.isAuth,
   isLoading: state.auth.isLoading,
-  hasNotification: state.auth.hasNotification
+  hasNotification: state.auth.hasNotification,
+  accountType: state.auth.accountType
 });
 
 const AppContainer = connect(mapStateToProps, { logout, clearNotif })(App);
