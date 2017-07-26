@@ -121,6 +121,14 @@
 	display: block;
 }
 
+.footer-logo {
+	height: 72px;
+}
+
+.footer {
+	width: 85% !important;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {
@@ -129,6 +137,10 @@
 	
 	.full {
 		height: calc(100vh - 80px);
+	}
+	
+	.main-wrapper {
+		min-height: calc(100vh - 80px);
 	}
 	
 	.right-nav {
@@ -152,6 +164,10 @@
 	
 	.full {
 		height: calc(100vh - 65px);
+	}
+	
+	.main-wrapper {
+		min-height: calc(100vh - 65px);
 	}
 	
 	.right-nav {

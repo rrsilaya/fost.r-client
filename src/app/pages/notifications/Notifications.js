@@ -15,8 +15,6 @@ class Notifications extends Component {
           <h2>Notifications</h2>
           <ul className="uk-list uk-list-divider">
             <li><Item link="/community" /></li>
-            <li><Item link="/community" /></li>
-            <li><Item link="/community" /></li>
           </ul>
 
           <div className="uk-text-center">
