@@ -114,6 +114,13 @@
 	background-color: #011627;
 }
 
+.pet-icon {
+	height: 40px;
+	width: 40px;
+	object-fit: cover;
+	display: block;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {
