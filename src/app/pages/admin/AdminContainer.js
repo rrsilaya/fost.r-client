@@ -1,7 +1,11 @@
 import { connect } from 'react-redux';
 import Admin from './Admin';
 
-const mapStateToProps = state => ({});
+import { changeTab } from '../../ducks/admin';
 
-const AdminContainer = connect(mapStateToProps, {})(Admin);
+const mapStateToProps = state => ({
+  activeTab: state.admin.activeTab
+});
+
+const AdminContainer = connect(mapStateToProps, { changeTab })(Admin);
 export default AdminContainer;

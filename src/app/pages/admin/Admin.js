@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
 
 import Stats from './components/Stats';
+import Tabs from './components/Tabs';
+import Requests from './components/Requests';
 
 class Admin extends Component {
   render() {
@@ -9,6 +11,14 @@ class Admin extends Component {
       <DocumentTitle title="fost.r • Admin">
         <div className="uk-container uk-container-small uk-margin-medium-top">
           <Stats />
+          <Tabs
+            activeTab={this.props.activeTab}
+            changeTab={this.props.changeTab}
+          />
+
+          <div>
+            {this.props.activeTab === 'requests' ? <Requests /> : ''}
+          </div>
         </div>
       </DocumentTitle>
     );
