@@ -110,6 +110,10 @@
 	width: 100vw;
 }
 
+.stats {
+	background-color: #011627;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {
