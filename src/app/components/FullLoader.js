@@ -1,10 +1,18 @@
 import React from 'react';
+import DocumentTitle from 'react-document-title';
 
 const FullLoader = () => {
   return (
-    <div className="uk-height-1-1 uk-width-1-1 uk-flex uk-flex-middle uk-flex-center">
-      <div data-uk-spinner={''} />
-    </div>
+    <DocumentTitle title="fost.r">
+      <div className="full-page uk-flex uk-flex-middle uk-flex-center">
+        <div className="uk-text-center">
+          <div data-uk-spinner={''} /><br />
+          <div className="uk-text-meta uk-text-uppercase uk-margin-small-top">
+            Loading
+          </div>
+        </div>
+      </div>
+    </DocumentTitle>
   );
 };
 

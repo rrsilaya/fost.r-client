@@ -8,8 +8,12 @@ class LoggedIn extends Component {
   render() {
     return (
       <div>
-        <Navigation />
-        <HamburgerMenu />
+        <Navigation
+          logout={this.props.logout}
+          hasNotification={this.props.hasNotification}
+          clearNotif={this.props.clearNotif}
+        />
+        <HamburgerMenu logout={this.props.logout} />
         <Main />
       </div>
     );

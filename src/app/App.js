@@ -4,15 +4,22 @@ import '../assets/css/App.css';
 
 import LoggedIn from './pages/LoggedIn';
 import AnonUser from './pages/AnonUser';
+import FullLoader from './components/FullLoader';
 
 class App extends Component {
   render() {
     return (
       <Router history={withRouter}>
         <div className="uk-offcanvas-content">
-          {this.props.isAuth
-            ? <LoggedIn logout={this.props.logout} />
-            : <AnonUser />}
+          {this.props.isLoading
+            ? <FullLoader />
+            : this.props.isAuth
+              ? <LoggedIn
+                  logout={this.props.logout}
+                  hasNotification={this.props.hasNotification}
+                  clearNotif={this.props.clearNotif}
+                />
+              : <AnonUser />}
         </div>
       </Router>
     );

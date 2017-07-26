@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import { offcanvas } from 'uikit';
 
 import navpages from './navpages';
 import logo from '../../../assets/images/logo2-dblue.png';
 import options from './components/option-links';
 
 class HamburgerMenu extends Component {
+  handleLogout = () => {
+    this.props.logout();
+    offcanvas('#main').hide();
+  };
+
   render() {
     return (
       <div id="main" data-uk-offcanvas="overlay: true; mode: reveal;">
@@ -35,10 +41,14 @@ class HamburgerMenu extends Component {
                 )}
                 <li className="uk-nav-divider" />
                 <li>
-                  <span
-                    className="uk-margin-small-right"
-                    data-uk-icon="icon: sign-out; ratio: 0.75"
-                  />Sign out
+                  <button
+                    className="uk-button uk-icon"
+                    onClick={this.handleLogout}>
+                    <span
+                      className="uk-margin-small-right"
+                      data-uk-icon="icon: sign-out; ratio: 0.75"
+                    />Sign out
+                  </button>
                 </li>
               </ul>
             </li>

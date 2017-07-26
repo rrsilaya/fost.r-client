@@ -1,5 +1,6 @@
 // Actions
 const LOGOUT_REQ = 'LOGOUT_REQ';
+const CLEAR_NOTIF = 'CLEAR_NOTIF';
 
 // Action Creators
 export const logout = () => {
@@ -10,10 +11,17 @@ export const logout = () => {
   };
 };
 
+export const clearNotif = () => {
+  return {
+    type: CLEAR_NOTIF
+  };
+};
+
 // Initial State
 const initialState = {
   isAuth: true,
-  isLoading: false
+  isLoading: false,
+  hasNotification: true
 };
 
 // Reducer
@@ -24,6 +32,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         isLoading: true,
         isAuth: false
+      };
+
+    case CLEAR_NOTIF:
+      return {
+        ...state,
+        hasNotification: false
       };
 
     default:

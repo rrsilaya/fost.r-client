@@ -7,8 +7,6 @@ import MoreOptions from './components/MoreOptions';
 
 class Navigation extends Component {
   render() {
-    const hasNotif = true;
-
     return (
       <div className="uk-section-primary" id="nav" data-uk-sticky>
         <nav
@@ -46,9 +44,10 @@ class Navigation extends Component {
 
             <Link
               to="/notifications"
-              className="uk-button uk-margin-small-left uk-margin-small-right uk-padding-remove uk-icon notif-wrapper uk-inline">
+              className="uk-button uk-margin-small-left uk-margin-small-right uk-padding-remove uk-icon notif-wrapper uk-inline"
+              onClick={this.props.clearNotif}>
               <span className="uk-icon notif-bell" data-uk-icon="icon: bell" />
-              {hasNotif
+              {this.props.hasNotification
                 ? <span className="uk-badge uk-position-top-right notif-badge" />
                 : ''}
             </Link>
@@ -57,7 +56,7 @@ class Navigation extends Component {
               className="uk-visible@m uk-button uk-margin-small-right uk-margin-small-left uk-padding-remove"
               data-uk-icon="icon: triangle-down"
             />
-            <MoreOptions />
+            <MoreOptions logout={this.props.logout} />
           </div>
         </nav>
       </div>

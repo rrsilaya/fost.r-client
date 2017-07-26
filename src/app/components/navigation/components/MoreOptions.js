@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import options from './option-links';
 
-const MoreOptions = () => {
+const MoreOptions = ({ logout }) => {
   return (
     <div
       className="uk-text-left uk-padding-medium option-panel"
@@ -24,10 +24,12 @@ const MoreOptions = () => {
 
         <li className="uk-nav-divider" />
         <li>
-          <span
-            className="uk-margin-small-right"
-            data-uk-icon="icon: sign-out; ratio: 0.75"
-          />Sign out
+          <button className="uk-button uk-icon" onClick={logout}>
+            <span
+              className="uk-margin-small-right"
+              data-uk-icon="icon: sign-out; ratio: 0.75"
+            />Sign out
+          </button>
         </li>
       </ul>
     </div>
