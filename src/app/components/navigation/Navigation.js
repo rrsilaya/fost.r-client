@@ -44,8 +44,7 @@ class Navigation extends Component {
 
             <Link
               to="/notifications"
-              className="uk-button uk-margin-small-left uk-margin-small-right uk-padding-remove uk-icon notif-wrapper uk-inline"
-              onClick={this.props.clearNotif}>
+              className="uk-button uk-margin-small-left uk-margin-small-right uk-padding-remove uk-icon notif-wrapper uk-inline">
               <span className="uk-icon notif-bell" data-uk-icon="icon: bell" />
               {this.props.hasNotification
                 ? <span className="uk-badge uk-position-top-right notif-badge" />

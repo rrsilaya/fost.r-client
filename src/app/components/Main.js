@@ -23,7 +23,12 @@ class Main extends Component {
           path="/community/post/:id"
           component={CommunityPostContainer}
         />
-        <Route exact path="/notifications" component={NotificationsContainer} />
+        <Route
+          exact
+          path="/notifications"
+          render={() =>
+            <NotificationsContainer clearNotif={this.props.clearNotif} />}
+        />
 
         <Route component={NoPage} />
       </Switch>

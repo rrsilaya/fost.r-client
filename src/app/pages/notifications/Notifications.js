@@ -4,6 +4,10 @@ import DocumentTitle from 'react-document-title';
 import Item from './components/Item';
 
 class Notifications extends Component {
+  componentDidMount() {
+    this.props.clearNotif();
+  }
+
   render() {
     return (
       <DocumentTitle title="fost.r • Notifications">
