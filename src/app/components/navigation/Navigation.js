@@ -14,7 +14,9 @@ class Navigation extends Component {
           data-uk-navbar>
           <div className="uk-navbar-left">
             <div className="uk-margin-large-left uk-visible@m">
-              <Link to="/feed" className="uk-navbar-item uk-logo">
+              <Link
+                to={this.props.accountType === 'user' ? '/feed' : '/admin'}
+                className="uk-navbar-item uk-logo">
                 <img src={logo} alt="fost.r" className="nav-logo" />
               </Link>
             </div>
