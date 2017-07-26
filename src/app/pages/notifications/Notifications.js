@@ -10,9 +10,9 @@ class Notifications extends Component {
         <div className="uk-container uk-container-small uk-margin-medium-top">
           <h2>Notifications</h2>
           <ul className="uk-list uk-list-divider">
-            <li><Item /></li>
-            <li><Item /></li>
-            <li><Item /></li>
+            <li><Item link="/community" /></li>
+            <li><Item link="/community" /></li>
+            <li><Item link="/community" /></li>
           </ul>
 
           <div className="uk-text-center">
