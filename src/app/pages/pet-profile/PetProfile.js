@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
 import { Link } from 'react-router-dom';
 
-import FullLoader from '../../components/FullLoader';
+import CenterLoader from '../../components/CenterLoader';
 import PetPage from './components/PetPage';
 import Adopt from './components/Adopt';
 import Date from './components/DateContainer';
@@ -19,7 +19,7 @@ class PetProfile extends Component {
           'fost.r' + (this.props.data ? ` • ${this.props.data.name}` : '')
         }>
         {this.props.isLoading
-          ? <FullLoader />
+          ? <CenterLoader />
           : <div className="uk-container uk-container-small uk-margin-medium-top">
               <ul className="uk-breadcrumb">
                 <li><Link to="/feed">Feed</Link></li>

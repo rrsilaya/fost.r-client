@@ -10,7 +10,9 @@ class App extends Component {
     return (
       <Router history={withRouter}>
         <div className="uk-offcanvas-content">
-          {this.props.isAuth ? <LoggedIn /> : <AnonUser />}
+          {this.props.isAuth
+            ? <LoggedIn logout={this.props.logout} />
+            : <AnonUser />}
         </div>
       </Router>
     );
