@@ -6,6 +6,7 @@ import PetProfileContainer from '../pages/pet-profile/PetProfileContainer';
 import CommunityContainer from '../pages/community/CommunityContainer';
 import CommunityPostContainer from '../pages/community-post/CommunityPostContainer';
 import NotificationsContainer from '../pages/notifications/NotificationsContainer';
+import AdminContainer from '../pages/admin/AdminContainer';
 import NoPage from '../pages/no-page/NoPage';
 
 class Main extends Component {
@@ -37,6 +38,8 @@ class Main extends Component {
           render={() =>
             <NotificationsContainer clearNotif={this.props.clearNotif} />}
         />
+        {this.props.accountType !== 'user' &&
+          <Route exact path="/admin" component={AdminContainer} />}
 
         <Route component={NoPage} />
       </Switch>
