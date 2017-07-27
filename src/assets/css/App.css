@@ -133,6 +133,15 @@
   flex: 1;
 }
 
+.uk-form-controls .react-datepicker-wrapper, .uk-form-controls .react-datepicker-wrapper .react-datepicker__input-container {
+	width: 100% !important;
+}
+
+.upload-button {
+	text-transform: none !important;
+	font-size: 15px !important;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {

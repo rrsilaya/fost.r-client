@@ -11,7 +11,7 @@ const Pets = ({ pets }) => {
         ? <p className="uk-text-center">
             Your pets will show here. Try to add some.
           </p>
-        : <table className="uk-table uk-table-divider uk-table-middle uk-table-small">
+        : <table className="uk-table uk-table-divider uk-table-middle uk-table-small uk-table-responsive">
             <thead>
               <tr>
                 <th className="uk-table-shrink" />

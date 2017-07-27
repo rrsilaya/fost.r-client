@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DocumentTitle from 'react-document-title';
+import { upload } from 'uikit';
 
 import Stats from './components/Stats';
 import Tabs from './components/Tabs';

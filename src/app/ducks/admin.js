@@ -42,7 +42,10 @@ const initialState = {
   activeTab: 'requests',
   isLoading: false,
   hasFailed: false,
-  pets: []
+  pets: [],
+
+  isAddingPet: true,
+  addForm: {}
 };
 
 // Reducer
