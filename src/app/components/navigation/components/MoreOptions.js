@@ -1,51 +1,35 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MoreOptions = () => {
+import options from './option-links';
+
+const MoreOptions = ({ logout }) => {
   return (
     <div
-      className="uk-text-left uk-padding-medium uk-text-small option-panel"
+      className="uk-text-left uk-padding-medium option-panel"
       data-uk-dropdown="mode: click">
       <ul className="uk-nav uk-dropdown-nav more-options">
         <li className="uk-nav-header">More Options</li>
-        <li>
-          <Link to="/settings">
-            <span
-              className="uk-margin-small-right"
-              data-uk-icon="icon: cog; ratio: 0.75"
-            />Account Settings
-          </Link>
-        </li>
-        <li>
-          <Link to="/rescue">
-            <span
-              className="uk-margin-small-right"
-              data-uk-icon="icon: lifesaver; ratio: 0.75"
-            />Rescue
-          </Link>
-        </li>
-        <li>
-          <Link to="/feedback">
-            <span
-              className="uk-margin-small-right"
-              data-uk-icon="icon: forward; ratio: 0.75"
-            />Feedback
-          </Link>
-        </li>
-        <li>
-          <Link to="/help">
-            <span
-              className="uk-margin-small-right"
-              data-uk-icon="icon: question; ratio: 0.75"
-            />Help
-          </Link>
-        </li>
+        {options.map((link, key) =>
+          <li key={key}>
+            <Link to={link.route}>
+              <span
+                className="uk-margin-small-right"
+                data-uk-icon={`icon: ${link.icon}; ratio: 0.75`}
+              />
+              {link.label}
+            </Link>
+          </li>
+        )}
+
         <li className="uk-nav-divider" />
         <li>
-          <span
-            className="uk-margin-small-right"
-            data-uk-icon="icon: sign-out; ratio: 0.75"
-          />Sign out
+          <button className="uk-button uk-icon" onClick={logout}>
+            <span
+              className="uk-margin-small-right"
+              data-uk-icon="icon: sign-out; ratio: 0.75"
+            />Sign out
+          </button>
         </li>
       </ul>
     </div>

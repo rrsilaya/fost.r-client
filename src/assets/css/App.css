@@ -101,6 +101,15 @@
 	height: 13rem !important;
 }
 
+.notification-icon {
+	padding: 0.5rem !important;
+}
+
+.full-page {
+	height: 100vh;
+	width: 100vw;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {
