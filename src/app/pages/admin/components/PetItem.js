@@ -1,17 +1,14 @@
 import React from 'react';
 
-const PetItem = () => {
+const PetItem = ({ name, kind, img, birthday, id }) => {
   return (
     <tr>
       <td className="uk-preserve-width">
-        <img
-          src="https://placeimg.com/441/256/animals/grayscale"
-          className="uk-border-circle pet-icon"
-        />
+        <img src={img} className="uk-border-circle pet-icon" />
       </td>
-      <td>John</td>
-      <td>Dog, Pug</td>
-      <td>January 1, 2017</td>
+      <td>{name}</td>
+      <td>{kind}</td>
+      <td>{birthday}</td>
       <td className="uk-preserve-width">
         <button data-uk-icon="icon: close;" />
       </td>

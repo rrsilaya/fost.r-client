@@ -1,11 +1,16 @@
 import React from 'react';
 
-const Tabs = ({ activeTab, changeTab }) => {
+const Tabs = ({ activeTab, changeTab, getPets }) => {
   const tabs = ['Dates', 'Requests', 'Pets'];
 
   const handleTabChange = e => {
     e.preventDefault();
     changeTab(e.target.name);
+
+    switch (e.target.name) {
+      case 'pets':
+        getPets();
+    }
   };
 
   return (

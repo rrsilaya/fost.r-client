@@ -6,7 +6,13 @@ import Tabs from './components/Tabs';
 import Requests from './components/Requests';
 import Pets from './components/Pets';
 
+import CenterLoader from '../../components/CenterLoader';
+
 class Admin extends Component {
+  componentDidMount() {
+    this.props.getPets();
+  }
+
   render() {
     return (
       <DocumentTitle title="fost.r • Admin">
@@ -15,12 +21,25 @@ class Admin extends Component {
           <Tabs
             activeTab={this.props.activeTab}
             changeTab={this.props.changeTab}
+            getPets={this.props.getPets}
           />
 
-          <div>
-            {this.props.activeTab === 'requests'
-              ? <Requests />
-              : this.props.activeTab === 'pets' ? <Pets /> : ''}
+          <div className="uk-inline uk-width-1-1">
+            <div>
+              {this.props.activeTab === 'requests'
+                ? <Requests />
+                : this.props.activeTab === 'pets'
+                  ? <Pets pets={this.props.pets} />
+                  : ''}
+            </div>
+            {this.props.isLoading
+              ? [
+                  <div className="uk-overlay-default uk-position-cover" />,
+                  <div className="uk-overlay uk-position-top">
+                    <CenterLoader />
+                  </div>
+                ]
+              : ''}
           </div>
         </div>
       </DocumentTitle>
