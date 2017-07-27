@@ -18,13 +18,16 @@ class LoggedIn extends Component {
           logout={this.props.logout}
           accountType={this.props.accountType}
         />
-        <Main
-          clearNotif={this.props.clearNotif}
-          accountType={this.props.accountType}
-        />
-        {window.location.pathname.startsWith('/feed')
-          ? ''
-          : <Footer accountType={this.props.accountType} />}
+
+        <div className="main-wrapper">
+          <Main
+            clearNotif={this.props.clearNotif}
+            accountType={this.props.accountType}
+          />
+          {window.location.pathname.startsWith('/feed')
+            ? ''
+            : <Footer accountType={this.props.accountType} />}
+        </div>
       </div>
     );
   }

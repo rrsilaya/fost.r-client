@@ -129,6 +129,10 @@
 	width: 85% !important;
 }
 
+.main {
+  flex: 1;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {
@@ -140,7 +144,9 @@
 	}
 	
 	.main-wrapper {
-		min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
 	}
 	
 	.right-nav {
@@ -167,7 +173,9 @@
 	}
 	
 	.main-wrapper {
-		min-height: calc(100vh - 65px);
+    min-height: calc(100vh - 65px);
+    display: flex;
+    flex-direction: column;
 	}
 	
 	.right-nav {
