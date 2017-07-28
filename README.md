@@ -14,7 +14,7 @@
 1. Have the latest version of [yarn](http://www.yarnpkg.com/).
 2. Clone this repository.
 3. Install all the dependencies using `yarn install`.
-4. Run the [mock JSON server](https://github.com/rrsilaya/fost.r-mocks).
+4. Run the [API server](https://github.com/rrsilaya/fost.r-backend).
 5. Start the react app with `yarn start`.
 
 It is assumed that you are using [yarn](http://www.yarnpkg.com/) as your package manager. To use [npm](https://www.npmjs.com/), do:
