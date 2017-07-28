@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Post = ({ id, content, votes }) => {
+const Post = ({ id, title, content, votes, answers }) => {
   return (
     <li>
       <div className="uk-grid-medium uk-grid-match" data-uk-grid>
@@ -13,7 +13,7 @@ const Post = ({ id, content, votes }) => {
             <span className="post-meta">votes</span>
           </div>
           <div className="post-meta-tags">
-            <span className="uk-text-large">5</span><br />
+            <span className="uk-text-large">{answers}</span><br />
             <span className="post-meta">answers</span>
           </div>
         </div>
@@ -21,7 +21,7 @@ const Post = ({ id, content, votes }) => {
         <div className="uk-width-expand uk-flex uk-flex-middle">
           <h4 className="uk-text-primary uk-margin-remove">
             <Link to={`/community/post/${id}`} className="uk-link-reset">
-              {content.split(' ').reverse().splice(0, 5).join(' ')}
+              {title}
             </Link>
           </h4>
           <p className="uk-margin-remove uk-text-truncate">

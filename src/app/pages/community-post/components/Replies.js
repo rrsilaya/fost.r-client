@@ -17,7 +17,7 @@ const Replies = ({ isLoading, hasFailed, comments }) => {
                 {comments.map((comment, key) =>
                   <li key={key}>
                     <Post
-                      votes={2}
+                      votes={comment.votes}
                       content={comment.content}
                       author={comment.author}
                       time={comment.date}
