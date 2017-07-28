@@ -37,6 +37,12 @@ export const login = (username, password, accountType) => {
           type: LOGIN_SUC,
           payload: res.data
         });
+      })
+      .catch(err => {
+        dispatch({
+          type: LOGIN_FAIL,
+          payload: err
+        });
       });
   };
 };
