@@ -13,11 +13,11 @@ export const loadPets = () => {
     });
 
     axios
-      .get('/adopt')
+      .get('/pets/viewAllPets')
       .then(pets => {
         dispatch({
           type: LOAD_PETS_SUCCESS,
-          payload: pets.data.splice(0, 15)
+          payload: pets.data
         });
       })
       .catch(err => {

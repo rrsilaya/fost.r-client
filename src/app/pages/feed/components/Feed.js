@@ -9,32 +9,42 @@ const { fadeUp } = transitions;
 class Feed extends Component {
   render() {
     const grids = (
-      <StackGrid
-        appear={fadeUp.appear}
-        columnWidth={280}
-        gutterHeight={10}
-        gutterWidth={10}>
-        {this.props.feed.map((pet, id) =>
-          <div key={id}>
-            <Tile
-              img={pet.img}
-              name={pet.name}
-              age={pet.age}
-              location={pet.location}
-              gender={pet.gender}
-              kind={pet.kind}
-              pet_id={pet._id}
-            />
-          </div>
-        )}
-      </StackGrid>
+      <div className="uk-margin-medium-top uk-margin-large-bottom ">
+        <StackGrid
+          appear={fadeUp.appear}
+          columnWidth={280}
+          gutterHeight={10}
+          gutterWidth={10}>
+          {this.props.feed.map((pet, id) =>
+            <div key={id}>
+              <Tile
+                img={pet.img}
+                name={pet.name}
+                age={pet.age}
+                location={pet.location}
+                gender={pet.gender}
+                kind={pet.kind}
+                pet_id={pet._id}
+              />
+            </div>
+          )}
+        </StackGrid>
+      </div>
     );
 
     return (
       <div>
         {this.props.isLoading
           ? <div className="uk-text-center"><div data-uk-spinner={''} /></div>
-          : this.props.hasErrorLoading ? <p>An error occured.</p> : grids}
+          : this.props.hasErrorLoading
+            ? <div className="full uk-flex uk-flex-middle uk-flex-center">
+                An error occurred.
+              </div>
+            : this.props.feed.length === 0
+              ? <p className="uk-margin-medium-top uk-text-center uk-text-muted">
+                  Available pets should appear here.
+                </p>
+              : grids}
         {this.props.feed.map((pet, key) =>
           <QuickPreview
             key={key}
