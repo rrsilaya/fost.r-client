@@ -18,14 +18,14 @@ export const updateForm = (name, value) => {
   };
 };
 
-export const login = (username, password) => {
+export const login = (username, password, accountType) => {
   return dispatch => {
     dispatch({
       type: LOGIN_REQ
     });
 
     axios
-      .post('/login/user', {
+      .post(`/login/${accountType}`, {
         Username: username,
         password
       })
@@ -68,7 +68,8 @@ const initialState = {
     username: '',
     password: ''
   },
-  isLoggingIn: false
+  isLoggingIn: false,
+  loginFail: false
 };
 
 // Reducer
@@ -84,7 +85,8 @@ const reducer = (state = initialState, action) => {
           password: action.name === 'password'
             ? action.value
             : state.loginForm.password
-        }
+        },
+        loginFail: false
       };
 
     case LOGIN_REQ:
@@ -94,7 +96,8 @@ const reducer = (state = initialState, action) => {
         loginForm: {
           username: '',
           password: ''
-        }
+        },
+        loginFail: false
       };
 
     case LOGIN_SUC:
@@ -102,7 +105,16 @@ const reducer = (state = initialState, action) => {
         ...state,
         isLoggingIn: false,
         isAuth: true,
-        accountType: action.payload
+        accountType: action.payload,
+        loginFail: false
+      };
+
+    case LOGIN_FAIL:
+      return {
+        ...state,
+        isLoggingIn: false,
+        isAuth: false,
+        loginFail: true
       };
 
     case LOGOUT_REQ:

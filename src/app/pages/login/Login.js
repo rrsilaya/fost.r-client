@@ -12,7 +12,11 @@ class Login extends Component {
 
   handleLogin = e => {
     e.preventDefault();
-    this.props.login(e.target.username.value, e.target.password.value);
+    this.props.login(
+      e.target.username.value,
+      e.target.password.value,
+      e.target.account.value
+    );
   };
 
   render() {
@@ -41,7 +45,9 @@ class Login extends Component {
                         type="text"
                         name="username"
                         value={this.props.loginForm.username}
-                        className="uk-input"
+                        className={`uk-input ${this.props.loginFail
+                          ? 'uk-form-danger'
+                          : ''}`}
                         placeholder="Username"
                         onChange={this.handleFormChange}
                       />
@@ -58,11 +64,37 @@ class Login extends Component {
                         type="password"
                         name="password"
                         value={this.props.loginForm.password}
-                        className="uk-input"
+                        className={`uk-input ${this.props.loginFail
+                          ? 'uk-form-danger'
+                          : ''}`}
                         placeholder="Password"
                         onChange={this.handleFormChange}
                       />
                     </div>
+                  </div>
+
+                  <div
+                    className="uk-margin uk-grid-small uk-child-width-expand"
+                    data-uk-grid>
+                    <label>
+                      <input
+                        type="radio"
+                        name="account"
+                        value="user"
+                        className="uk-radio"
+                        defaultChecked
+                      />
+                      <span className="uk-margin-small-right" />User
+                    </label>
+                    <label>
+                      <input
+                        type="radio"
+                        name="account"
+                        value="shelter"
+                        className="uk-radio"
+                      />
+                      <span className="uk-margin-small-right" />Shelter
+                    </label>
                   </div>
 
                   <div className="uk-margin uk-text-meta uk-text-left">

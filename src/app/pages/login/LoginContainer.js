@@ -5,7 +5,8 @@ import { updateForm, login } from '../../ducks/auth';
 const mapStateToProps = state => ({
   auth: state.auth.isAuth,
   loginForm: state.auth.loginForm,
-  isLoggingIn: state.auth.isLoggingIn
+  isLoggingIn: state.auth.isLoggingIn,
+  loginFail: state.auth.loginFail
 });
 
 const LoginContainer = connect(mapStateToProps, { updateForm, login })(Login);
