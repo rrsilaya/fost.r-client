@@ -26,7 +26,7 @@ const Footer = ({ accountType }) => {
 
         <div className="uk-text-center uk-visible@s uk-light">
           <a
-            href="https://www.fostr.com"
+            href="https://www.facebook.com/fost.r"
             data-uk-icon="icon: facebook;"
             className="uk-padding-small"
           />
@@ -38,11 +38,6 @@ const Footer = ({ accountType }) => {
           <a
             href="https://www.instagram.com/fostr"
             data-uk-icon="icon: instagram;"
-            className="uk-padding-small"
-          />
-          <a
-            href="https://www.facebook.com/fost.r"
-            data-uk-icon="icon: world;"
             className="uk-padding-small"
           />
 
