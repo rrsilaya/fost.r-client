@@ -19,15 +19,18 @@ class HamburgerMenu extends Component {
           <ul className="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
             <li><img src={logo} alt="fost.r" style={{ height: '160px' }} /></li>
             <li className="uk-nav-header">Navigation</li>
-            {navpages.map((link, key) =>
-              <li key={key}>
-                <NavLink
-                  to={link.href}
-                  activeClassName="active"
-                  data-uk-toggle="target: #main">
-                  {link.label}
-                </NavLink>
-              </li>
+            {navpages.map(
+              (link, key) =>
+                this.props.accountType === 'user' && link.label === 'Admin'
+                  ? ''
+                  : <li key={key}>
+                      <NavLink
+                        to={link.href}
+                        activeClassName="active"
+                        data-uk-toggle="target: #main">
+                        {link.label}
+                      </NavLink>
+                    </li>
             )}
             <li className="uk-nav-header">More Options</li>
             <li>

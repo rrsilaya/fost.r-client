@@ -7,6 +7,10 @@ import AnonUser from './pages/AnonUser';
 import FullLoader from './components/FullLoader';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.checkAuth();
+  }
+
   render() {
     return (
       <Router history={withRouter}>
@@ -18,6 +22,7 @@ class App extends Component {
                   logout={this.props.logout}
                   hasNotification={this.props.hasNotification}
                   clearNotif={this.props.clearNotif}
+                  accountType={this.props.accountType}
                 />
               : <AnonUser />}
         </div>

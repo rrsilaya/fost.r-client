@@ -1,29 +1,28 @@
 import React from 'react';
-import UIkit from 'uikit';
+import { notification, modal } from 'uikit';
+import moment from 'moment';
 
-const Post = ({ content, author, votes, time, type }) => {
+const Post = ({ content, title, author, votes, time, type }) => {
   const handleUpVote = e => {
     e.preventDefault();
-    UIkit.notification(`You upvoted this ${type}!`);
+    notification(`You upvoted this ${type}!`);
   };
 
   const handleDownVote = e => {
     e.preventDefault();
-    UIkit.notification(`You downvoted this ${type}!`);
+    notification(`You downvoted this ${type}!`);
   };
 
   const handleFavorite = e => {
     e.preventDefault();
-    UIkit.modal
-      .confirm('You are about to favorite this comment. Continue?')
-      .then(
-        () => {
-          UIkit.notification('Successfully favorited comment.');
-        },
-        () => {
-          UIkit.notification('Cancelled comment favorite.');
-        }
-      );
+    modal.confirm('You are about to favorite this comment. Continue?').then(
+      () => {
+        notification('Successfully favorited comment.');
+      },
+      () => {
+        notification('Cancelled comment favorite.');
+      }
+    );
   };
 
   return (
@@ -47,9 +46,9 @@ const Post = ({ content, author, votes, time, type }) => {
 
         <div className="uk-width-expand">
           <h3 className="uk-margin-small-bottom">
-            {content.split(' ').reverse().splice(0, 5).join(' ')}
+            {title}
           </h3>
-          <p className="uk-margin-remove">{content} {content}</p>
+          <p className="uk-margin-remove">{content}</p>
         </div>
       </div>
 
@@ -58,7 +57,7 @@ const Post = ({ content, author, votes, time, type }) => {
         data-uk-grid>
         <div className="uk-flex uk-flex-middle">
           <p className="uk-text-left@s uk-text-center uk-text-meta">
-            {time.split(' ').splice(0, 5).join(' ')}<br />{author}
+            {moment(time).format('MMMM D, YYYY HH:MM')}<br />{author}
           </p>
         </div>
         <div className="uk-flex uk-flex-middle uk-text-right">

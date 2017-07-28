@@ -64,9 +64,11 @@ const CommunityFeed = ({
                   {posts.map((post, key) =>
                     <Post
                       key={key}
-                      id={post._id}
-                      content={post.content}
-                      votes={5}
+                      id={post.post_uuid}
+                      title={post.post_title}
+                      content={post.text_post}
+                      votes={post.votes}
+                      answers={0}
                     />
                   )}
                 </ul>

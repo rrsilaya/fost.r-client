@@ -1,5 +1,9 @@
 const pages = [
   {
+    label: 'Admin',
+    href: '/admin'
+  },
+  {
     label: 'Feed',
     href: '/feed'
   },

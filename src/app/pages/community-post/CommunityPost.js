@@ -19,11 +19,7 @@ class CommunityPost extends Component {
     return (
       <DocumentTitle
         title={`fost.r${!this.props.isLoading && this.props.activePost
-          ? ` • ${this.props.activePost.content
-              .split(' ')
-              .reverse()
-              .splice(0, 5)
-              .join(' ')}`
+          ? ` • ${this.props.activePost.post_title}`
           : ''}`}>
         <div className="uk-container uk-container-small uk-margin-auto uk-margin-medium-top uk-margin-medium-bottom">
           {this.props.isLoading
@@ -36,22 +32,19 @@ class CommunityPost extends Component {
                     <ul className="uk-breadcrumb">
                       <li><Link to="/community">Community Feed</Link></li>
                       <li className="post-breadcrumb uk-text-truncate">
-                        {this.props.activePost.content
-                          .split(' ')
-                          .reverse()
-                          .splice(0, 5)
-                          .join(' ')}
+                        {this.props.activePost.post_title}
                       </li>
                     </ul>
                     <Post
-                      votes={-3}
-                      content={this.props.activePost.content}
-                      author={this.props.activePost.author}
-                      time={this.props.activePost.date}
+                      votes={this.props.activePost.votes}
+                      title={this.props.activePost.post_title}
+                      content={this.props.activePost.text_post}
+                      author={this.props.activePost.Posted_by}
+                      time={this.props.activePost.created_at}
                       type="post"
                     />
                     <ReplyForm
-                      id={this.props.activePost._id}
+                      id={this.props.activePost.post_uuid}
                       updateForm={this.props.updateForm}
                       replyForm={this.props.replyForm}
                     />

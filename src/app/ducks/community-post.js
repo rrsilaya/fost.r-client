@@ -17,11 +17,11 @@ export const getPostData = id => {
     });
 
     axios
-      .get(`/community?_id=${id}`)
+      .get(`/community/${id}`)
       .then(res => {
         dispatch({
           type: GET_POST_DATA_SUC,
-          payload: res.data[0]
+          payload: res.data[0][0]
         });
       })
       .catch(err => {
@@ -118,7 +118,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         isLoadingComments: false,
         isLoadingCommentsFailed: false,
-        comments: action.payload
+        comments: [] /////////
       };
 
     case GET_COMMENTS_FAIL:

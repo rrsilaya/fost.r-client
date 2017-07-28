@@ -14,7 +14,9 @@ class Navigation extends Component {
           data-uk-navbar>
           <div className="uk-navbar-left">
             <div className="uk-margin-large-left uk-visible@m">
-              <Link to="/feed" className="uk-navbar-item uk-logo">
+              <Link
+                to={this.props.accountType === 'user' ? '/feed' : '/admin'}
+                className="uk-navbar-item uk-logo">
                 <img src={logo} alt="fost.r" className="nav-logo" />
               </Link>
             </div>
@@ -33,12 +35,15 @@ class Navigation extends Component {
 
           <div className="uk-navbar-right uk-margin-large-right uk-text-right">
             <ul className="uk-navbar-nav uk-visible@m">
-              {navpages.map((link, key) =>
-                <li key={key}>
-                  <NavLink to={link.href} activeClassName="active">
-                    {link.label}
-                  </NavLink>
-                </li>
+              {navpages.map(
+                (link, key) =>
+                  this.props.accountType === 'user' && link.label === 'Admin'
+                    ? ''
+                    : <li key={key}>
+                        <NavLink to={link.href} activeClassName="active">
+                          {link.label}
+                        </NavLink>
+                      </li>
               )}
             </ul>
 
