@@ -99,7 +99,7 @@ class Login extends Component {
 
                   <div className="uk-margin uk-text-meta uk-text-left">
                     Don't have an account?{' '}
-                    <Link to="/signup" className="uk-text-primary">
+                    <Link to="/register" className="uk-text-primary">
                       Create now
                     </Link>.
                   </div>

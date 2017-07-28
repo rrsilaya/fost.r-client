@@ -12,7 +12,7 @@ class AnonUser extends Component {
         <Switch>
           <Route exact path="/" component={HomeContainer} />
           <Route exact path="/login" component={LoginContainer} />
-          <Route exact path="/signup" component={SignupContainer} />
+          <Route exact path="/register" component={SignupContainer} />
 
           <Redirect to="/" />
         </Switch>
