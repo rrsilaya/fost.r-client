@@ -7,6 +7,9 @@ const LOGIN_SUC = 'LOGIN_SUC';
 const LOGIN_FAIL = 'LOGIN_FAIL';
 const LOGOUT_REQ = 'LOGOUT_REQ';
 const LOGOUT_SUC = 'LOGOUT_SUC';
+const CHECK_AUTH_REQ = 'CHECK_AUTH_REQ';
+const CHECK_AUTH_SUC = 'CHECK_AUTH_SUC';
+const CHECK_AUTH_FAIL = 'CHECK_AUTH_FAIL';
 const CLEAR_NOTIF = 'CLEAR_NOTIF';
 
 // Action Creators
@@ -52,6 +55,29 @@ export const logout = () => {
   };
 };
 
+export const checkAuth = () => {
+  return dispatch => {
+    dispatch({
+      type: CHECK_AUTH_REQ
+    });
+
+    axios
+      .get('/session')
+      .then(res => {
+        dispatch({
+          type: CHECK_AUTH_SUC,
+          payload: res.data
+        });
+      })
+      .catch(err => {
+        dispatch({
+          type: CHECK_AUTH_FAIL,
+          payload: err
+        });
+      });
+  };
+};
+
 export const clearNotif = () => {
   return {
     type: CLEAR_NOTIF
@@ -61,7 +87,7 @@ export const clearNotif = () => {
 // Initial State
 const initialState = {
   isAuth: false,
-  isLoading: false,
+  isLoading: true,
   accountType: '',
   hasNotification: true,
   loginForm: {
@@ -129,6 +155,27 @@ const reducer = (state = initialState, action) => {
         isLoading: false,
         isAuth: false,
         accountType: ''
+      };
+
+    case CHECK_AUTH_REQ:
+      return {
+        ...state,
+        isLoading: true
+      };
+
+    case CHECK_AUTH_SUC:
+      return {
+        ...state,
+        isLoading: false,
+        isAuth: true,
+        accountType: action.payload
+      };
+
+    case CHECK_AUTH_FAIL:
+      return {
+        ...state,
+        isLoading: false,
+        isAuth: false
       };
 
     case CLEAR_NOTIF:
