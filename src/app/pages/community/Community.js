@@ -30,7 +30,11 @@ class Community extends Component {
             isLoading={this.props.isGettingFeedPosts}
             hasFailed={this.props.isGettingFeedPostsFailed}
           />
-          <NewPost />
+          <NewPost
+            updateForm={this.props.updateForm}
+            form={this.props.form}
+            addPost={this.props.addPost}
+          />
         </div>
       </DocumentTitle>
     );

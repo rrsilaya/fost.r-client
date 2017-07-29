@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { notification, modal } from 'uikit';
 
 // Actions
 const LOAD_ACTIVE_POSTS_REQ = 'LOAD_ACTIVE_POSTS_REQ';
@@ -8,6 +9,8 @@ const LOAD_FEED_POSTS_REQ = 'LOAD_FEED_POSTS_REQ';
 const LOAD_FEED_POSTS_SUC = 'LOAD_FEED_POSTS_SUC';
 const LOAD_FEED_POSTS_FAIL = 'LOAD_FEED_POSTS_FAIL';
 const CHANGE_TAB = 'CHANGE_TAB';
+const UPDATE_FORM = 'UPDATE_FORM';
+const ADD_POST_SUC = 'ADD_POST_SUC';
 
 // Action Creators
 export const handleTabChange = activeTab => {
@@ -69,6 +72,37 @@ export const getFeedPosts = category => {
   };
 };
 
+export const updateForm = (name, value) => {
+  return {
+    type: UPDATE_FORM,
+    name,
+    value
+  };
+};
+
+export const addPost = (post_title, text_post) => {
+  return dispatch => {
+    notification('Creating post...');
+    modal('#newpost').hide();
+
+    axios
+      .post('/community/addPost', {
+        post_title,
+        text_post
+      })
+      .then(res => {
+        notification('Post successfully created.', { status: 'success' });
+        dispatch({
+          type: ADD_POST_SUC
+        });
+      })
+      .catch(err => {
+        notification('Post creation failed.', { status: 'danger' });
+        modal('#newpost').show();
+      });
+  };
+};
+
 // Initial State
 const initialState = {
   activeTab: 'new',
@@ -79,7 +113,12 @@ const initialState = {
 
   isGettingFeedPosts: true,
   isGettingFeedPostsFailed: false,
-  userFeedPosts: []
+  userFeedPosts: [],
+
+  form: {
+    title: '',
+    content: ''
+  }
 };
 
 // Reducer
@@ -133,6 +172,21 @@ const reducer = (state = initialState, action) => {
         ...state,
         isGettingFeedPosts: false,
         isGettingFeedPostsFailed: true
+      };
+
+    case UPDATE_FORM:
+      return {
+        ...state,
+        form: {
+          ...state.form,
+          [action.name]: action.value
+        }
+      };
+
+    case ADD_POST_SUC:
+      return {
+        ...state,
+        form: initialState.form
       };
 
     default:

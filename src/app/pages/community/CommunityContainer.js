@@ -4,7 +4,9 @@ import Community from './Community';
 import {
   getActivePosts,
   getFeedPosts,
-  handleTabChange
+  handleTabChange,
+  updateForm,
+  addPost
 } from '../../ducks/community';
 
 const mapStateToProps = state => ({
@@ -16,13 +18,18 @@ const mapStateToProps = state => ({
 
   isGettingFeedPosts: state.community.isGettingFeedPosts,
   isGettingFeedPostsFailed: state.community.isGettingFeedPostsFailed,
-  userFeedPosts: state.community.userFeedPosts
+  userFeedPosts: state.community.userFeedPosts,
+
+  form: state.community.form,
+  hasFailed: state.community.hasFailed
 });
 
 const CommunityContainer = connect(mapStateToProps, {
   getActivePosts,
   getFeedPosts,
-  handleTabChange
+  handleTabChange,
+  updateForm,
+  addPost
 })(Community);
 
 export default CommunityContainer;
