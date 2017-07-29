@@ -40,11 +40,11 @@ export const getPostComments = id => {
     });
 
     axios
-      .get(`/community`)
+      .get(`/community/${id}/viewAllComments`)
       .then(res => {
         dispatch({
           type: GET_COMMENTS_SUC,
-          payload: res.data.splice(30, 40)
+          payload: res.data
         });
       })
       .catch(err => {
@@ -118,7 +118,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         isLoadingComments: false,
         isLoadingCommentsFailed: false,
-        comments: [] /////////
+        comments: action.payload
       };
 
     case GET_COMMENTS_FAIL:
