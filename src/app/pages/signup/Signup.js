@@ -39,6 +39,10 @@ class Signup extends Component {
     this.props.clearCreate();
   }
 
+  componentWillUnmount() {
+    this.props.clearCreate();
+  }
+
   render() {
     return (
       <DocumentTitle title="fost.r • Sign Up">
@@ -70,6 +74,7 @@ class Signup extends Component {
                           name="firstname"
                           id="new-firstname"
                           placeholder="Firstname"
+                          value={this.props.form.firstname}
                           onChange={this.handleFormUpdate}
                         />
                       </div>
@@ -81,6 +86,7 @@ class Signup extends Component {
                           className="uk-input"
                           placeholder="Lastname"
                           name="lastname"
+                          value={this.props.form.lastname}
                           onChange={this.handleFormUpdate}
                         />
                       </div>
@@ -109,6 +115,7 @@ class Signup extends Component {
                               : ''}`}
                           placeholder="Username"
                           name="username"
+                          value={this.props.form.value}
                           onChange={this.handleFormUpdate}
                         />
                       </div>
@@ -153,6 +160,7 @@ class Signup extends Component {
                           maxLength="16"
                           name="contact"
                           onChange={this.handleFormUpdate}
+                          value={this.props.form.contact}
                         />
                       </div>
                     </div>
@@ -168,6 +176,7 @@ class Signup extends Component {
                           placeholder="Address"
                           name="address"
                           onChange={this.handleFormUpdate}
+                          value={this.props.form.address}
                         />
                       </div>
                     </div>
@@ -192,6 +201,7 @@ class Signup extends Component {
                           placeholder="Email"
                           name="email"
                           onChange={this.handleFormUpdate}
+                          value={this.props.form.email}
                         />
                       </div>
                     </div>
@@ -207,6 +217,7 @@ class Signup extends Component {
                           placeholder="Password"
                           name="password"
                           onChange={this.handleFormUpdate}
+                          value={this.props.form.password}
                         />
                       </div>
                     </div>
@@ -219,6 +230,7 @@ class Signup extends Component {
                         className="uk-checkbox"
                         name="checkbox"
                         onChange={this.handleFormUpdate}
+                        checked={this.props.form.checkbox}
                       />
                       <span className="uk-margin-small-left" />I have read the
                       terms

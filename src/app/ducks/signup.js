@@ -73,7 +73,10 @@ const reducer = (state = initialState, action) => {
 
       return {
         ...state,
-        form: updatedForm
+        form: {
+          ...state.form,
+          [action.name]: action.value
+        }
       };
 
     case REGISTER_REQ:
@@ -94,7 +97,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         createdUser: false,
-        form: initialState.form
+        form: initialState.form,
+        isCreatingUser: false
       };
 
     default:
