@@ -19,10 +19,11 @@ const UserControls = ({ posts, isLoading, hasFailed }) => {
                   </div>
                 : posts.map((post, key) =>
                     <ActivePostItem
-                      id={post._id}
-                      content={post.content}
-                      votes={0}
                       key={key}
+                      id={post.post_uuid}
+                      title={post.post_title}
+                      content={post.text_post}
+                      votes={post.votes}
                     />
                   )}
         </ul>
