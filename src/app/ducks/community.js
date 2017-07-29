@@ -55,7 +55,7 @@ export const getFeedPosts = category => {
           ? '/community/sortByVotesDesc'
           : category === 'unanswered'
             ? '/community/sortByCommentsAsc'
-            : '/community/sortByTimeAsc'}`
+            : '/community/sortByTimeDesc'}`
       )
       .then(res => {
         dispatch({
