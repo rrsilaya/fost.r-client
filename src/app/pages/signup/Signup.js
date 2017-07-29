@@ -54,7 +54,7 @@ class Signup extends Component {
           <div className="uk-container uk-container-small uk-margin-auto">
             <h2>Create new account</h2>
 
-            <div className="uk-inline uk-width-1-1">
+            <div className="uk-inline uk-width-1-1 uk-margin-medium-bottom">
               <div>
                 <form
                   className="uk-form-stacked"
@@ -139,6 +139,9 @@ class Signup extends Component {
                           placeholderText="Birthday"
                           id="new-birthday"
                           name="birthday"
+                          showYearDropdown
+                          showMonthDropdown
+                          fixedHeight
                           onChange={this.handleDateChange}
                           selected={this.props.form.birthday}
                           value={
