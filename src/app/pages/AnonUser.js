@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 import HomeContainer from './home/HomeContainer';
 import LoginContainer from './login/LoginContainer';
-import SignupContainer from './signup/Signup';
+import SignupContainer from './signup/SignupContainer';
 
 class AnonUser extends Component {
   render() {

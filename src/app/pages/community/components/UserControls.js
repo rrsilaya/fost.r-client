@@ -19,17 +19,22 @@ const UserControls = ({ posts, isLoading, hasFailed }) => {
                   </div>
                 : posts.map((post, key) =>
                     <ActivePostItem
-                      id={post._id}
-                      content={post.content}
-                      votes={0}
                       key={key}
+                      id={post.post_uuid}
+                      title={post.post_title}
+                      content={post.text_post}
+                      votes={post.votes}
                     />
                   )}
         </ul>
       </div>
 
       <div className="uk-text-center">
-        <button className="uk-button uk-button-primary">New post</button>
+        <button
+          className="uk-button uk-button-primary"
+          data-uk-toggle="target: #newpost">
+          New post
+        </button>
       </div>
     </div>
   );

@@ -8,7 +8,6 @@ import CenterLoader from '../../../components/CenterLoader';
 class Date extends Component {
   handleDatePick = date => {
     this.props.setDate(date);
-    console.log(date.diff(moment(), 'days'));
   };
 
   handleSubmit = e => {

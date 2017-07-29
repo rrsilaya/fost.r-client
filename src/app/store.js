@@ -11,6 +11,7 @@ import communityPost from './ducks/community-post';
 import notifications from './ducks/notifications';
 import petDate from './ducks/pet-date';
 import admin from './ducks/admin';
+import signup from './ducks/signup';
 
 const store = createStore(
   combineReducers({
@@ -21,7 +22,8 @@ const store = createStore(
     communityPost,
     notifications,
     petDate,
-    admin
+    admin,
+    signup
     // Update this with all the reducers
     // to be used in the project
   }),

@@ -3,6 +3,7 @@ import DocumentTitle from 'react-document-title';
 
 import UserControls from './components/UserControls';
 import CommunityFeed from './components/CommunityFeed';
+import NewPost from './components/NewPost';
 
 class Community extends Component {
   componentDidMount() {
@@ -28,6 +29,11 @@ class Community extends Component {
             posts={this.props.userFeedPosts}
             isLoading={this.props.isGettingFeedPosts}
             hasFailed={this.props.isGettingFeedPostsFailed}
+          />
+          <NewPost
+            updateForm={this.props.updateForm}
+            form={this.props.form}
+            addPost={this.props.addPost}
           />
         </div>
       </DocumentTitle>
