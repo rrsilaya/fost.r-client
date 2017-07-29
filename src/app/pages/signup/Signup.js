@@ -3,9 +3,11 @@ import DocumentTitle from 'react-document-title';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import { modal } from 'uikit';
 
 import CenterLoader from '../../components/CenterLoader';
 import AnonNav from '../../components/navigation/AnonNav';
+import ConfirmPassword from './components/ConfirmPassword';
 
 class Signup extends Component {
   handleFormUpdate = e => {
@@ -21,17 +23,18 @@ class Signup extends Component {
 
   handleFormSubmit = e => {
     e.preventDefault();
+    modal('#confirm-password').hide();
 
     const form = e.target;
     this.props.register({
-      Username: form.username.value,
+      Username: form.usernameNew.value,
       firstname: form.firstname.value,
       lastname: form.lastname.value,
       birthday: form.contact.value,
       address: form.address.value,
       contactnum: form.contact.value,
       email: form.email.value,
-      password: form.password.value
+      password: form.passwordNew.value
     });
   };
 
@@ -55,6 +58,7 @@ class Signup extends Component {
               <div>
                 <form
                   className="uk-form-stacked"
+                  id="register"
                   onSubmit={this.handleFormSubmit}>
                   <div
                     className="uk-margin uk-grid-small uk-flex uk-flex-bottom uk-child-width-expand@s uk-child-width-1-1"
@@ -114,7 +118,7 @@ class Signup extends Component {
                               ? 'uk-form-success'
                               : ''}`}
                           placeholder="Username"
-                          name="username"
+                          name="usernameNew"
                           value={this.props.form.value}
                           onChange={this.handleFormUpdate}
                         />
@@ -215,7 +219,7 @@ class Signup extends Component {
                           type="password"
                           className="uk-input"
                           placeholder="Password"
-                          name="password"
+                          name="passwordNew"
                           onChange={this.handleFormUpdate}
                           value={this.props.form.password}
                         />
@@ -239,7 +243,14 @@ class Signup extends Component {
                   </div>
 
                   <div className="uk-text-center uk-margin-small-top">
-                    <button className="uk-button uk-button-primary">
+                    <button
+                      className="uk-button uk-button-primary"
+                      disabled={
+                        Object.values(this.props.form).filter(
+                          input => input === '' || input === false
+                        ).length > 1
+                      }
+                      data-uk-toggle="target: #confirm-password">
                       Create account
                     </button>
                   </div>
@@ -261,6 +272,10 @@ class Signup extends Component {
               </div>
             </div>
           </div>
+          <ConfirmPassword
+            status={this.props.form.password === this.props.form.prompt}
+            handleFormUpdate={this.handleFormUpdate}
+          />
         </div>
       </DocumentTitle>
     );

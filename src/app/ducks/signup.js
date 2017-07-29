@@ -52,12 +52,13 @@ const initialState = {
   form: {
     firstname: '',
     lastname: '',
-    username: '',
+    usernameNew: '',
     birthday: '',
     contact: '',
     address: '',
     email: '',
-    password: '',
+    passwordNew: '',
+    prompt: '',
     checkbox: false
   },
   isCreatingUser: false,
@@ -68,9 +69,6 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_FORM:
-      let updatedForm = state.form;
-      updatedForm[action.name] = action.value;
-
       return {
         ...state,
         form: {
