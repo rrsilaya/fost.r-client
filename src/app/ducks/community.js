@@ -47,15 +47,17 @@ export const getFeedPosts = category => {
     });
 
     axios
-      .get('/community')
+      .get(
+        `${category === 'featured'
+          ? '/community/sortByVotesDesc'
+          : category === 'unanswered'
+            ? '/community/sortByCommentsAsc'
+            : '/community/sortByTimeAsc'}`
+      )
       .then(res => {
         dispatch({
           type: LOAD_FEED_POSTS_SUC,
-          payload: category === 'top'
-            ? res.data.splice(4, 10)
-            : category === 'featured'
-              ? res.data.splice(10, 14)
-              : res.data.splice(15, 20)
+          payload: res.data.splice(0, 15)
         });
       })
       .catch(err => {
@@ -69,7 +71,7 @@ export const getFeedPosts = category => {
 
 // Initial State
 const initialState = {
-  activeTab: 'top',
+  activeTab: 'new',
 
   isGettingActivePosts: true,
   isGettingActivePostsFailed: false,

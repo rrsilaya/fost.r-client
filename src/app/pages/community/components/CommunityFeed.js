@@ -11,7 +11,7 @@ const CommunityFeed = ({
   isLoading,
   hasFailed
 }) => {
-  const tabs = ['Top', 'Featured', 'Unanswered'];
+  const tabs = ['Featured', 'New', 'Unanswered'];
 
   const changeTab = e => {
     handleTabChange(e.target.name);
@@ -68,7 +68,7 @@ const CommunityFeed = ({
                       title={post.post_title}
                       content={post.text_post}
                       votes={post.votes}
-                      answers={0}
+                      answers={post.comments}
                     />
                   )}
                 </ul>
