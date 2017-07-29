@@ -29,7 +29,11 @@ const UserControls = ({ posts, isLoading, hasFailed }) => {
       </div>
 
       <div className="uk-text-center">
-        <button className="uk-button uk-button-primary">New post</button>
+        <button
+          className="uk-button uk-button-primary"
+          data-uk-toggle="target: #newpost">
+          New post
+        </button>
       </div>
     </div>
   );
