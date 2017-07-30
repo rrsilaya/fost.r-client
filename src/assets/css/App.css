@@ -32,7 +32,6 @@
 .feed-tile {
 	object-fit: cover;
 	min-width: 100%;
-	min-height: 170px;
 	max-height: 280px;
 	background-color: #efefef;
 }

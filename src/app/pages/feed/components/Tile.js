@@ -11,7 +11,8 @@ class Tile extends Component {
             <div className="uk-background-cover">
               <img
                 src={this.props.img}
-                alt={this.props.key}
+                style={{ height: `${this.props.height}px` }}
+                alt={this.props.name}
                 className="feed-tile"
               />
             </div>
