@@ -39,8 +39,8 @@ const Pets = ({
                 <PetItem
                   name={pet.name}
                   kind={pet.kind}
-                  img={pet.img}
-                  birthday={'January 1, 2017'}
+                  img={pet.url}
+                  birthday={pet.birthday}
                   id={pet._id}
                 />
               )}

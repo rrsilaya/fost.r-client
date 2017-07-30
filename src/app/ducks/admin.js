@@ -69,13 +69,6 @@ export const getInfo = () => {
   };
 };
 
-export const incUpload = value => {
-  return {
-    type: UPLOAD_INC,
-    payload: value
-  };
-};
-
 export const addPet = form => {
   return dispatch => {
     dispatch({
@@ -85,13 +78,17 @@ export const addPet = form => {
     let data = new FormData();
     const formKeys = Object.keys(form);
 
-    formKeys.forEach(key => {
-      data.append(key, form.key);
+    formKeys.map(key => {
+      data.append(key, form[key]);
     });
 
     let config = {
-      onUploadProgress: e => {
-        incUpload(Math.round(e.loaded * 100 / e.total));
+      onUploadProgress: progressEvent => {
+        console.log(progressEvent);
+        dispatch({
+          type: UPLOAD_INC,
+          payload: Math.round(progressEvent.loaded * 100 / progressEvent.total)
+        });
       }
     };
 
