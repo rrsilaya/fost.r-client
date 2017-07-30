@@ -9,6 +9,7 @@ const ReplyForm = ({ id, updateForm, replyForm, replyToPost }) => {
     };
 
     replyToPost(id, data.title, data.content);
+    e.target.reset();
   };
 
   const handleFormUpdate = e => {
