@@ -8,7 +8,7 @@ import NewPost from './components/NewPost';
 class Community extends Component {
   componentDidMount() {
     this.props.getActivePosts();
-    this.props.getFeedPosts('top');
+    this.props.getFeedPosts(this.props.activeTab);
   }
 
   render() {
