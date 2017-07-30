@@ -7,7 +7,7 @@ import Feed from './components/Feed';
 
 class Adopt extends Component {
   componentDidMount() {
-    if (this.props.feed.length === 0) this.props.loadPets();
+    this.props.loadPets();
   }
 
   render() {

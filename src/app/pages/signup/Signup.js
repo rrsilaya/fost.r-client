@@ -276,7 +276,7 @@ class Signup extends Component {
             </div>
           </div>
           <ConfirmPassword
-            status={this.props.form.password === this.props.form.prompt}
+            status={this.props.form.passwordNew === this.props.form.prompt}
             handleFormUpdate={this.handleFormUpdate}
           />
         </div>

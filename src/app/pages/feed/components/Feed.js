@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import StackGrid, { transitions } from 'react-stack-grid';
+import moment from 'moment';
 
 import Tile from './Tile';
 import QuickPreview from './QuickPreview';
@@ -7,6 +8,14 @@ import QuickPreview from './QuickPreview';
 const { fadeUp } = transitions;
 
 class Feed extends Component {
+  getHeight = (height, width) => {
+    const ratio = height > width ? width / height : height / width;
+    const minWidth = 280;
+    const finHeight = ratio * minWidth;
+
+    return finHeight < 170 ? 170 : finHeight;
+  };
+
   render() {
     const grids = (
       <div className="uk-margin-medium-top uk-margin-large-bottom ">
@@ -18,13 +27,14 @@ class Feed extends Component {
           {this.props.feed.map((pet, id) =>
             <div key={id}>
               <Tile
-                img={pet.img}
+                img={pet.url}
+                height={this.getHeight(pet.height, pet.width)}
                 name={pet.name}
-                age={pet.age}
-                location={pet.location}
-                gender={pet.gender}
+                age={moment(pet.birthday).fromNow(true)}
+                location={pet.shelter_Username}
+                gender={pet.sex}
                 kind={pet.kind}
-                pet_id={pet._id}
+                pet_id={pet.uuid}
               />
             </div>
           )}

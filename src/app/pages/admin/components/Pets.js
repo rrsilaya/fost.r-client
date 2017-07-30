@@ -3,10 +3,23 @@ import React from 'react';
 import PetItem from './PetItem';
 import AddPet from './AddPet';
 
-const Pets = ({ pets }) => {
+const Pets = ({
+  pets,
+  addForm,
+  updateForm,
+  uploadState,
+  isAddingPet,
+  addPet
+}) => {
   return (
     <div>
-      <AddPet />
+      <AddPet
+        form={addForm}
+        updateForm={updateForm}
+        progress={uploadState}
+        isLoading={isAddingPet}
+        addPet={addPet}
+      />
       {pets.length === 0
         ? <p className="uk-text-center">
             Your pets will show here. Try to add some.
@@ -26,8 +39,8 @@ const Pets = ({ pets }) => {
                 <PetItem
                   name={pet.name}
                   kind={pet.kind}
-                  img={pet.img}
-                  birthday={'January 1, 2017'}
+                  img={pet.url}
+                  birthday={pet.birthday}
                   id={pet._id}
                 />
               )}

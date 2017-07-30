@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 const PetItem = ({ name, kind, img, birthday, id }) => {
   return (
@@ -8,7 +9,7 @@ const PetItem = ({ name, kind, img, birthday, id }) => {
       </td>
       <td>{name}</td>
       <td>{kind}</td>
-      <td>{birthday}</td>
+      <td>{moment(birthday).format('MMMM D, YYYY')}</td>
       <td className="uk-preserve-width">
         <button data-uk-icon="icon: close;" />
       </td>

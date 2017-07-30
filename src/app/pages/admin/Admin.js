@@ -11,6 +11,7 @@ import CenterLoader from '../../components/CenterLoader';
 
 class Admin extends Component {
   componentDidMount() {
+    this.props.getInfo();
     this.props.getPets();
   }
 
@@ -18,7 +19,11 @@ class Admin extends Component {
     return (
       <DocumentTitle title="fost.r • Admin">
         <div className="uk-container uk-container-small uk-margin-medium-top">
-          <Stats />
+          <Stats
+            isLoading={this.props.isGettingInfo}
+            hasFailed={this.props.isGettingInfoFailed}
+            shelterInfo={this.props.shelterInfo}
+          />
           <Tabs
             activeTab={this.props.activeTab}
             changeTab={this.props.changeTab}
@@ -30,7 +35,14 @@ class Admin extends Component {
               {this.props.activeTab === 'requests'
                 ? <Requests />
                 : this.props.activeTab === 'pets'
-                  ? <Pets pets={this.props.pets} />
+                  ? <Pets
+                      pets={this.props.pets}
+                      addForm={this.props.addForm}
+                      updateForm={this.props.updateForm}
+                      uploadState={this.props.uploadState}
+                      isAddingPet={this.props.isAddingPet}
+                      addPet={this.props.addPet}
+                    />
                   : ''}
             </div>
             {this.props.isLoading

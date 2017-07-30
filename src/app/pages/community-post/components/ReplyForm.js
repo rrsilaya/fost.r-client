@@ -1,19 +1,15 @@
 import React from 'react';
 
-import { modal } from 'uikit';
-
-const ReplyForm = ({ id, updateForm, replyForm }) => {
+const ReplyForm = ({ id, updateForm, replyForm, replyToPost }) => {
   const handleReply = e => {
+    e.preventDefault();
     const data = {
       title: e.target.title.value,
       content: e.target.content.value
     };
 
-    e.preventDefault();
-    // handle reply
-    modal('#reply-form-modal').hide();
-    updateForm('title', '');
-    updateForm('content', '');
+    replyToPost(id, data.title, data.content);
+    e.target.reset();
   };
 
   const handleFormUpdate = e => {

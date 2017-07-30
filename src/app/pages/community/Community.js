@@ -7,10 +7,8 @@ import NewPost from './components/NewPost';
 
 class Community extends Component {
   componentDidMount() {
-    // Active Posts
-    if (this.props.userActivePosts.length === 0) this.props.getActivePosts();
-    // Feed Posts
-    if (this.props.userFeedPosts.length === 0) this.props.getFeedPosts('top');
+    this.props.getActivePosts();
+    this.props.getFeedPosts(this.props.activeTab);
   }
 
   render() {

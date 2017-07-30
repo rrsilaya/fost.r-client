@@ -58,35 +58,39 @@ const CommunityFeed = ({
       <div className="uk-margin-small-top">
         {hasFailed
           ? <div className="uk-text-center">An error occured.</div>
-          : <div className="uk-inline uk-width-1-1">
-              <div>
-                <ul className="uk-list uk-list-divider">
-                  {posts.map((post, key) =>
-                    <Post
-                      key={key}
-                      id={post.post_uuid}
-                      title={post.post_title}
-                      content={post.text_post}
-                      votes={post.votes}
-                      answers={post.comments}
-                    />
-                  )}
-                </ul>
-                <div className="uk-text-center">
-                  <button className="uk-button uk-button-default">
-                    Load more
-                  </button>
-                </div>
+          : posts.length === 0
+            ? <div className="uk-text-center uk-text-meta">
+                Posts from community will appear here.
               </div>
-              {isLoading
-                ? [
-                    <div className="uk-overlay-default uk-position-cover" />,
-                    <div className="uk-overlay uk-position-top uk-padding-large">
-                      <CenterLoader />
-                    </div>
-                  ]
-                : ''}
-            </div>}
+            : <div className="uk-inline uk-width-1-1">
+                <div>
+                  <ul className="uk-list uk-list-divider">
+                    {posts.map((post, key) =>
+                      <Post
+                        key={key}
+                        id={post.post_uuid}
+                        title={post.post_title}
+                        content={post.text_post}
+                        votes={post.votes}
+                        answers={post.comments}
+                      />
+                    )}
+                  </ul>
+                  <div className="uk-text-center">
+                    <button className="uk-button uk-button-default">
+                      Load more
+                    </button>
+                  </div>
+                </div>
+                {isLoading
+                  ? [
+                      <div className="uk-overlay-default uk-position-cover" />,
+                      <div className="uk-overlay uk-position-top uk-padding-large">
+                        <CenterLoader />
+                      </div>
+                    ]
+                  : ''}
+              </div>}
       </div>
     </div>
   );
