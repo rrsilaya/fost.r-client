@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { modal, notification } from 'uikit';
 
 // Actions
 const GET_POST_DATA_REQ = 'GET_POST_DATA_REQ';
@@ -8,6 +9,7 @@ const GET_COMMENTS_REQ = 'GET_COMMENTS_REQ';
 const GET_COMMENTS_SUC = 'GET_COMMENTS_SUC';
 const GET_COMMENTS_FAIL = 'GET_COMMENTS_FAIL';
 const UPDATE_FORM = 'UPDATE_FORM';
+const REPLY_SUC = 'REPLY_SUC';
 
 // Action Creators
 export const getPostData = id => {
@@ -61,6 +63,29 @@ export const updateForm = (name, value) => {
     type: UPDATE_FORM,
     name,
     value
+  };
+};
+
+export const replyToPost = (id, title, content) => {
+  return dispatch => {
+    modal('#reply-form-modal').hide();
+    notification('Sending your reply...');
+
+    axios
+      .post(`/community/${id}`, {
+        comment_title: title,
+        comment_body: content
+      })
+      .then(res => {
+        notification('Successfully sent your reply.', { status: 'success' });
+        dispatch({
+          type: REPLY_SUC
+        });
+      })
+      .catch(err => {
+        notification('Failed to send your reply.', { status: 'danger' });
+        modal('#reply-form-modal').show();
+      });
   };
 };
 
@@ -138,6 +163,12 @@ const reducer = (state = initialState, action) => {
             ? action.value
             : state.replyForm.content
         }
+      };
+
+    case REPLY_SUC:
+      return {
+        ...state,
+        replyForm: initialState.replyForm
       };
 
     default:

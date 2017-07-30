@@ -4,7 +4,8 @@ import CommunityPost from './CommunityPost';
 import {
   getPostData,
   getPostComments,
-  updateForm
+  updateForm,
+  replyToPost
 } from '../../ducks/community-post';
 
 const mapStateToProps = state => ({
@@ -20,6 +21,7 @@ const mapStateToProps = state => ({
 const CommunityPostContainer = connect(mapStateToProps, {
   getPostData,
   getPostComments,
-  updateForm
+  updateForm,
+  replyToPost
 })(CommunityPost);
 export default CommunityPostContainer;
