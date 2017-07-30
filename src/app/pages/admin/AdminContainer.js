@@ -1,7 +1,13 @@
 import { connect } from 'react-redux';
 import Admin from './Admin';
 
-import { changeTab, getPets, getInfo } from '../../ducks/admin';
+import {
+  changeTab,
+  getPets,
+  getInfo,
+  updateForm,
+  addPet
+} from '../../ducks/admin';
 
 const mapStateToProps = state => ({
   activeTab: state.admin.activeTab,
@@ -12,12 +18,19 @@ const mapStateToProps = state => ({
   isAddingPet: state.admin.isAddingPet,
 
   isGettingInfo: state.admin.isGettingInfo,
-  shelterInfo: state.admin.shelterInfo
+  shelterInfo: state.admin.shelterInfo,
+  isGettingInfoFailed: state.admin.isGettingInfoFailed,
+
+  addForm: state.admin.addForm,
+  uploadState: state.admin.uploadState,
+  isAddingPet: state.admin.isAddingPet
 });
 
 const AdminContainer = connect(mapStateToProps, {
   changeTab,
   getPets,
-  getInfo
+  getInfo,
+  updateForm,
+  addPet
 })(Admin);
 export default AdminContainer;

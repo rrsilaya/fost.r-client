@@ -1,7 +1,7 @@
 import React from 'react';
 import CenterLoader from '../../../components/CenterLoader';
 
-const Stats = ({ isLoading, shelterInfo }) => {
+const Stats = ({ isLoading, shelterInfo, hasFailed }) => {
   return (
     <div className="uk-inline uk-width-1-1">
       <div
@@ -56,7 +56,9 @@ const Stats = ({ isLoading, shelterInfo }) => {
         ? [
             <div className="uk-overlay-primary uk-position-cover" />,
             <div className="uk-overlay uk-position-center uk-light">
-              <CenterLoader />
+              {hasFailed
+                ? <p className="uk-text-center">An error occured.</p>
+                : <CenterLoader />}
             </div>
           ]
         : ''}

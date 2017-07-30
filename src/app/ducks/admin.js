@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { modal, notification } from 'uikit';
 
 // Actions
 const CHANGE_TAB = 'CHANGE_TAB';
@@ -8,6 +9,11 @@ const GET_PETS_FAIL = 'GET_PETS_FAIL';
 const GET_INFO_REQ = 'GET_INFO_REQ';
 const GET_INFO_SUC = 'GET_INFO_SUC';
 const GET_INFO_FAIL = 'GET_INFO_FAIL';
+const UPDATE_FORM = 'UPDATE_FORM';
+const ADD_PET_REQ = 'ADD_PET_REQ';
+const ADD_PET_SUC = 'ADD_PET_SUC';
+const ADD_PET_FAIL = 'ADD_PET_FAIL';
+const UPLOAD_INC = 'UPLOAD_INC';
 
 // Action Creators
 export const changeTab = tab => {
@@ -63,6 +69,59 @@ export const getInfo = () => {
   };
 };
 
+export const incUpload = value => {
+  return {
+    type: UPLOAD_INC,
+    payload: value
+  };
+};
+
+export const addPet = form => {
+  return dispatch => {
+    dispatch({
+      type: ADD_PET_REQ
+    });
+
+    let data = new FormData();
+    const formKeys = Object.keys(form);
+
+    formKeys.forEach(key => {
+      data.append(key, form.key);
+    });
+
+    let config = {
+      onUploadProgress: e => {
+        incUpload(Math.round(e.loaded * 100 / e.total));
+      }
+    };
+
+    axios
+      .post('/pets/myPets', data, config)
+      .then(res => {
+        modal('#addpet-modal').hide();
+        notification('Successfully added pet.', { status: 'success' });
+        dispatch({
+          type: ADD_PET_SUC
+        });
+      })
+      .catch(err => {
+        notification('Failed to add pet.', { status: 'danger' });
+        dispatch({
+          type: ADD_PET_FAIL,
+          payload: err
+        });
+      });
+  };
+};
+
+export const updateForm = (name, value) => {
+  return {
+    type: UPDATE_FORM,
+    name,
+    value
+  };
+};
+
 // Initial State
 const initialState = {
   activeTab: 'requests',
@@ -70,10 +129,19 @@ const initialState = {
   hasFailed: false,
   pets: [],
 
-  isAddingPet: true,
-  addForm: {},
+  addForm: {
+    name: '',
+    kind: 'dog',
+    breed: '',
+    sex: '',
+    birthday: '',
+    photos: []
+  },
+  uploadState: 0,
+  isAddingPet: false,
 
   isGettingInfo: true,
+  isGettingInfoFailed: false,
   shelterInfo: {}
 };
 
@@ -119,6 +187,52 @@ const reducer = (state = initialState, action) => {
         ...state,
         isGettingInfo: false,
         shelterInfo: action.payload
+      };
+
+    case GET_INFO_FAIL:
+      return {
+        ...state,
+        isGettingInfoFailed: true,
+        isGettingInfo: false
+      };
+
+    case UPDATE_FORM:
+      return {
+        ...state,
+        addForm: {
+          ...state.addForm,
+          [action.name
+            .substr(6, action.name.length)
+            .toLowerCase()]: action.value
+        }
+      };
+
+    case UPLOAD_INC:
+      return {
+        ...state,
+        uploadState: action.payload
+      };
+
+    case ADD_PET_REQ:
+      return {
+        ...state,
+        isAddingPet: true,
+        uploadState: 0
+      };
+
+    case ADD_PET_SUC:
+      return {
+        ...state,
+        isAddingPet: false,
+        uploadState: 0,
+        addForm: initialState.addForm
+      };
+
+    case ADD_PET_FAIL:
+      return {
+        ...state,
+        isAddingPet: false,
+        uploadState: 0
       };
 
     default:
