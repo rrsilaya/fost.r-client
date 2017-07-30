@@ -116,8 +116,8 @@ const initialState = {
   userFeedPosts: [],
 
   form: {
-    title: '',
-    content: ''
+    newTitle: '',
+    newContent: ''
   }
 };
 

@@ -30,7 +30,7 @@ const NewPost = ({ updateForm, form, addPost }) => {
                   type="text"
                   className="uk-input"
                   id="newpost-title"
-                  name="title"
+                  name="newTitle"
                   placeholder="Post Title"
                   value={form.title}
                   onChange={handleFormUpdate}
@@ -46,7 +46,7 @@ const NewPost = ({ updateForm, form, addPost }) => {
                   id="newpost-content"
                   rows="5"
                   className="uk-textarea"
-                  name="content"
+                  name="newContent"
                   placeholder="Content"
                   value={form.content}
                   onChange={handleFormUpdate}
