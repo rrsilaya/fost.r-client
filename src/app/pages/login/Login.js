@@ -30,10 +30,19 @@ class Login extends Component {
               </Link>
             </div>
 
+            {this.props.loginFail
+              ? <div
+                  className="uk-alert-danger uk-margin-remove-bottom"
+                  data-uk-alert>
+                  <button className="uk-alert-close" data-uk-close />
+                  Invalid credentials.
+                </div>
+              : ''}
+
             <div className="uk-inline uk-width-1-1">
               <div>
                 <form
-                  className="uk-margin-medium-top"
+                  className="uk-margin-small-top"
                   onSubmit={this.handleLogin}>
                   <div className="uk-margin">
                     <div className="uk-inline uk-width-1-1">
@@ -45,9 +54,7 @@ class Login extends Component {
                         type="text"
                         name="username"
                         value={this.props.loginForm.username}
-                        className={`uk-input ${this.props.loginFail
-                          ? 'uk-form-danger'
-                          : ''}`}
+                        className="uk-input"
                         placeholder="Username"
                         onChange={this.handleFormChange}
                       />
@@ -64,9 +71,7 @@ class Login extends Component {
                         type="password"
                         name="password"
                         value={this.props.loginForm.password}
-                        className={`uk-input ${this.props.loginFail
-                          ? 'uk-form-danger'
-                          : ''}`}
+                        className="uk-input"
                         placeholder="Password"
                         onChange={this.handleFormChange}
                       />
