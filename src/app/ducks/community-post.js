@@ -42,7 +42,7 @@ export const getPostComments = id => {
     });
 
     axios
-      .get(`/community/${id}/viewAllComments`)
+      .get(`/community/viewAllComments/${id}`)
       .then(res => {
         dispatch({
           type: GET_COMMENTS_SUC,

@@ -15,7 +15,8 @@ const mapStateToProps = state => ({
   isLoadingComments: state.communityPost.isLoadingComments,
   isLoadingCommentsFailed: state.communityPost.isLoadingCommentsFailed,
   comments: state.communityPost.comments,
-  replyForm: state.communityPost.replyForm
+  replyForm: state.communityPost.replyForm,
+  activeUser: state.auth.activeUser
 });
 
 const CommunityPostContainer = connect(mapStateToProps, {

@@ -2,7 +2,7 @@ import React from 'react';
 import { notification, modal } from 'uikit';
 import moment from 'moment';
 
-const Post = ({ content, title, author, votes, time, type }) => {
+const Post = ({ content, title, author, votes, time, activeUser, type }) => {
   const handleUpVote = e => {
     e.preventDefault();
     notification(`You upvoted this ${type}!`);
@@ -76,11 +76,16 @@ const Post = ({ content, title, author, votes, time, type }) => {
             </div>
             <div className="uk-button-group">
               {type === 'post'
-                ? <button
-                    className="uk-button uk-button-primary"
-                    data-uk-icon="icon: reply"
-                    data-uk-toggle="target: #reply-form-modal"
-                  />
+                ? activeUser === author
+                  ? <button
+                      className="uk-button uk-button-danger"
+                      data-uk-icon="icon: trash"
+                    />
+                  : <button
+                      className="uk-button uk-button-primary"
+                      data-uk-icon="icon: reply"
+                      data-uk-toggle="target: #reply-form-modal"
+                    />
                 : <button
                     className="uk-button uk-button-secondary"
                     data-uk-icon="icon: star"

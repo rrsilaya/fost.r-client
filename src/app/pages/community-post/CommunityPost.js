@@ -41,6 +41,7 @@ class CommunityPost extends Component {
                       content={this.props.activePost.text_post}
                       author={this.props.activePost.Posted_by}
                       time={this.props.activePost.created_at}
+                      activeUser={this.props.activeUser}
                       type="post"
                     />
                     <ReplyForm
