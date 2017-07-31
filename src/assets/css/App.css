@@ -147,6 +147,10 @@
 	margin: auto !important;
 }
 
+.settings-container {
+	width: 90% !important;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {

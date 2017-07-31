@@ -8,6 +8,7 @@ import CommunityPostContainer from '../pages/community-post/CommunityPostContain
 import NotificationsContainer from '../pages/notifications/NotificationsContainer';
 import AdminContainer from '../pages/admin/AdminContainer';
 import RescueContainer from '../pages/rescue/RescueContainer';
+import SettingsContainer from '../pages/settings/SettingsContainer';
 import NoPage from '../pages/no-page/NoPage';
 
 class Main extends Component {
@@ -29,7 +30,8 @@ class Main extends Component {
           <Route exact path="/feed" component={FeedContainer} />
           <Route exact path="/feed/:id/:page" component={PetProfileContainer} />
           <Route exact path="/community" component={CommunityContainer} />
-          <Route exact paht="/rescue" component={RescueContainer} />
+          <Route exact path="/rescue" component={RescueContainer} />
+          <Route path="/settings" component={SettingsContainer} />
           <Route
             exact
             path="/community/post/:id"
