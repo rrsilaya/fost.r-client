@@ -10,11 +10,6 @@ const optionLinks = [
     icon: 'lifesaver'
   },
   {
-    route: '/feedback',
-    label: 'Feedback',
-    icon: 'forward'
-  },
-  {
     route: '/help',
     label: 'Help',
     icon: 'question'

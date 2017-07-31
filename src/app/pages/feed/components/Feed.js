@@ -17,31 +17,6 @@ class Feed extends Component {
   };
 
   render() {
-    const grids = (
-      <div className="uk-margin-medium-top uk-margin-large-bottom ">
-        <StackGrid
-          appear={fadeUp.appear}
-          columnWidth={280}
-          gutterHeight={10}
-          gutterWidth={10}>
-          {this.props.feed.map((pet, id) =>
-            <div key={id}>
-              <Tile
-                img={pet.url}
-                height={this.getHeight(pet.height, pet.width)}
-                name={pet.name}
-                age={moment(pet.birthday).fromNow(true)}
-                location={pet.shelter_Username}
-                gender={pet.sex}
-                kind={pet.kind}
-                pet_id={pet.uuid}
-              />
-            </div>
-          )}
-        </StackGrid>
-      </div>
-    );
-
     return (
       <div>
         {this.props.isLoading
@@ -54,17 +29,33 @@ class Feed extends Component {
               ? <p className="uk-margin-medium-top uk-text-center uk-text-muted">
                   Available pets should appear here.
                 </p>
-              : grids}
-        {this.props.feed.map((pet, key) =>
-          <QuickPreview
-            key={key}
-            id={pet._id}
-            img={pet.img}
-            name={pet.name}
-            location={pet.location}
-            gender={pet.gender}
-          />
-        )}
+              : <div className="uk-margin-medium-top uk-margin-large-bottom ">
+                  <StackGrid
+                    appear={fadeUp.appear}
+                    columnWidth={280}
+                    gutterHeight={10}
+                    gutterWidth={10}>
+                    {this.props.feed.map((pet, id) =>
+                      <div key={id}>
+                        <Tile
+                          img={pet.url}
+                          height={this.getHeight(pet.height, pet.width)}
+                          name={pet.name}
+                          age={moment(pet.birthday).fromNow(true)}
+                          location={pet.shelter_Username}
+                          gender={pet.sex}
+                          kind={pet.kind}
+                          pet_id={pet.uuid}
+                          getQuickData={this.props.getQuickData}
+                        />
+                      </div>
+                    )}
+                  </StackGrid>
+                </div>}
+        <QuickPreview
+          isLoading={this.props.isGettingQuickData}
+          data={this.props.quickData}
+        />
       </div>
     );
   }

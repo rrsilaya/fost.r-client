@@ -1,13 +1,20 @@
 import React from 'react';
+import { modal } from 'uikit';
 
-const NewPost = ({ updateForm, form, addPost }) => {
+const NewPost = ({ updateForm, form, addPost, resetForm }) => {
   const handleFormUpdate = e => {
     updateForm(e.target.name, e.target.value);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    addPost(e.target.title.value, e.target.content.value);
+    addPost(e.target.newTitle.value, e.target.newContent.value);
+    e.target.reset();
+  };
+
+  const handleClose = () => {
+    resetForm();
+    modal('#newpost').hide();
   };
 
   return (
@@ -32,7 +39,7 @@ const NewPost = ({ updateForm, form, addPost }) => {
                   id="newpost-title"
                   name="newTitle"
                   placeholder="Post Title"
-                  value={form.title}
+                  value={form.newTitle}
                   onChange={handleFormUpdate}
                 />
               </div>
@@ -48,7 +55,7 @@ const NewPost = ({ updateForm, form, addPost }) => {
                   className="uk-textarea"
                   name="newContent"
                   placeholder="Content"
-                  value={form.content}
+                  value={form.newContent}
                   onChange={handleFormUpdate}
                 />
               </div>
@@ -57,14 +64,14 @@ const NewPost = ({ updateForm, form, addPost }) => {
         </div>
 
         <div className="uk-modal-footer uk-text-right@s uk-text-center">
-          <button className="uk-button uk-button-default uk-modal-close">
+          <button className="uk-button uk-button-default" onClick={handleClose}>
             Cancel
           </button>
           <button
             className="uk-button uk-button-primary uk-margin-small-left"
             type="submit"
             form="newpost-form"
-            disabled={!(form.title && form.content)}>
+            disabled={!(form.newTitle && form.newContent)}>
             Post
           </button>
         </div>

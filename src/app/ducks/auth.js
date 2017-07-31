@@ -101,7 +101,8 @@ const initialState = {
     password: ''
   },
   isLoggingIn: false,
-  loginFail: false
+  loginFail: false,
+  activeUser: ''
 };
 
 // Reducer
@@ -137,7 +138,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         isLoggingIn: false,
         isAuth: true,
-        accountType: action.payload,
+        accountType: action.payload[0],
+        activeUser: action.payload[1],
         loginFail: false
       };
 
@@ -160,7 +162,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         isAuth: false,
-        accountType: ''
+        accountType: '',
+        activeUser: ''
       };
 
     case CHECK_AUTH_REQ:
@@ -174,7 +177,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         isAuth: true,
-        accountType: action.payload
+        accountType: action.payload[0],
+        activeUser: action.payload[1]
       };
 
     case CHECK_AUTH_FAIL:

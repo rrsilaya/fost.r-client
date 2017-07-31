@@ -27,6 +27,9 @@ class Adopt extends Component {
               isLoading={this.props.isFeedLoading}
               hasErrorLoading={this.props.hasErrorLoading}
               feed={this.props.feed}
+              isGettingQuickData={this.props.isGettingQuickData}
+              getQuickData={this.props.getQuickData}
+              quickData={this.props.quickData}
             />
           </div>
         </div>

@@ -32,6 +32,7 @@ class Community extends Component {
             updateForm={this.props.updateForm}
             form={this.props.form}
             addPost={this.props.addPost}
+            resetForm={this.props.resetForm}
           />
         </div>
       </DocumentTitle>

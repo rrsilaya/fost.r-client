@@ -2,7 +2,17 @@ import React from 'react';
 import { notification, modal } from 'uikit';
 import moment from 'moment';
 
-const Post = ({ content, title, author, votes, time, type }) => {
+const Post = ({
+  id,
+  content,
+  title,
+  author,
+  votes,
+  time,
+  activeUser,
+  type,
+  deletePost
+}) => {
   const handleUpVote = e => {
     e.preventDefault();
     notification(`You upvoted this ${type}!`);
@@ -23,6 +33,17 @@ const Post = ({ content, title, author, votes, time, type }) => {
         notification('Cancelled comment favorite.');
       }
     );
+  };
+
+  const handlePostDelete = () => {
+    modal
+      .confirm('Are you sure you want to delete this post?', { center: true })
+      .then(
+        () => {
+          deletePost(id);
+        },
+        () => {}
+      );
   };
 
   return (
@@ -57,7 +78,7 @@ const Post = ({ content, title, author, votes, time, type }) => {
         data-uk-grid>
         <div className="uk-flex uk-flex-middle">
           <p className="uk-text-left@s uk-text-center uk-text-meta">
-            {moment(time).format('MMMM D, YYYY HH:MM')}<br />{author}
+            {moment(time).format('MMMM D, YYYY H:MM A')}<br />{author}
           </p>
         </div>
         <div className="uk-flex uk-flex-middle uk-text-right">
@@ -76,11 +97,17 @@ const Post = ({ content, title, author, votes, time, type }) => {
             </div>
             <div className="uk-button-group">
               {type === 'post'
-                ? <button
-                    className="uk-button uk-button-primary"
-                    data-uk-icon="icon: reply"
-                    data-uk-toggle="target: #reply-form-modal"
-                  />
+                ? activeUser === author
+                  ? <button
+                      className="uk-button uk-button-danger"
+                      data-uk-icon="icon: trash"
+                      onClick={handlePostDelete}
+                    />
+                  : <button
+                      className="uk-button uk-button-primary"
+                      data-uk-icon="icon: reply"
+                      data-uk-toggle="target: #reply-form-modal"
+                    />
                 : <button
                     className="uk-button uk-button-secondary"
                     data-uk-icon="icon: star"

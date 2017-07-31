@@ -11,6 +11,8 @@ const LOAD_FEED_POSTS_FAIL = 'LOAD_FEED_POSTS_FAIL';
 const CHANGE_TAB = 'CHANGE_TAB';
 const UPDATE_FORM = 'UPDATE_FORM';
 const ADD_POST_SUC = 'ADD_POST_SUC';
+const DELETE_POST_SUC = 'DELETE_POST_SUC';
+const CLEAR_FORM = 'CLEAR_FORM';
 
 // Action Creators
 export const handleTabChange = activeTab => {
@@ -52,10 +54,10 @@ export const getFeedPosts = category => {
     axios
       .get(
         `${category === 'featured'
-          ? '/community/sortByVotesDesc'
+          ? '/community/sortByVotesDesc/page/1'
           : category === 'unanswered'
-            ? '/community/sortByCommentsAsc'
-            : '/community/sortByTimeDesc'}`
+            ? '/community/sortByCommentsAsc/page/1'
+            : '/community/sortByTimeDesc/page/1'}`
       )
       .then(res => {
         dispatch({
@@ -103,6 +105,28 @@ export const addPost = (post_title, text_post) => {
   };
 };
 
+export const deletePost = id => {
+  return dispatch => {
+    axios
+      .delete(`/community/${id}`)
+      .then(() => {
+        notification('Successfully deleted post.', { status: 'success' });
+        dispatch({
+          type: DELETE_POST_SUC
+        });
+      })
+      .catch(() => {
+        notification('Failed to delete post.', { status: 'danger' });
+      });
+  };
+};
+
+export const resetForm = () => {
+  return {
+    type: CLEAR_FORM
+  };
+};
+
 // Initial State
 const initialState = {
   activeTab: 'new',
@@ -118,7 +142,9 @@ const initialState = {
   form: {
     newTitle: '',
     newContent: ''
-  }
+  },
+
+  deleteSuccess: false
 };
 
 // Reducer
@@ -134,7 +160,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isGettingActivePosts: true,
-        isGettingActivePostsFailed: false
+        isGettingActivePostsFailed: false,
+        deleteSuccess: false
       };
 
     case LOAD_ACTIVE_POSTS_SUC:
@@ -184,6 +211,18 @@ const reducer = (state = initialState, action) => {
       };
 
     case ADD_POST_SUC:
+      return {
+        ...state,
+        form: initialState.form
+      };
+
+    case DELETE_POST_SUC:
+      return {
+        ...state,
+        deleteSuccess: true
+      };
+
+    case CLEAR_FORM:
       return {
         ...state,
         form: initialState.form

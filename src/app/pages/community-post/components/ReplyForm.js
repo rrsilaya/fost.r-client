@@ -1,6 +1,7 @@
 import React from 'react';
+import { modal } from 'uikit';
 
-const ReplyForm = ({ id, updateForm, replyForm, replyToPost }) => {
+const ReplyForm = ({ id, updateForm, replyForm, replyToPost, resetForm }) => {
   const handleReply = e => {
     e.preventDefault();
     const data = {
@@ -14,6 +15,11 @@ const ReplyForm = ({ id, updateForm, replyForm, replyToPost }) => {
 
   const handleFormUpdate = e => {
     updateForm(e.target.name, e.target.value);
+  };
+
+  const handleClose = () => {
+    modal('#reply-form-modal').hide();
+    resetForm();
   };
 
   return (
@@ -68,7 +74,7 @@ const ReplyForm = ({ id, updateForm, replyForm, replyToPost }) => {
         </div>
 
         <div className="uk-modal-footer uk-text-right@s uk-text-center">
-          <button className="uk-button uk-button-default uk-modal-close">
+          <button className="uk-button uk-button-default" onClick={handleClose}>
             Cancel
           </button>
           <button
