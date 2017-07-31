@@ -57,7 +57,7 @@ const Post = ({ content, title, author, votes, time, activeUser, type }) => {
         data-uk-grid>
         <div className="uk-flex uk-flex-middle">
           <p className="uk-text-left@s uk-text-center uk-text-meta">
-            {moment(time).format('MMMM D, YYYY HH:MM')}<br />{author}
+            {moment(time).format('MMMM D, YYYY H:MM A')}<br />{author}
           </p>
         </div>
         <div className="uk-flex uk-flex-middle uk-text-right">

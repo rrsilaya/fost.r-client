@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 import Post from './Post';
 import CenterLoader from '../../../components/CenterLoader';
@@ -18,9 +19,9 @@ const Replies = ({ isLoading, hasFailed, comments }) => {
                   <li key={key}>
                     <Post
                       votes={comment.votes}
-                      content={comment.content}
-                      author={comment.author}
-                      time={comment.date}
+                      content={comment.comment_body}
+                      author={comment.commented_by}
+                      time={comment.created_at}
                       type="comment"
                     />
                   </li>
