@@ -6,7 +6,7 @@ import PetProfileContainer from '../pages/pet-profile/PetProfileContainer';
 import PetRequestContainer from '../pages/pet-request/PetRequestContainer';
 import CommunityContainer from '../pages/community/CommunityContainer';
 import NoPage from '../pages/no-page/NoPage';
-import Settings from '../pages/settings/SettingsContainer';
+import Settings from '../pages/settings/NavigationContainer';
 
 class Main extends Component {
   render() {
