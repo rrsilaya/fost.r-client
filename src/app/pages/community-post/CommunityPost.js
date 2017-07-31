@@ -52,6 +52,7 @@ class CommunityPost extends Component {
                       updateForm={this.props.updateForm}
                       replyForm={this.props.replyForm}
                       replyToPost={this.props.replyToPost}
+                      resetForm={this.props.resetForm}
                     />
                     <Replies
                       isLoading={this.props.isLoadingComments}

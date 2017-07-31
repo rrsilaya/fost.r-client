@@ -12,6 +12,7 @@ const CHANGE_TAB = 'CHANGE_TAB';
 const UPDATE_FORM = 'UPDATE_FORM';
 const ADD_POST_SUC = 'ADD_POST_SUC';
 const DELETE_POST_SUC = 'DELETE_POST_SUC';
+const CLEAR_FORM = 'CLEAR_FORM';
 
 // Action Creators
 export const handleTabChange = activeTab => {
@@ -120,6 +121,12 @@ export const deletePost = id => {
   };
 };
 
+export const resetForm = () => {
+  return {
+    type: CLEAR_FORM
+  };
+};
+
 // Initial State
 const initialState = {
   activeTab: 'new',
@@ -213,6 +220,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         deleteSuccess: true
+      };
+
+    case CLEAR_FORM:
+      return {
+        ...state,
+        form: initialState.form
       };
 
     default:

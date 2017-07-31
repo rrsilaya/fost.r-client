@@ -5,7 +5,8 @@ import {
   getPostData,
   getPostComments,
   updateForm,
-  replyToPost
+  replyToPost,
+  resetForm
 } from '../../ducks/community-post';
 import { deletePost } from '../../ducks/community';
 
@@ -27,6 +28,7 @@ const CommunityPostContainer = connect(mapStateToProps, {
   getPostComments,
   updateForm,
   replyToPost,
-  deletePost
+  deletePost,
+  resetForm
 })(CommunityPost);
 export default CommunityPostContainer;

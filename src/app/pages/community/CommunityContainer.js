@@ -6,7 +6,8 @@ import {
   getFeedPosts,
   handleTabChange,
   updateForm,
-  addPost
+  addPost,
+  resetForm
 } from '../../ducks/community';
 
 const mapStateToProps = state => ({
@@ -29,7 +30,8 @@ const CommunityContainer = connect(mapStateToProps, {
   getFeedPosts,
   handleTabChange,
   updateForm,
-  addPost
+  addPost,
+  resetForm
 })(Community);
 
 export default CommunityContainer;

@@ -10,6 +10,7 @@ const GET_COMMENTS_SUC = 'GET_COMMENTS_SUC';
 const GET_COMMENTS_FAIL = 'GET_COMMENTS_FAIL';
 const UPDATE_FORM = 'UPDATE_FORM';
 const REPLY_SUC = 'REPLY_SUC';
+const CLEAR_FORM = 'CLEAR_FORM';
 
 // Action Creators
 export const getPostData = id => {
@@ -86,6 +87,12 @@ export const replyToPost = (id, title, content) => {
         notification('Failed to send your reply.', { status: 'danger' });
         modal('#reply-form-modal').show();
       });
+  };
+};
+
+export const resetForm = () => {
+  return {
+    type: CLEAR_FORM
   };
 };
 
@@ -166,6 +173,12 @@ const reducer = (state = initialState, action) => {
       };
 
     case REPLY_SUC:
+      return {
+        ...state,
+        replyForm: initialState.replyForm
+      };
+
+    case CLEAR_FORM:
       return {
         ...state,
         replyForm: initialState.replyForm
