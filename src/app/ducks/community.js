@@ -52,10 +52,10 @@ export const getFeedPosts = category => {
     axios
       .get(
         `${category === 'featured'
-          ? '/community/sortByVotesDesc'
+          ? '/community/sortByVotesDesc/page/1'
           : category === 'unanswered'
-            ? '/community/sortByCommentsAsc'
-            : '/community/sortByTimeDesc'}`
+            ? '/community/sortByCommentsAsc/page/1'
+            : '/community/sortByTimeDesc/page/1'}`
       )
       .then(res => {
         dispatch({
