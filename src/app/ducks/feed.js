@@ -4,6 +4,8 @@ import axios from 'axios';
 const LOAD_PETS_REQ = 'LOAD_PETS_REQ';
 const LOAD_PETS_SUCCESS = 'LOAD_PETS_SUCCESS';
 const LOAD_PETS_FAIL = 'LOAD_PETS_FAIL';
+const GET_DATA_REQ = 'GET_DATA_REQ';
+const GET_DATA_SUC = 'GET_DATA_SUC';
 
 // Action Creators
 export const loadPets = () => {
@@ -52,12 +54,30 @@ export const filterFeed = (filter, key) => {
   };
 };
 
+export const getQuickData = id => {
+  return dispatch => {
+    dispatch({
+      type: GET_DATA_REQ
+    });
+
+    axios.get(`/pets/${id}`).then(res => {
+      dispatch({
+        type: GET_DATA_SUC,
+        payload: res.data
+      });
+    });
+  };
+};
+
 // Initial State
 const initialState = {
   isFeedLoading: true,
   hasErrorLoading: false,
   pets: ['Dog', 'Cat', 'Snake', 'Turtle', 'Rodent'],
-  feed: []
+  feed: [],
+
+  quickData: {},
+  isGettingQuickData: true
 };
 
 // Reducer
@@ -69,6 +89,7 @@ const reducer = (state = initialState, action) => {
         isFeedLoading: true,
         hasErrorLoading: false
       };
+
     case LOAD_PETS_SUCCESS:
       return {
         ...state,
@@ -76,11 +97,26 @@ const reducer = (state = initialState, action) => {
         hasErrorLoading: false,
         feed: action.payload
       };
+
     case LOAD_PETS_FAIL:
       return {
         ...state,
         isFeedLoading: false,
         hasErrorLoading: true
+      };
+
+    case GET_DATA_REQ:
+      return {
+        ...state,
+        isGettingQuickData: true,
+        quickData: {}
+      };
+
+    case GET_DATA_SUC:
+      return {
+        ...state,
+        isGettingQuickData: false,
+        quickData: action.payload
       };
 
     default:

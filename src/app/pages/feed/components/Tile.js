@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import { modal } from 'uikit';
 
 class Tile extends Component {
+  handleClick = () => {
+    this.props.getQuickData(this.props.pet_id);
+    modal('#quick-preview-modal').show();
+  };
+
   render() {
     return (
       <button
-        className="uk-button flat uk-box-shadow-hover-xlarge"
-        data-uk-toggle={`target: #${this.props.pet_id}`}>
+        className="uk-button flat uk-box-shadow-hover-large"
+        onClick={this.handleClick}>
         <div className="uk-card uk-card-small uk-card-default">
           <div className="uk-card-media-top">
             <div className="uk-background-cover">
