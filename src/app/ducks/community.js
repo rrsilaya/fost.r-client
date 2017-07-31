@@ -11,6 +11,7 @@ const LOAD_FEED_POSTS_FAIL = 'LOAD_FEED_POSTS_FAIL';
 const CHANGE_TAB = 'CHANGE_TAB';
 const UPDATE_FORM = 'UPDATE_FORM';
 const ADD_POST_SUC = 'ADD_POST_SUC';
+const DELETE_POST_SUC = 'DELETE_POST_SUC';
 
 // Action Creators
 export const handleTabChange = activeTab => {
@@ -103,6 +104,22 @@ export const addPost = (post_title, text_post) => {
   };
 };
 
+export const deletePost = id => {
+  return dispatch => {
+    axios
+      .delete(`/community/${id}`)
+      .then(() => {
+        notification('Successfully deleted post.', { status: 'success' });
+        dispatch({
+          type: DELETE_POST_SUC
+        });
+      })
+      .catch(() => {
+        notification('Failed to delete post.', { status: 'danger' });
+      });
+  };
+};
+
 // Initial State
 const initialState = {
   activeTab: 'new',
@@ -118,7 +135,9 @@ const initialState = {
   form: {
     newTitle: '',
     newContent: ''
-  }
+  },
+
+  deleteSuccess: false
 };
 
 // Reducer
@@ -134,7 +153,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isGettingActivePosts: true,
-        isGettingActivePostsFailed: false
+        isGettingActivePostsFailed: false,
+        deleteSuccess: false
       };
 
     case LOAD_ACTIVE_POSTS_SUC:
@@ -187,6 +207,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         form: initialState.form
+      };
+
+    case DELETE_POST_SUC:
+      return {
+        ...state,
+        deleteSuccess: true
       };
 
     default:

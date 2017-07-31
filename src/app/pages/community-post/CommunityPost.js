@@ -22,6 +22,7 @@ class CommunityPost extends Component {
           ? ` • ${this.props.activePost.post_title}`
           : ''}`}>
         <div className="uk-container uk-container-small uk-margin-auto uk-margin-medium-top uk-margin-medium-bottom">
+          {this.props.deleteSuccess ? <Redirect to="/community" /> : ''}
           {this.props.isLoading
             ? <CenterLoader />
             : this.props.hasFailed
@@ -36,12 +37,14 @@ class CommunityPost extends Component {
                       </li>
                     </ul>
                     <Post
+                      id={this.props.activePost.post_uuid}
                       votes={this.props.activePost.votes}
                       title={this.props.activePost.post_title}
                       content={this.props.activePost.text_post}
                       author={this.props.activePost.Posted_by}
                       time={this.props.activePost.created_at}
                       activeUser={this.props.activeUser}
+                      deletePost={this.props.deletePost}
                       type="post"
                     />
                     <ReplyForm

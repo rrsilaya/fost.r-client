@@ -2,7 +2,17 @@ import React from 'react';
 import { notification, modal } from 'uikit';
 import moment from 'moment';
 
-const Post = ({ content, title, author, votes, time, activeUser, type }) => {
+const Post = ({
+  id,
+  content,
+  title,
+  author,
+  votes,
+  time,
+  activeUser,
+  type,
+  deletePost
+}) => {
   const handleUpVote = e => {
     e.preventDefault();
     notification(`You upvoted this ${type}!`);
@@ -23,6 +33,17 @@ const Post = ({ content, title, author, votes, time, activeUser, type }) => {
         notification('Cancelled comment favorite.');
       }
     );
+  };
+
+  const handlePostDelete = () => {
+    modal
+      .confirm('Are you sure you want to delete this post?', { center: true })
+      .then(
+        () => {
+          deletePost(id);
+        },
+        () => {}
+      );
   };
 
   return (
@@ -80,6 +101,7 @@ const Post = ({ content, title, author, votes, time, activeUser, type }) => {
                   ? <button
                       className="uk-button uk-button-danger"
                       data-uk-icon="icon: trash"
+                      onClick={handlePostDelete}
                     />
                   : <button
                       className="uk-button uk-button-primary"
