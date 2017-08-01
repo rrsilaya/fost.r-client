@@ -147,6 +147,10 @@
 	margin: auto !important;
 }
 
+.rescue-icon {
+	background-size: cover;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {

@@ -7,6 +7,8 @@ const INC_PROGRESS = 'INC_PROGRESS';
 const RESCUE_REQ = 'RESCUE_REQ';
 const RESCUE_SUC = 'RESCUE_SUC';
 const RESCUE_FAIL = 'RESCUE_FAIL';
+const GET_RESCUE_REQ = 'GET_RESCUE_REQ';
+const GET_RESCUE_SUC = 'GET_RESCUE_SUC';
 
 // Action Creators
 export const updateForm = (name, value) => {
@@ -58,9 +60,26 @@ export const sendRescue = form => {
   };
 };
 
+export const loadRequests = () => {
+  return dispatch => {
+    dispatch({
+      type: GET_RESCUE_REQ
+    });
+
+    axios.get('/rescue').then(res => {
+      dispatch({
+        type: GET_RESCUE_SUC,
+        payload: res.data
+      });
+    });
+  };
+};
+
 // Initial State
 const initialState = {
   requests: [],
+  isGettingRequests: true,
+
   form: {
     content: '',
     checked: false,
@@ -68,7 +87,7 @@ const initialState = {
   },
 
   isSending: false,
-  progress: 10
+  progress: 0
 };
 
 // Reducer
@@ -108,6 +127,19 @@ const reducer = (state = initialState, action) => {
         ...state,
         isSending: false,
         progress: 0
+      };
+
+    case GET_RESCUE_REQ:
+      return {
+        ...state,
+        isGettingRequests: true
+      };
+
+    case GET_RESCUE_SUC:
+      return {
+        ...state,
+        isGettingRequests: false,
+        requests: action.payload
       };
 
     default:
