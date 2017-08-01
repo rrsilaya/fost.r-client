@@ -26,7 +26,6 @@ class Main extends Component {
           component={CommunityPostContainer}
         />
         <Route exact path="/profile" component={ProfileContainer} />
-
         <Route component={NoPage} />
       </Switch>
     );
