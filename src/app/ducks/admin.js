@@ -84,7 +84,6 @@ export const addPet = form => {
 
     let config = {
       onUploadProgress: progressEvent => {
-        console.log(progressEvent);
         dispatch({
           type: UPLOAD_INC,
           payload: Math.round(progressEvent.loaded * 100 / progressEvent.total)

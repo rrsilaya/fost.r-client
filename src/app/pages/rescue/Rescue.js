@@ -13,6 +13,9 @@ class Rescue extends Component {
           <RescueForm
             updateForm={this.props.updateForm}
             form={this.props.form}
+            isSending={this.props.isSending}
+            progress={this.props.progress}
+            sendRescue={this.props.sendRescue}
           />
         </div>
       </DocumentTitle>
