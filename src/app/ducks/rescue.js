@@ -9,6 +9,7 @@ const RESCUE_SUC = 'RESCUE_SUC';
 const RESCUE_FAIL = 'RESCUE_FAIL';
 const GET_RESCUE_REQ = 'GET_RESCUE_REQ';
 const GET_RESCUE_SUC = 'GET_RESCUE_SUC';
+const DELETE_SUC = 'DELETE_SUC';
 
 // Action Creators
 export const updateForm = (name, value) => {
@@ -72,6 +73,27 @@ export const loadRequests = () => {
         payload: res.data
       });
     });
+  };
+};
+
+export const deleteRequest = id => {
+  return dispatch => {
+    notification('Deleting request...');
+
+    axios
+      .delete(`/rescue/${id}`)
+      .then(() => {
+        notification('Successfully deleted rescue request.', {
+          status: 'success'
+        });
+        dispatch({
+          type: DELETE_SUC,
+          payload: id
+        });
+      })
+      .catch(() => {
+        notification('Failed to delete rescue request.', { status: 'danger' });
+      });
   };
 };
 
@@ -140,6 +162,14 @@ const reducer = (state = initialState, action) => {
         ...state,
         isGettingRequests: false,
         requests: action.payload
+      };
+
+    case DELETE_SUC:
+      return {
+        ...state,
+        requests: state.requests.filter(
+          rescue => rescue.rescue_uuid !== action.payload
+        )
       };
 
     default:

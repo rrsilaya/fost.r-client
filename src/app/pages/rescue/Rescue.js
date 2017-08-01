@@ -26,6 +26,7 @@ class Rescue extends Component {
             : <RequestList
                 isLoading={this.props.isGettingRequests}
                 requests={this.props.requests}
+                deleteRequest={this.props.deleteRequest}
               />}
         </div>
       </DocumentTitle>

@@ -1,7 +1,12 @@
 import { connect } from 'react-redux';
 import Rescue from './Rescue';
 
-import { updateForm, sendRescue, loadRequests } from '../../ducks/rescue';
+import {
+  updateForm,
+  sendRescue,
+  loadRequests,
+  deleteRequest
+} from '../../ducks/rescue';
 
 const mapStateToProps = state => ({
   requests: state.rescue.requests,
@@ -18,7 +23,8 @@ const mapStateToProps = state => ({
 const RescueContainer = connect(mapStateToProps, {
   updateForm,
   sendRescue,
-  loadRequests
+  loadRequests,
+  deleteRequest
 })(Rescue);
 
 export default RescueContainer;
