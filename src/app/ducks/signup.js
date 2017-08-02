@@ -23,7 +23,7 @@ export const register = form => {
     });
     console.log(form);
     axios
-      .post('/signup/user', form)
+      .post('/api/signup/user', form)
       .then(res => {
         dispatch({
           type: REGISTER_SUC

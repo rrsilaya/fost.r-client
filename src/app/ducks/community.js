@@ -29,7 +29,7 @@ export const getActivePosts = user => {
     });
 
     axios
-      .get('/community/fostr/viewPosts')
+      .get('/api/community/fostr/viewPosts')
       .then(res => {
         dispatch({
           type: LOAD_ACTIVE_POSTS_SUC,
@@ -54,10 +54,10 @@ export const getFeedPosts = category => {
     axios
       .get(
         `${category === 'featured'
-          ? '/community/sortByVotesDesc/page/1'
+          ? '/api/community/sortByVotesDesc/page/1'
           : category === 'unanswered'
-            ? '/community/sortByCommentsAsc/page/1'
-            : '/community/sortByTimeDesc/page/1'}`
+            ? '/api/community/sortByCommentsAsc/page/1'
+            : '/api/community/sortByTimeDesc/page/1'}`
       )
       .then(res => {
         dispatch({
@@ -88,7 +88,7 @@ export const addPost = (post_title, text_post) => {
     modal('#newpost').hide();
 
     axios
-      .post('/community/addPost', {
+      .post('/api/community/addPost', {
         post_title,
         text_post
       })
@@ -108,7 +108,7 @@ export const addPost = (post_title, text_post) => {
 export const deletePost = id => {
   return dispatch => {
     axios
-      .delete(`/community/${id}`)
+      .delete(`/api/community/${id}`)
       .then(() => {
         notification('Successfully deleted post.', { status: 'success' });
         dispatch({

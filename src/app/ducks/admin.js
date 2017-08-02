@@ -30,7 +30,7 @@ export const getPets = () => {
     });
 
     axios
-      .get('/pets/myPets')
+      .get('/api/pets/myPets')
       .then(res => {
         dispatch({
           type: GET_PETS_SUC,
@@ -53,7 +53,7 @@ export const getInfo = () => {
     });
 
     axios
-      .get('/accounts/MyAccount')
+      .get('/api/accounts/MyAccount')
       .then(res => {
         dispatch({
           type: GET_INFO_SUC,
@@ -92,7 +92,7 @@ export const addPet = form => {
     };
 
     axios
-      .post('/pets/myPets', data, config)
+      .post('/api/pets/myPets', data, config)
       .then(res => {
         modal('#addpet-modal').hide();
         notification('Successfully added pet.', { status: 'success' });

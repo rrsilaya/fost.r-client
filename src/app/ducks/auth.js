@@ -28,7 +28,7 @@ export const login = (username, password, accountType) => {
     });
 
     axios
-      .post(`/login/${accountType}`, {
+      .post(`/api/login/${accountType}`, {
         Username: username,
         password
       })
@@ -53,7 +53,7 @@ export const logout = () => {
       type: LOGOUT_REQ
     });
 
-    axios.get('/logout').then(res => {
+    axios.get('/api/logout').then(res => {
       dispatch({
         type: LOGOUT_SUC
       });
@@ -68,7 +68,7 @@ export const checkAuth = () => {
     });
 
     axios
-      .get('/session')
+      .get('/api/session')
       .then(res => {
         dispatch({
           type: CHECK_AUTH_SUC,

@@ -43,7 +43,7 @@ export const sendRescue = form => {
     };
 
     axios
-      .post('/rescue/submit_a_rescue_request', data, config)
+      .post('/api/rescue/submit_a_rescue_request', data, config)
       .then(() => {
         notification('Successfully submitted rescue tip.', {
           status: 'success'
@@ -67,7 +67,7 @@ export const loadRequests = () => {
       type: GET_RESCUE_REQ
     });
 
-    axios.get('/rescue').then(res => {
+    axios.get('/api/rescue').then(res => {
       dispatch({
         type: GET_RESCUE_SUC,
         payload: res.data
@@ -81,7 +81,7 @@ export const deleteRequest = id => {
     notification('Deleting request...');
 
     axios
-      .delete(`/rescue/${id}`)
+      .delete(`/api/rescue/${id}`)
       .then(() => {
         notification('Successfully deleted rescue request.', {
           status: 'success'
