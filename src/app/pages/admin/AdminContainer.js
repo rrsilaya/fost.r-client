@@ -16,8 +16,6 @@ const mapStateToProps = state => ({
   hasFailed: state.admin.hasFailed,
   pets: state.admin.pets,
 
-  isAddingPet: state.admin.isAddingPet,
-
   isGettingInfo: state.admin.isGettingInfo,
   shelterInfo: state.admin.shelterInfo,
   isGettingInfoFailed: state.admin.isGettingInfoFailed,

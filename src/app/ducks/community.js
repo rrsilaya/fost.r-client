@@ -221,7 +221,7 @@ const reducer = (state = initialState, action) => {
         isGettingFeedPosts: false,
         isGettingFeedPostsFailed: false,
         userFeedPosts: action.payload.posts,
-        feedPagination: parseInt(action.payload.page),
+        feedPagination: parseInt(action.payload.page, 10),
         feedPageTotal: action.payload.pageTotal
       };
 
