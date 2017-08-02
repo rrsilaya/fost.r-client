@@ -27,8 +27,10 @@ class Community extends Component {
             posts={this.props.userFeedPosts}
             feedPagination={this.props.feedPagination}
             feedPageTotal={this.props.feedPageTotal}
+            isAppending={this.props.isAppending}
             isLoading={this.props.isGettingFeedPosts}
             hasFailed={this.props.isGettingFeedPostsFailed}
+            getMorePosts={this.props.getMorePosts}
           />
           <NewPost
             updateForm={this.props.updateForm}

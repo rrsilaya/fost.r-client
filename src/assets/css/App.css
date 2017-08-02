@@ -151,6 +151,10 @@
 	background-size: cover;
 }
 
+.append-button {
+	width: 140px !important;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {

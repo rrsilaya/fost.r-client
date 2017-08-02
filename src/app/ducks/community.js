@@ -8,6 +8,8 @@ const LOAD_ACTIVE_POSTS_FAIL = 'LOAD_ACTIVE_POSTS_FAIL';
 const LOAD_FEED_POSTS_REQ = 'LOAD_FEED_POSTS_REQ';
 const LOAD_FEED_POSTS_SUC = 'LOAD_FEED_POSTS_SUC';
 const LOAD_FEED_POSTS_FAIL = 'LOAD_FEED_POSTS_FAIL';
+const APPEND_POST_REQ = 'APPEND_POST_REQ';
+const APPEND_POST_SUC = 'APPEND_POST_SUC';
 const CHANGE_TAB = 'CHANGE_TAB';
 const UPDATE_FORM = 'UPDATE_FORM';
 const ADD_POST_SUC = 'ADD_POST_SUC';
@@ -53,11 +55,11 @@ export const getFeedPosts = category => {
 
     axios
       .get(
-        `${category === 'featured'
-          ? '/api/community/sortByVotesDesc/page/1'
+        `/api/community/${category === 'featured'
+          ? 'sortByVotesDesc'
           : category === 'unanswered'
-            ? '/api/community/sortByCommentsAsc/page/1'
-            : '/api/community/sortByTimeDesc/page/1'}`
+            ? 'sortByCommentsAsc'
+            : 'sortByTimeDesc'}/page/1`
       )
       .then(res => {
         dispatch({
@@ -69,6 +71,29 @@ export const getFeedPosts = category => {
         dispatch({
           type: LOAD_FEED_POSTS_FAIL,
           payload: err
+        });
+      });
+  };
+};
+
+export const getMorePosts = (category, page) => {
+  return dispatch => {
+    dispatch({
+      type: APPEND_POST_REQ
+    });
+
+    axios
+      .get(
+        `/api/community/${category === 'featured'
+          ? 'sortByVotesDesc'
+          : category === 'unanswered'
+            ? 'sortByCommentsAsc'
+            : 'sortByTimeDesc'}/page/${page}`
+      )
+      .then(res => {
+        dispatch({
+          type: APPEND_POST_SUC,
+          payload: res.data
         });
       });
   };
@@ -140,6 +165,7 @@ const initialState = {
   userFeedPosts: [],
   feedPagination: 1,
   feedPageTotal: 1,
+  isAppending: false,
 
   form: {
     newTitle: '',
@@ -185,7 +211,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isGettingFeedPosts: true,
-        isGettingFeedPostsFailed: false
+        isGettingFeedPostsFailed: false,
+        isAppending: false
       };
 
     case LOAD_FEED_POSTS_SUC:
@@ -203,6 +230,19 @@ const reducer = (state = initialState, action) => {
         ...state,
         isGettingFeedPosts: false,
         isGettingFeedPostsFailed: true
+      };
+
+    case APPEND_POST_REQ:
+      return {
+        ...state,
+        isAppending: true
+      };
+
+    case APPEND_POST_SUC:
+      return {
+        ...state,
+        isAppending: false,
+        userFeedPosts: [...state.userFeedPosts, ...action.payload]
       };
 
     case UPDATE_FORM:

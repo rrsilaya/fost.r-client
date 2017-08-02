@@ -10,8 +10,10 @@ const CommunityFeed = ({
   posts,
   feedPagination,
   feedPageTotal,
+  isAppending,
   isLoading,
-  hasFailed
+  hasFailed,
+  getMorePosts
 }) => {
   const tabs = ['Featured', 'New', 'Unanswered'];
 
@@ -23,6 +25,10 @@ const CommunityFeed = ({
   const changeSelectTab = e => {
     handleTabChange(e.target.value);
     changeCategory(e.target.value);
+  };
+
+  const handleAppend = () => {
+    getMorePosts(activeTab, feedPagination + 1);
   };
 
   return (
@@ -81,8 +87,13 @@ const CommunityFeed = ({
                   {feedPagination === feedPageTotal
                     ? ''
                     : <div className="uk-text-center">
-                        <button className="uk-button uk-button-default">
-                          Load more
+                        <button
+                          className="uk-button uk-button-default append-button"
+                          onClick={handleAppend}
+                          disabled={isAppending}>
+                          {isAppending
+                            ? <div data-uk-spinner="ratio: 0.5" />
+                            : 'Load more'}
                         </button>
                       </div>}
                 </div>
