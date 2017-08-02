@@ -30,7 +30,7 @@ class Signup extends Component {
       Username: form.usernameNew.value,
       firstname: form.firstname.value,
       lastname: form.lastname.value,
-      birthday: form.contact.value,
+      birthday: moment(form.contact.value).format('YYYY-MM-DD HH:mm'),
       address: form.address.value,
       contactnum: form.contact.value,
       email: form.email.value,
