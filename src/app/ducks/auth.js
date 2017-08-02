@@ -41,7 +41,7 @@ export const login = (username, password, accountType) => {
       .catch(err => {
         dispatch({
           type: LOGIN_FAIL,
-          payload: err
+          payload: err.response.status
         });
       });
   };
@@ -101,7 +101,7 @@ const initialState = {
     password: ''
   },
   isLoggingIn: false,
-  loginFail: false,
+  loginFail: null,
   activeUser: ''
 };
 
@@ -148,7 +148,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         isLoggingIn: false,
         isAuth: false,
-        loginFail: true
+        loginFail: action.payload
       };
 
     case LOGOUT_REQ:
