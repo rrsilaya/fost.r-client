@@ -142,6 +142,7 @@ class Signup extends Component {
                           showYearDropdown
                           showMonthDropdown
                           fixedHeight
+                          maxDate={moment()}
                           onChange={this.handleDateChange}
                           selected={this.props.form.birthday}
                           value={
