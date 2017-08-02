@@ -22,7 +22,7 @@ export const handleTabChange = activeTab => {
   };
 };
 
-export const getActivePosts = () => {
+export const getActivePosts = user => {
   return dispatch => {
     dispatch({
       type: LOAD_ACTIVE_POSTS_REQ
@@ -33,7 +33,7 @@ export const getActivePosts = () => {
       .then(res => {
         dispatch({
           type: LOAD_ACTIVE_POSTS_SUC,
-          payload: res.data.splice(0, 5)
+          payload: res.data
         });
       })
       .catch(err => {
@@ -62,7 +62,7 @@ export const getFeedPosts = category => {
       .then(res => {
         dispatch({
           type: LOAD_FEED_POSTS_SUC,
-          payload: res.data.splice(0, 15)
+          payload: res.data
         });
       })
       .catch(err => {
@@ -138,6 +138,8 @@ const initialState = {
   isGettingFeedPosts: true,
   isGettingFeedPostsFailed: false,
   userFeedPosts: [],
+  feedPagination: 1,
+  feedPageTotal: 1,
 
   form: {
     newTitle: '',
@@ -191,7 +193,9 @@ const reducer = (state = initialState, action) => {
         ...state,
         isGettingFeedPosts: false,
         isGettingFeedPostsFailed: false,
-        userFeedPosts: action.payload
+        userFeedPosts: action.payload.posts,
+        feedPagination: parseInt(action.payload.page),
+        feedPageTotal: action.payload.pageTotal
       };
 
     case LOAD_FEED_POSTS_FAIL:

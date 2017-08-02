@@ -8,6 +8,8 @@ const CommunityFeed = ({
   handleTabChange,
   changeCategory,
   posts,
+  feedPagination,
+  feedPageTotal,
   isLoading,
   hasFailed
 }) => {
@@ -76,11 +78,13 @@ const CommunityFeed = ({
                       />
                     )}
                   </ul>
-                  <div className="uk-text-center">
-                    <button className="uk-button uk-button-default">
-                      Load more
-                    </button>
-                  </div>
+                  {feedPagination === feedPageTotal
+                    ? ''
+                    : <div className="uk-text-center">
+                        <button className="uk-button uk-button-default">
+                          Load more
+                        </button>
+                      </div>}
                 </div>
                 {isLoading
                   ? [

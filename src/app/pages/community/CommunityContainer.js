@@ -16,13 +16,17 @@ const mapStateToProps = state => ({
   isGettingActivePosts: state.community.isGettingActivePosts,
   isGettingActivePostsFailed: state.community.isGettingActivePostsFailed,
   userActivePosts: state.community.userActivePosts,
+  feedPagination: state.community.feedPagination,
+  feedPageTotal: state.community.feedPageTotal,
 
   isGettingFeedPosts: state.community.isGettingFeedPosts,
   isGettingFeedPostsFailed: state.community.isGettingFeedPostsFailed,
   userFeedPosts: state.community.userFeedPosts,
 
   form: state.community.form,
-  hasFailed: state.community.hasFailed
+  hasFailed: state.community.hasFailed,
+
+  activeUser: state.auth.activeUser
 });
 
 const CommunityContainer = connect(mapStateToProps, {
