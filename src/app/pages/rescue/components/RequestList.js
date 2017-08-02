@@ -13,10 +13,10 @@ const RequestList = ({ isLoading, requests, deleteRequest }) => {
               <li key={key}>
                 <div className="uk-grid-small uk-grid-match" data-uk-grid>
                   <div
-                    className="uk-width-1-3 rescue-icon"
+                    className="uk-width-1-3@m uk-width-1-1 rescue-icon"
                     style={{ backgroundImage: `url(${rescue.rescue_imgurl})` }}
                   />
-                  <div className="uk-width-2-3 uk-inline">
+                  <div className="uk-width-2-3@m uk-width-1-1 uk-inline">
                     <div>
                       <button
                         className="uk-position-top-right uk-padding-small"
