@@ -6,7 +6,7 @@ import CenterLoader from '../../../components/CenterLoader';
 const UserControls = ({ posts, isLoading, hasFailed }) => {
   return (
     <div className="uk-section uk-padding-large community-user-controls uk-section-secondary">
-      <h4>Your Active Posts</h4>
+      <h4>Your Posts</h4>
       <div className="uk-panel-scrollable post-list uk-padding-remove uk-margin-small-bottom uk-width-1-1">
         <ul className="uk-list uk-list-divider">
           {isLoading

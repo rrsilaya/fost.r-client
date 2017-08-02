@@ -31,7 +31,7 @@ export const getActivePosts = user => {
     });
 
     axios
-      .get('/api/community/fostr/viewPosts')
+      .get(`/api/community/${user}/viewPosts/1`)
       .then(res => {
         dispatch({
           type: LOAD_ACTIVE_POSTS_SUC,
