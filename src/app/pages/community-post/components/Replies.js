@@ -1,5 +1,4 @@
 import React from 'react';
-import moment from 'moment';
 
 import Post from './Post';
 import CenterLoader from '../../../components/CenterLoader';

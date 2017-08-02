@@ -17,7 +17,7 @@ const PetItem = ({ name, kind, breed, img, birthday, id, deletePet }) => {
   return (
     <tr>
       <td className="uk-preserve-width">
-        <img src={img} className="uk-border-circle pet-icon" />
+        <img src={img} alt="" className="uk-border-circle pet-icon" />
       </td>
       <td>{name}</td>
       <td>{kind} / {breed}</td>
