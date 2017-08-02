@@ -9,7 +9,8 @@ const Pets = ({
   updateForm,
   uploadState,
   isAddingPet,
-  addPet
+  addPet,
+  deletePet
 }) => {
   return (
     <div>
@@ -41,7 +42,8 @@ const Pets = ({
                   kind={pet.kind}
                   img={pet.url}
                   birthday={pet.birthday}
-                  id={pet._id}
+                  id={pet.uuid}
+                  deletePet={deletePet}
                 />
               )}
             </tbody>

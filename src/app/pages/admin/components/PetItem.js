@@ -1,7 +1,19 @@
 import React from 'react';
 import moment from 'moment';
+import { modal } from 'uikit';
 
-const PetItem = ({ name, kind, img, birthday, id }) => {
+const PetItem = ({ name, kind, img, birthday, id, deletePet }) => {
+  const handleDelete = () => {
+    modal
+      .confirm(`Are you sure you want to remove ${name}?`, { center: true })
+      .then(
+        () => {
+          deletePet(id);
+        },
+        () => {}
+      );
+  };
+
   return (
     <tr>
       <td className="uk-preserve-width">
@@ -11,7 +23,7 @@ const PetItem = ({ name, kind, img, birthday, id }) => {
       <td>{kind}</td>
       <td>{moment(birthday).format('MMMM D, YYYY')}</td>
       <td className="uk-preserve-width">
-        <button data-uk-icon="icon: close;" />
+        <button data-uk-icon="icon: close;" onClick={handleDelete} />
       </td>
     </tr>
   );

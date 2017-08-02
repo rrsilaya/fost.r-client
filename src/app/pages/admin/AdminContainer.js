@@ -6,7 +6,8 @@ import {
   getPets,
   getInfo,
   updateForm,
-  addPet
+  addPet,
+  deletePet
 } from '../../ducks/admin';
 
 const mapStateToProps = state => ({
@@ -31,6 +32,7 @@ const AdminContainer = connect(mapStateToProps, {
   getPets,
   getInfo,
   updateForm,
-  addPet
+  addPet,
+  deletePet
 })(Admin);
 export default AdminContainer;

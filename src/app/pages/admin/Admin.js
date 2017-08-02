@@ -42,6 +42,7 @@ class Admin extends Component {
                       uploadState={this.props.uploadState}
                       isAddingPet={this.props.isAddingPet}
                       addPet={this.props.addPet}
+                      deletePet={this.props.deletePet}
                     />
                   : ''}
             </div>

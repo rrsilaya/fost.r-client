@@ -14,6 +14,7 @@ const ADD_PET_REQ = 'ADD_PET_REQ';
 const ADD_PET_SUC = 'ADD_PET_SUC';
 const ADD_PET_FAIL = 'ADD_PET_FAIL';
 const UPLOAD_INC = 'UPLOAD_INC';
+const DELETE_PET_SUC = 'DELETE_PET_SUC';
 
 // Action Creators
 export const changeTab = tab => {
@@ -106,6 +107,25 @@ export const addPet = form => {
           type: ADD_PET_FAIL,
           payload: err
         });
+      });
+  };
+};
+
+export const deletePet = id => {
+  return dispatch => {
+    notification('Removing pet...');
+
+    axios
+      .delete(`/api/pets/${id}`)
+      .then(() => {
+        notification('Successfully removed pet.', { status: 'success' });
+        dispatch({
+          type: DELETE_PET_SUC,
+          payload: id
+        });
+      })
+      .catch(() => {
+        notification('Failed to remove pet.', { status: 'danger' });
       });
   };
 };
@@ -229,6 +249,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         isAddingPet: false,
         uploadState: 0
+      };
+
+    case DELETE_PET_SUC:
+      return {
+        ...state,
+        pets: state.pets.filter(pet => pet.uuid !== action.payload)
       };
 
     default:
