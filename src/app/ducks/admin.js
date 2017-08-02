@@ -79,7 +79,7 @@ export const addPet = form => {
     let data = new FormData();
     const formKeys = Object.keys(form);
 
-    formKeys.map(key => {
+    formKeys.forEach(key => {
       data.append(key, form[key]);
     });
 
