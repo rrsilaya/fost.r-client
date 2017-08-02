@@ -224,7 +224,7 @@ class Signup extends Component {
                           placeholder="Password"
                           name="passwordNew"
                           onChange={this.handleFormUpdate}
-                          value={this.props.form.password}
+                          value={this.props.form.passwordNew}
                         />
                       </div>
                     </div>
