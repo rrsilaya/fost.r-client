@@ -36,7 +36,7 @@ const RequestList = ({ isLoading, requests, deleteRequest }) => {
 
                       <span className="uk-text-meta">
                         {moment(rescue.date_submitted).format(
-                          'MMMM D, YYYY H:MM A'
+                          'MMMM D, YYYY h:MM A'
                         )}
                       </span>
                     </div>
