@@ -40,6 +40,7 @@ const Pets = ({
                 <PetItem
                   name={pet.name}
                   kind={pet.kind}
+                  breed={pet.breed}
                   img={pet.url}
                   birthday={pet.birthday}
                   id={pet.uuid}

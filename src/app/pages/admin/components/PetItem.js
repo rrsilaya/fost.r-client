@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { modal } from 'uikit';
 
-const PetItem = ({ name, kind, img, birthday, id, deletePet }) => {
+const PetItem = ({ name, kind, breed, img, birthday, id, deletePet }) => {
   const handleDelete = () => {
     modal
       .confirm(`Are you sure you want to remove ${name}?`, { center: true })
@@ -20,7 +20,7 @@ const PetItem = ({ name, kind, img, birthday, id, deletePet }) => {
         <img src={img} className="uk-border-circle pet-icon" />
       </td>
       <td>{name}</td>
-      <td>{kind}</td>
+      <td>{kind} / {breed}</td>
       <td>{moment(birthday).format('MMMM D, YYYY')}</td>
       <td className="uk-preserve-width">
         <button data-uk-icon="icon: close;" onClick={handleDelete} />
