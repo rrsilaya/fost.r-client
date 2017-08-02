@@ -42,7 +42,7 @@ class Main extends Component {
           />
           {this.props.accountType !== 'user' &&
             <Route exact path="/admin" component={AdminContainer} />}
-          <Route exact paht="/rescue" component={RescueContainer} />
+          <Route exact path="/rescue" component={RescueContainer} />
 
           <Route component={NoPage} />
         </Switch>
