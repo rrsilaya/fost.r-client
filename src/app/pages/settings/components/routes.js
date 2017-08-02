@@ -1,24 +1,26 @@
 import Account from './Account'; // import all your components here
+import Privacy from './Privacy';
+import Shelter from './Shelter';
 
 const links = [
   // Change these with your links
   {
-    icon: 'users',
-    label: 'Link 1',
-    route: '/settings/link1',
+    icon: 'user',
+    label: 'Edit Profile',
+    route: '/settings/profilesettings',
     component: Account // component to render
   },
   {
-    icon: 'users',
-    label: 'Link 2',
-    route: '/settings/link2',
-    component: Account
+    icon: 'lock',
+    label: 'Privacy',
+    route: '/settings/privacysettings',
+    component: Privacy
   },
   {
-    icon: 'users',
-    label: 'Link 3',
-    route: '/settings/link3',
-    component: Account
+    icon: 'home',
+    label: 'Muted Shelters',
+    route: '/settings/mutedshelters',
+    component: Shelter
   }
 ];
 

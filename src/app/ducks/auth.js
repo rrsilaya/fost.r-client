@@ -92,7 +92,7 @@ export const clearNotif = () => {
 
 // Initial State
 const initialState = {
-  isAuth: false,
+  isAuth: true,
   isLoading: true,
   accountType: '',
   hasNotification: true,
