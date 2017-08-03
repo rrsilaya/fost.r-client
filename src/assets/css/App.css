@@ -149,6 +149,10 @@
 	width: 140px !important;
 }
 
+.custom-account {
+	display: none;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {

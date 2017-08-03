@@ -50,6 +50,7 @@ const initialState = {
   usernameAvailable: false,
   isSearchingUser: false,
   form: {
+    accountType: 'user',
     firstname: '',
     lastname: '',
     usernameNew: '',
@@ -59,7 +60,9 @@ const initialState = {
     email: '',
     passwordNew: '',
     prompt: '',
-    checkbox: false
+    checkbox: false,
+
+    shelterName: ''
   },
   isCreatingUser: false,
   createdUser: false

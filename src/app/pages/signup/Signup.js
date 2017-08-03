@@ -60,42 +60,125 @@ class Signup extends Component {
                   className="uk-form-stacked"
                   id="register"
                   onSubmit={this.handleFormSubmit}>
+
+                  {/* Account Type */}
                   <div
-                    className="uk-margin uk-grid-small uk-flex uk-flex-bottom uk-child-width-expand@s uk-child-width-1-1"
+                    className="uk-margin uk-grid-small uk-grid-divider uk-child-width-1-2 uk-text-center"
                     data-uk-grid>
+                    <div className="uk-width-1-1 uk-text-center">
+                      <label className="uk-form-label">Account Type</label>
+                    </div>
                     <div>
-                      <label htmlFor="new-lastname" className="uk-form-label">
-                        Basic Information
-                      </label>
-                      <div className="uk-form-controls uk-width-1-1 uk-inline">
+                      <label
+                        className={
+                          this.props.form.accountType === 'user'
+                            ? 'uk-text-primary'
+                            : 'uk-text-muted'
+                        }>
                         <span
-                          className="uk-form-icon"
-                          data-uk-icon="icon: user;"
+                          className="uk-margin-small-bottom"
+                          data-uk-icon="icon: users; ratio: 2.25"
                         />
+                        <br />
                         <input
-                          type="text"
-                          className="uk-input"
-                          name="firstname"
-                          id="new-firstname"
-                          placeholder="Firstname"
-                          value={this.props.form.firstname}
+                          type="radio"
+                          className="custom-account"
+                          name="accountType"
+                          value="user"
                           onChange={this.handleFormUpdate}
-                        />
-                      </div>
+                          checked={this.props.form.accountType === 'user'}
+                        />User
+                      </label>
                     </div>
                     <div>
-                      <div className="uk-form-controls">
-                        <input
-                          type="text"
-                          className="uk-input"
-                          placeholder="Lastname"
-                          name="lastname"
-                          value={this.props.form.lastname}
-                          onChange={this.handleFormUpdate}
+                      <label
+                        className={
+                          this.props.form.accountType === 'shelter'
+                            ? 'uk-text-primary'
+                            : 'uk-text-muted'
+                        }>
+                        <span
+                          className="uk-margin-small-bottom"
+                          data-uk-icon="icon: home; ratio: 2.25"
                         />
-                      </div>
+                        <br />
+                        <input
+                          type="radio"
+                          className="custom-account"
+                          name="accountType"
+                          value="shelter"
+                          onChange={this.handleFormUpdate}
+                          checked={this.props.form.accountType === 'shelter'}
+                        />Shelter
+                      </label>
                     </div>
-                    <div>
+                  </div>
+
+                  {/* Basic Info */}
+                  <div
+                    className="uk-margin uk-grid-small uk-flex uk-flex-bottom uk-child-width-1-1"
+                    data-uk-grid>
+                    {this.props.form.accountType === 'user'
+                      ? [
+                          <div className="uk-width-1-3@s">
+                            <label
+                              htmlFor="new-lastname"
+                              className="uk-form-label">
+                              Basic Information
+                            </label>
+                            <div className="uk-form-controls uk-width-1-1 uk-inline">
+                              <span
+                                className="uk-form-icon"
+                                data-uk-icon="icon: user;"
+                              />
+                              <input
+                                type="text"
+                                className="uk-input"
+                                name="firstname"
+                                id="new-firstname"
+                                placeholder="Firstname"
+                                value={this.props.form.firstname}
+                                onChange={this.handleFormUpdate}
+                              />
+                            </div>
+                          </div>,
+                          <div className="uk-width-1-3@s">
+                            <div className="uk-form-controls">
+                              <input
+                                type="text"
+                                className="uk-input"
+                                placeholder="Lastname"
+                                name="lastname"
+                                value={this.props.form.lastname}
+                                onChange={this.handleFormUpdate}
+                              />
+                            </div>
+                          </div>
+                        ]
+                      : <div className="uk-width-2-3@s">
+                          <label
+                            htmlFor="new-shelter"
+                            className="uk-form-label">
+                            Basic Information
+                          </label>
+                          <div className="uk-form-controls uk-width-1-1 uk-inline">
+                            <span
+                              className="uk-form-icon"
+                              data-uk-icon="icon: home"
+                            />
+                            <input
+                              type="text"
+                              className="uk-input"
+                              id="new-shelter"
+                              placeholder="Shelter Name"
+                              name="shelterName"
+                              value={this.props.form.shelterName}
+                              onChange={this.handleFormUpdate}
+                            />
+                          </div>
+                        </div>}
+
+                    <div className="uk-width-1-3@s">
                       <div className="uk-form-controls uk-inline uk-width-1-1">
                         {this.props.isSearchingUser
                           ? <span
@@ -126,6 +209,7 @@ class Signup extends Component {
                     </div>
                   </div>
 
+                  {/* Details Abt You */}
                   <div
                     className="uk-margin uk-grid-small uk-flex uk-flex-bottom uk-child-width-1-2@s uk-child-width-1-1"
                     data-uk-grid>
@@ -134,25 +218,41 @@ class Signup extends Component {
                         Details About You
                       </label>
                       <div className="uk-form-controls">
-                        <DatePicker
-                          className="uk-input"
-                          placeholderText="Birthday"
-                          id="new-birthday"
-                          name="birthday"
-                          showYearDropdown
-                          showMonthDropdown
-                          fixedHeight
-                          maxDate={moment()}
-                          onChange={this.handleDateChange}
-                          selected={this.props.form.birthday}
-                          value={
-                            this.props.form.birthday === ''
-                              ? ''
-                              : moment(this.props.form.birthday).format(
-                                  'MMMM D, YYYY'
-                                )
-                          }
-                        />
+                        {this.props.form.accountType === 'user'
+                          ? <DatePicker
+                              className="uk-input"
+                              placeholderText="Birthday"
+                              id="new-birthday"
+                              name="birthday"
+                              showYearDropdown
+                              showMonthDropdown
+                              fixedHeight
+                              maxDate={moment()}
+                              onChange={this.handleDateChange}
+                              selected={this.props.form.birthday}
+                              value={
+                                this.props.form.birthday === ''
+                                  ? ''
+                                  : moment(this.props.form.birthday).format(
+                                      'MMMM D, YYYY'
+                                    )
+                              }
+                            />
+                          : <div className="uk-form-controls uk-inline uk-width-1-1">
+                              <span
+                                className="uk-form-icon"
+                                data-uk-icon="icon: location"
+                              />
+                              <input
+                                type="text"
+                                className="uk-input"
+                                id="new-birthday"
+                                placeholder="Address"
+                                name="address"
+                                onChange={this.handleFormUpdate}
+                                value={this.props.form.address}
+                              />
+                            </div>}
                       </div>
                     </div>
                     <div>
@@ -172,24 +272,27 @@ class Signup extends Component {
                         />
                       </div>
                     </div>
-                    <div className="uk-width-1-1">
-                      <div className="uk-form-controls uk-inline uk-width-1-1">
-                        <span
-                          className="uk-form-icon"
-                          data-uk-icon="icon: location"
-                        />
-                        <input
-                          type="text"
-                          className="uk-input"
-                          placeholder="Address"
-                          name="address"
-                          onChange={this.handleFormUpdate}
-                          value={this.props.form.address}
-                        />
-                      </div>
-                    </div>
+                    {this.props.form.accountType === 'user'
+                      ? <div className="uk-width-1-1">
+                          <div className="uk-form-controls uk-inline uk-width-1-1">
+                            <span
+                              className="uk-form-icon"
+                              data-uk-icon="icon: location"
+                            />
+                            <input
+                              type="text"
+                              className="uk-input"
+                              placeholder="Address"
+                              name="address"
+                              onChange={this.handleFormUpdate}
+                              value={this.props.form.address}
+                            />
+                          </div>
+                        </div>
+                      : ''}
                   </div>
 
+                  {/* Account Credentials */}
                   <div
                     className="uk-margin uk-grid-small uk-flex uk-flex-bottom uk-child-width-1-2@s uk-child-width-1-1"
                     data-uk-grid>
@@ -231,6 +334,24 @@ class Signup extends Component {
                     </div>
                   </div>
 
+                  {/* File Upload */
+                  this.props.form.accountType === 'user'
+                    ? ''
+                    : <div className="uk-margin">
+                        <label className="uk-form-label">
+                          Verification Documents
+                        </label>
+                        <span className="uk-text-meta">
+                          In order create a shelter account, you must upload
+                          verification documents that can support that you are a
+                          legitimate institution.
+                        </span>
+                        <div className="uk-placeholder uk-text-center">
+                          Hello
+                        </div>
+                      </div>}
+
+                  {/* Checkbox */}
                   <div className="uk-margin-medium-top">
                     <label>
                       <input
