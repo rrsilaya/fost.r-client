@@ -259,7 +259,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         form: initialState.form,
-        userFeedPosts: [action.payload, ...state.userFeedPosts]
+        userFeedPosts: [action.payload, ...state.userFeedPosts],
+        userActivePosts: [action.payload, ...state.userActivePosts]
       };
 
     case DELETE_POST_SUC:
