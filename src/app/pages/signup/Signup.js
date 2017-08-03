@@ -43,8 +43,8 @@ class Signup extends Component {
       });
     } else {
       const formObj = {
-        shelter_name: form.shelterName.value,
         Username: form.usernameNew.value,
+        shelter_name: form.shelterName.value,
         address: form.address.value,
         contactnum: form.contact.value,
         email: form.email.value,
@@ -438,7 +438,11 @@ class Signup extends Component {
               {this.props.isCreatingUser || this.props.createdUser
                 ? <div className="uk-overlay-default uk-position-cover" />
                 : ''}
-              <div className="uk-overlay uk-position-center uk-dark uk-width-1-1">
+              <div
+                className={`uk-overlay uk-position-center uk-dark ${this.props
+                  .isCreatingUser
+                  ? 'uk-width-1-1'
+                  : ''}`}>
                 {this.props.isCreatingUser
                   ? this.props.form.accountType === 'user'
                     ? <CenterLoader />
