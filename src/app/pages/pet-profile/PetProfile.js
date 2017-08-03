@@ -45,11 +45,11 @@ class PetProfile extends Component {
                 : this.props.match.params.page === 'adopt'
                   ? <Adopt
                       name={this.props.data.name}
-                      house={this.props.data.location}
-                      id={this.props.data._id}
+                      house={this.props.data.shelter_Username}
+                      id={this.props.data.uuid}
                     />
                   : <Date
-                      id={this.props.data._id}
+                      id={this.props.data.uuid}
                       name={this.props.data.name}
                     />}
             </div>}
