@@ -24,7 +24,7 @@ const AddPet = ({ form, updateForm, progress, isLoading, addPet }) => {
       kind: results.newPetKind.value,
       breed: results.newPetBreed.value,
       sex: results.newPetSex.value,
-      birthday: form.birthday,
+      birthday: moment(form.birthday).format('YYYY-MM-DD'),
       photo: results.newPetPhotos.files[0]
     });
   };

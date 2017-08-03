@@ -15,7 +15,7 @@ export const loadPets = () => {
     });
 
     axios
-      .get('/api/pets')
+      .get('/api/pets/shelters/viewAllPets/page/1')
       .then(pets => {
         dispatch({
           type: LOAD_PETS_SUCCESS,

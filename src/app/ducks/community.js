@@ -120,7 +120,8 @@ export const addPost = (post_title, text_post) => {
       .then(res => {
         notification('Post successfully created.', { status: 'success' });
         dispatch({
-          type: ADD_POST_SUC
+          type: ADD_POST_SUC,
+          payload: res.data
         });
       })
       .catch(err => {
@@ -257,7 +258,8 @@ const reducer = (state = initialState, action) => {
     case ADD_POST_SUC:
       return {
         ...state,
-        form: initialState.form
+        form: initialState.form,
+        userFeedPosts: [action.payload, ...state.userFeedPosts]
       };
 
     case DELETE_POST_SUC:
