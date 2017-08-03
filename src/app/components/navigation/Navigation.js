@@ -8,7 +8,7 @@ import MoreOptions from './components/MoreOptions';
 class Navigation extends Component {
   render() {
     return (
-      <div className="uk-section-primary" id="nav" data-uk-sticky>
+      <div className="uk-section-secondary" id="nav" data-uk-sticky>
         <nav
           className="uk-navbar-container uk-navbar-transparent"
           data-uk-navbar>

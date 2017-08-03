@@ -27,6 +27,20 @@
 @import 'https://fonts.googleapis.com/css?family=Montserrat|Roboto+Mono';
 
 //
+// Backgrounds
+//
+
+@global-background:                             #fff;
+
+@global-muted-background:                       #f8f8f8;
+@global-primary-background:                     #2ec4b6;
+@global-secondary-background:                   #011627;
+
+@global-success-background:                     #32d296;
+@global-warning-background:                     #ff9f1c;
+@global-danger-background:                      #e71d36;
+
+//
 // Colors
 //
 
@@ -34,24 +48,12 @@
 @global-emphasis-color:                         #333;
 @global-muted-color:                            #999;
 
-@global-link-color:                             #1e87f0;
-@global-link-hover-color:                       #0f6ecd;
+@global-link-color:                             @global-primary-background;
+@global-link-hover-color:                       darken(@global-link-color, 10%);
+// @global-link-color:                             #1e87f0;
+// @global-link-hover-color:                       #0f6ecd;
 
 @global-inverse-color:                          #fff;
-
-//
-// Backgrounds
-//
-
-@global-background:                             #fff;
-
-@global-muted-background:                       #f8f8f8;
-@global-primary-background:                     #011627;
-@global-secondary-background:                   #222;
-
-@global-success-background:                     #32d296;
-@global-warning-background:                     #faa05a;
-@global-danger-background:                      #f0506e;
 
 // UIkit
 // ========================================================================
@@ -64,8 +66,6 @@
 @global-large-font-size:                        24px;
 @global-medium-font-size:                       20px;
 @global-small-font-size:                        14px;
-
-@global-emphasis-color:                         #222;
 
 //
 // Base

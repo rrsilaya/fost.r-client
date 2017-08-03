@@ -1,9 +1,6 @@
-#nav {
-	background-color: #011627;
+#nav nav {
+	height: 80px;
 }
-	#nav nav {
-		height: 80px;
-	}
 
 .active {
 	color: #2ec4b6 !important;
@@ -69,6 +66,7 @@
 	min-width: 6px !important;
 	width: auto !important;
 	padding: 0 !important;
+	background-color: #2ec4b6 !important;
 }
 
 .notif-bell {
@@ -107,10 +105,6 @@
 .full-page {
 	height: 100vh;
 	width: 100vw;
-}
-
-.stats {
-	background-color: #011627;
 }
 
 .pet-icon {
