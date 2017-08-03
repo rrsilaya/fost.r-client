@@ -27,6 +27,10 @@ class Adopt extends Component {
               isLoading={this.props.isFeedLoading}
               hasErrorLoading={this.props.hasErrorLoading}
               feed={this.props.feed}
+              page={this.props.feedPagination}
+              pageTotal={this.props.feedPageTotal}
+              isAppending={this.props.isAppending}
+              getMorePets={this.props.getMorePets}
               isGettingQuickData={this.props.isGettingQuickData}
               getQuickData={this.props.getQuickData}
               quickData={this.props.quickData}
