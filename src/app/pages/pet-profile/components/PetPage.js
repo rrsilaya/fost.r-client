@@ -7,14 +7,18 @@ import Profile from './Profile';
 const PetPage = ({ petData }) => {
   return (
     <div>
-      <Redirect to={`/feed/${petData._id}/profile`} />
+      <Redirect to={`/feed/${petData.uuid}/profile`} />
 
-      <ImageSwitcher images={[petData.img, petData.img]} />
+      <ImageSwitcher images={[petData.url]} />
       <Profile
-        id={petData._id}
+        id={petData.uuid}
         name={petData.name}
-        gender={petData.gender}
-        location={petData.location}
+        gender={petData.sex}
+        location={petData.shelter_Username}
+        breed={petData.breed}
+        status={petData.status}
+        description={petData.description}
+        birthday={petData.birthday}
       />
     </div>
   );

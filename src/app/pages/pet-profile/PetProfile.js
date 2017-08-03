@@ -26,7 +26,7 @@ class PetProfile extends Component {
                 <li>
                   {this.props.match.params.page === 'profile'
                     ? <span>{this.props.data.name}</span>
-                    : <Link to={`/feed/${this.props.data._id}/profile`}>
+                    : <Link to={`/feed/${this.props.data.uuid}/profile`}>
                         {this.props.data.name}
                       </Link>}
                 </li>
