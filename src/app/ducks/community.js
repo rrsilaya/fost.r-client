@@ -243,7 +243,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isAppending: false,
-        userFeedPosts: [...state.userFeedPosts, ...action.payload],
+        userFeedPosts: [...state.userFeedPosts, ...action.payload.posts],
         feedPagination: state.feedPagination + 1
       };
 

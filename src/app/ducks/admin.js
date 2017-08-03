@@ -243,7 +243,7 @@ const reducer = (state = initialState, action) => {
         isAddingPet: false,
         uploadState: 0,
         addForm: initialState.addForm,
-        pets: [action.payload, ...state.pets]
+        pets: [...state.pets, action.payload]
       };
 
     case ADD_PET_FAIL:

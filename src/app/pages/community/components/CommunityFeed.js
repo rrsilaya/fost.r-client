@@ -66,7 +66,7 @@ const CommunityFeed = ({
       <div className="uk-margin-small-top">
         {hasFailed
           ? <div className="uk-text-center">An error occured.</div>
-          : posts.length === 0
+          : posts.length === 0 || feedPageTotal === 0
             ? <div className="uk-text-center uk-text-meta">
                 Posts from community will appear here.
               </div>
