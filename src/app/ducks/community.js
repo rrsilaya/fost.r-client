@@ -8,6 +8,8 @@ const LOAD_ACTIVE_POSTS_FAIL = 'LOAD_ACTIVE_POSTS_FAIL';
 const LOAD_FEED_POSTS_REQ = 'LOAD_FEED_POSTS_REQ';
 const LOAD_FEED_POSTS_SUC = 'LOAD_FEED_POSTS_SUC';
 const LOAD_FEED_POSTS_FAIL = 'LOAD_FEED_POSTS_FAIL';
+const APPEND_POST_REQ = 'APPEND_POST_REQ';
+const APPEND_POST_SUC = 'APPEND_POST_SUC';
 const CHANGE_TAB = 'CHANGE_TAB';
 const UPDATE_FORM = 'UPDATE_FORM';
 const ADD_POST_SUC = 'ADD_POST_SUC';
@@ -22,18 +24,18 @@ export const handleTabChange = activeTab => {
   };
 };
 
-export const getActivePosts = () => {
+export const getActivePosts = user => {
   return dispatch => {
     dispatch({
       type: LOAD_ACTIVE_POSTS_REQ
     });
 
     axios
-      .get('/community/fostr/viewPosts')
+      .get(`/api/community/${user}/viewPosts/1`)
       .then(res => {
         dispatch({
           type: LOAD_ACTIVE_POSTS_SUC,
-          payload: res.data.splice(0, 5)
+          payload: res.data
         });
       })
       .catch(err => {
@@ -53,22 +55,45 @@ export const getFeedPosts = category => {
 
     axios
       .get(
-        `${category === 'featured'
-          ? '/community/sortByVotesDesc/page/1'
+        `/api/community/${category === 'featured'
+          ? 'sortByVotesDesc'
           : category === 'unanswered'
-            ? '/community/sortByCommentsAsc/page/1'
-            : '/community/sortByTimeDesc/page/1'}`
+            ? 'sortByCommentsAsc'
+            : 'sortByTimeDesc'}/page/1`
       )
       .then(res => {
         dispatch({
           type: LOAD_FEED_POSTS_SUC,
-          payload: res.data.splice(0, 15)
+          payload: res.data
         });
       })
       .catch(err => {
         dispatch({
           type: LOAD_FEED_POSTS_FAIL,
           payload: err
+        });
+      });
+  };
+};
+
+export const getMorePosts = (category, page) => {
+  return dispatch => {
+    dispatch({
+      type: APPEND_POST_REQ
+    });
+
+    axios
+      .get(
+        `/api/community/${category === 'featured'
+          ? 'sortByVotesDesc'
+          : category === 'unanswered'
+            ? 'sortByCommentsAsc'
+            : 'sortByTimeDesc'}/page/${page}`
+      )
+      .then(res => {
+        dispatch({
+          type: APPEND_POST_SUC,
+          payload: res.data
         });
       });
   };
@@ -88,7 +113,7 @@ export const addPost = (post_title, text_post) => {
     modal('#newpost').hide();
 
     axios
-      .post('/community/addPost', {
+      .post('/api/community/addPost', {
         post_title,
         text_post
       })
@@ -108,7 +133,7 @@ export const addPost = (post_title, text_post) => {
 export const deletePost = id => {
   return dispatch => {
     axios
-      .delete(`/community/${id}`)
+      .delete(`/api/community/${id}`)
       .then(() => {
         notification('Successfully deleted post.', { status: 'success' });
         dispatch({
@@ -138,6 +163,9 @@ const initialState = {
   isGettingFeedPosts: true,
   isGettingFeedPostsFailed: false,
   userFeedPosts: [],
+  feedPagination: 1,
+  feedPageTotal: 1,
+  isAppending: false,
 
   form: {
     newTitle: '',
@@ -183,7 +211,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isGettingFeedPosts: true,
-        isGettingFeedPostsFailed: false
+        isGettingFeedPostsFailed: false,
+        isAppending: false
       };
 
     case LOAD_FEED_POSTS_SUC:
@@ -191,7 +220,9 @@ const reducer = (state = initialState, action) => {
         ...state,
         isGettingFeedPosts: false,
         isGettingFeedPostsFailed: false,
-        userFeedPosts: action.payload
+        userFeedPosts: action.payload.posts,
+        feedPagination: parseInt(action.payload.page, 10),
+        feedPageTotal: action.payload.pageTotal
       };
 
     case LOAD_FEED_POSTS_FAIL:
@@ -199,6 +230,19 @@ const reducer = (state = initialState, action) => {
         ...state,
         isGettingFeedPosts: false,
         isGettingFeedPostsFailed: true
+      };
+
+    case APPEND_POST_REQ:
+      return {
+        ...state,
+        isAppending: true
+      };
+
+    case APPEND_POST_SUC:
+      return {
+        ...state,
+        isAppending: false,
+        userFeedPosts: [...state.userFeedPosts, ...action.payload]
       };
 
     case UPDATE_FORM:

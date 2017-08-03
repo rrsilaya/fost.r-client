@@ -116,8 +116,7 @@ const AddPet = ({ form, updateForm, progress, isLoading, addPet }) => {
                 <DatePicker
                   className="uk-input uk-width-1-1"
                   placeholderText="Pet Birthday"
-                  minDate={moment().add(2, 'days')}
-                  maxDate={moment().add(102, 'days')}
+                  maxDate={moment()}
                   onChange={handleDateChange}
                   value={
                     form.birthday === ''

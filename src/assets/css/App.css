@@ -1,9 +1,6 @@
-#nav {
-	background-color: #011627;
+#nav nav {
+	height: 80px;
 }
-	#nav nav {
-		height: 80px;
-	}
 
 .active {
 	color: #2ec4b6 !important;
@@ -69,6 +66,7 @@
 	min-width: 6px !important;
 	width: auto !important;
 	padding: 0 !important;
+	background-color: #2ec4b6 !important;
 }
 
 .notif-bell {
@@ -109,10 +107,6 @@
 	width: 100vw;
 }
 
-.stats {
-	background-color: #011627;
-}
-
 .pet-icon {
 	height: 40px;
 	width: 40px;
@@ -145,6 +139,18 @@
 	width: 18rem !important;
 	height: 95vh !important;
 	margin: auto !important;
+}
+
+.rescue-icon {
+	background-size: cover;
+}
+
+.append-button {
+	width: 140px !important;
+}
+
+.custom-account {
+	display: none;
 }
 
 /* Medium */

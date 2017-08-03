@@ -18,14 +18,3 @@ html, body {
 ::-webkit-scrollbar-corner {
 	background-color: transparent;
 }
-
-#root ::-webkit-scrollbar {
-	width: 7px;
-	background-color: rgba(0,0,0,0.3);
-	border-radius: 7px;
-}
-
-#root ::-webkit-scrollbar-thumb {
-	background-color: rgba(255,255,255,0.4);
-	border: 0;
-}

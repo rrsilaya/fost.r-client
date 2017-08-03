@@ -28,7 +28,7 @@ export const login = (username, password, accountType) => {
     });
 
     axios
-      .post(`/login/${accountType}`, {
+      .post(`/api/login/${accountType}`, {
         Username: username,
         password
       })
@@ -41,7 +41,7 @@ export const login = (username, password, accountType) => {
       .catch(err => {
         dispatch({
           type: LOGIN_FAIL,
-          payload: err
+          payload: err.response.status
         });
       });
   };
@@ -53,7 +53,7 @@ export const logout = () => {
       type: LOGOUT_REQ
     });
 
-    axios.get('/logout').then(res => {
+    axios.get('/api/logout').then(res => {
       dispatch({
         type: LOGOUT_SUC
       });
@@ -68,7 +68,7 @@ export const checkAuth = () => {
     });
 
     axios
-      .get('/session')
+      .get('/api/session')
       .then(res => {
         dispatch({
           type: CHECK_AUTH_SUC,
@@ -101,7 +101,7 @@ const initialState = {
     password: ''
   },
   isLoggingIn: false,
-  loginFail: false,
+  loginFail: null,
   activeUser: ''
 };
 
@@ -148,7 +148,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         isLoggingIn: false,
         isAuth: false,
-        loginFail: true
+        loginFail: action.payload
       };
 
     case LOGOUT_REQ:

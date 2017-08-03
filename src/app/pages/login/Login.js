@@ -32,10 +32,15 @@ class Login extends Component {
 
             {this.props.loginFail
               ? <div
-                  className="uk-alert-danger uk-margin-remove-bottom"
+                  className={`uk-margin-remove-bottom ${this.props.loginFail ===
+                    404
+                    ? 'uk-alert-danger'
+                    : 'uk-alert-warning'}`}
                   data-uk-alert>
                   <button className="uk-alert-close" data-uk-close />
-                  Invalid credentials.
+                  {this.props.loginFail === 404
+                    ? 'Invalid credentials.'
+                    : 'Server error.'}
                 </div>
               : ''}
 

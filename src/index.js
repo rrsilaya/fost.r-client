@@ -9,7 +9,7 @@ import store from './app/store';
 // UIkit
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
-import './assets/css/uikit.min.css';
+import './assets/css/uikit/styles.min.css';
 
 import './assets/css/index.css';
 

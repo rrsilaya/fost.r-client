@@ -29,9 +29,7 @@ const Post = ({
       () => {
         notification('Successfully favorited comment.');
       },
-      () => {
-        notification('Cancelled comment favorite.');
-      }
+      () => {}
     );
   };
 

@@ -29,7 +29,6 @@ class Main extends Component {
           <Route exact path="/feed" component={FeedContainer} />
           <Route exact path="/feed/:id/:page" component={PetProfileContainer} />
           <Route exact path="/community" component={CommunityContainer} />
-          <Route exact paht="/rescue" component={RescueContainer} />
           <Route
             exact
             path="/community/post/:id"
@@ -43,6 +42,7 @@ class Main extends Component {
           />
           {this.props.accountType !== 'user' &&
             <Route exact path="/admin" component={AdminContainer} />}
+          <Route exact path="/rescue" component={RescueContainer} />
 
           <Route component={NoPage} />
         </Switch>

@@ -7,7 +7,7 @@ import NewPost from './components/NewPost';
 
 class Community extends Component {
   componentDidMount() {
-    this.props.getActivePosts();
+    this.props.getActivePosts(this.props.activeUser);
     this.props.getFeedPosts(this.props.activeTab);
   }
 
@@ -25,8 +25,12 @@ class Community extends Component {
             handleTabChange={this.props.handleTabChange}
             changeCategory={this.props.getFeedPosts}
             posts={this.props.userFeedPosts}
+            feedPagination={this.props.feedPagination}
+            feedPageTotal={this.props.feedPageTotal}
+            isAppending={this.props.isAppending}
             isLoading={this.props.isGettingFeedPosts}
             hasFailed={this.props.isGettingFeedPostsFailed}
+            getMorePosts={this.props.getMorePosts}
           />
           <NewPost
             updateForm={this.props.updateForm}

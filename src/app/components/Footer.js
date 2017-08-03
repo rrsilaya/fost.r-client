@@ -6,7 +6,7 @@ import logo from '../../assets/images/logo1-white.png';
 
 const Footer = ({ accountType }) => {
   return (
-    <div className="stats uk-margin-medium-top uk-section uk-padding-large">
+    <div className="uk-background-secondary uk-margin-medium-top uk-section uk-padding-large">
       <div
         className="footer uk-grid-small uk-margin-auto uk-flex uk-flex-between uk-child-width-auto@s uk-child-width-1-1"
         data-uk-grid>

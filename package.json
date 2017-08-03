@@ -2,10 +2,12 @@
   "name": "fost.r",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001/api",
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "axios": "^0.16.2",
     "jquery": "^3.2.1",
+    "less": "^2.7.2",
+    "less-plugin-clean-css": "^1.5.1",
     "moment": "^2.18.1",
     "prettier": "^1.4.4",
     "react": "^15.5.4",
@@ -33,7 +35,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "prettify": "prettier --tab-width 2 --single-quote --jsx-bracket-same-line --write \"./src/**/*.js\"",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "build-css": "./node_modules/less/bin/lessc --clean-css src/assets/less/theme.less src/assets/css/uikit/styles.min.css"
   },
   "lint-staged": {
     "*.js": [

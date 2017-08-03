@@ -5,7 +5,7 @@ const Stats = ({ isLoading, shelterInfo, hasFailed }) => {
   return (
     <div className="uk-inline uk-width-1-1">
       <div
-        className="stats uk-width-1-1 uk-background-cover uk-background-blend-overlay"
+        className="uk-background-secondary uk-width-1-1 uk-background-cover uk-background-blend-overlay"
         style={{
           backgroundImage: `url(${shelterInfo.icon_url ||
             'https://placeimg.com/415/409/animals/grayscale'})`

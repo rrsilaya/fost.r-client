@@ -20,7 +20,7 @@ export const getPostData = id => {
     });
 
     axios
-      .get(`/community/${id}`)
+      .get(`/api/community/${id}`)
       .then(res => {
         dispatch({
           type: GET_POST_DATA_SUC,
@@ -43,7 +43,7 @@ export const getPostComments = id => {
     });
 
     axios
-      .get(`/community/viewAllComments/${id}`)
+      .get(`/api/community/viewAllComments/${id}`)
       .then(res => {
         dispatch({
           type: GET_COMMENTS_SUC,
@@ -73,7 +73,7 @@ export const replyToPost = (id, title, content) => {
     notification('Sending your reply...');
 
     axios
-      .post(`/community/${id}`, {
+      .post(`/api/community/${id}`, {
         comment_title: title,
         comment_body: content
       })

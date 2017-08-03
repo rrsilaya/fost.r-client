@@ -6,6 +6,7 @@ const ConfirmPassword = ({ status, handleFormUpdate }) => {
       id="confirm-password"
       data-uk-modal="center: true; esc-close: false; bg-close: false;">
       <div className="uk-modal-dialog uk-modal-body uk-text-center">
+        <button className="uk-modal-close-default" data-uk-close />
         <div className="uk-margin">
           <input
             type="password"

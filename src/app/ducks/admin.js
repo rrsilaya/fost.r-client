@@ -14,6 +14,7 @@ const ADD_PET_REQ = 'ADD_PET_REQ';
 const ADD_PET_SUC = 'ADD_PET_SUC';
 const ADD_PET_FAIL = 'ADD_PET_FAIL';
 const UPLOAD_INC = 'UPLOAD_INC';
+const DELETE_PET_SUC = 'DELETE_PET_SUC';
 
 // Action Creators
 export const changeTab = tab => {
@@ -30,7 +31,7 @@ export const getPets = () => {
     });
 
     axios
-      .get('/pets/myPets')
+      .get('/api/pets/myPets')
       .then(res => {
         dispatch({
           type: GET_PETS_SUC,
@@ -53,7 +54,7 @@ export const getInfo = () => {
     });
 
     axios
-      .get('/accounts/MyAccount')
+      .get('/api/accounts/MyAccount')
       .then(res => {
         dispatch({
           type: GET_INFO_SUC,
@@ -78,13 +79,12 @@ export const addPet = form => {
     let data = new FormData();
     const formKeys = Object.keys(form);
 
-    formKeys.map(key => {
+    formKeys.forEach(key => {
       data.append(key, form[key]);
     });
 
     let config = {
       onUploadProgress: progressEvent => {
-        console.log(progressEvent);
         dispatch({
           type: UPLOAD_INC,
           payload: Math.round(progressEvent.loaded * 100 / progressEvent.total)
@@ -93,7 +93,7 @@ export const addPet = form => {
     };
 
     axios
-      .post('/pets/myPets', data, config)
+      .post('/api/pets/myPets', data, config)
       .then(res => {
         modal('#addpet-modal').hide();
         notification('Successfully added pet.', { status: 'success' });
@@ -107,6 +107,25 @@ export const addPet = form => {
           type: ADD_PET_FAIL,
           payload: err
         });
+      });
+  };
+};
+
+export const deletePet = id => {
+  return dispatch => {
+    notification('Removing pet...');
+
+    axios
+      .delete(`/api/pets/${id}`)
+      .then(() => {
+        notification('Successfully removed pet.', { status: 'success' });
+        dispatch({
+          type: DELETE_PET_SUC,
+          payload: id
+        });
+      })
+      .catch(() => {
+        notification('Failed to remove pet.', { status: 'danger' });
       });
   };
 };
@@ -230,6 +249,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         isAddingPet: false,
         uploadState: 0
+      };
+
+    case DELETE_PET_SUC:
+      return {
+        ...state,
+        pets: state.pets.filter(pet => pet.uuid !== action.payload)
       };
 
     default:

@@ -15,7 +15,7 @@ export const loadPets = () => {
     });
 
     axios
-      .get('/pets/shelters/viewAllPets')
+      .get('/api/pets')
       .then(pets => {
         dispatch({
           type: LOAD_PETS_SUCCESS,
@@ -60,7 +60,7 @@ export const getQuickData = id => {
       type: GET_DATA_REQ
     });
 
-    axios.get(`/pets/${id}`).then(res => {
+    axios.get(`/api/pets/${id}`).then(res => {
       dispatch({
         type: GET_DATA_SUC,
         payload: res.data
