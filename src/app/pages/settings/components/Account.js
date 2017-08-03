@@ -45,6 +45,11 @@ const Account = () => {
             <input className="uk-input" type="text" placeholder="Address" />
           </div>
         </form>
+        <div className="uk-text-center">
+          <button className="uk-button uk-button-primary uk-text-center">
+            Save Changes
+          </button>
+        </div>
       </div>
     </div>
   );
