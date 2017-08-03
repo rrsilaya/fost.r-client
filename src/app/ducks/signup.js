@@ -6,6 +6,7 @@ const REGISTER_REQ = 'REGISTER_REQ';
 const REGISTER_SUC = 'REGISTER_SUC';
 const REGISTER_FAIL = 'REGISTER_FAIL';
 const CLEAR_CREATE = 'CLEAR_CREATE';
+const INC_PROGRESS = 'INC_PROGRESS';
 
 // Action Creators
 export const updateForm = (name, value) => {
@@ -16,14 +17,23 @@ export const updateForm = (name, value) => {
   };
 };
 
-export const register = form => {
+export const register = (accountType, form) => {
   return dispatch => {
     dispatch({
       type: REGISTER_REQ
     });
-    console.log(form);
+
+    const config = {
+      onUploadProgress: e => {
+        dispatch({
+          type: INC_PROGRESS,
+          payload: Math.round(e.loaded * 100 / e.total)
+        });
+      }
+    };
+
     axios
-      .post('/api/signup/user', form)
+      .post(`/api/signup/${accountType}`, form, config)
       .then(res => {
         dispatch({
           type: REGISTER_SUC
@@ -63,7 +73,8 @@ const initialState = {
     checkbox: false,
 
     shelterName: '',
-    shelterFile: null
+    shelterFile: null,
+    progress: 0
   },
   isCreatingUser: false,
   createdUser: false
@@ -101,6 +112,15 @@ const reducer = (state = initialState, action) => {
         createdUser: false,
         form: initialState.form,
         isCreatingUser: false
+      };
+
+    case INC_PROGRESS:
+      return {
+        ...state,
+        form: {
+          ...state.form,
+          progress: action.payload
+        }
       };
 
     default:

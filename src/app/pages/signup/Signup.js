@@ -30,16 +30,31 @@ class Signup extends Component {
     modal('#confirm-password').hide();
 
     const form = e.target;
-    this.props.register({
-      Username: form.usernameNew.value,
-      firstname: form.firstname.value,
-      lastname: form.lastname.value,
-      birthday: moment(form.contact.value).format('YYYY-MM-DD HH:mm'),
-      address: form.address.value,
-      contactnum: form.contact.value,
-      email: form.email.value,
-      password: form.passwordNew.value
-    });
+    if (this.props.form.accountType === 'user') {
+      this.props.register('user', {
+        Username: form.usernameNew.value,
+        firstname: form.firstname.value,
+        lastname: form.lastname.value,
+        birthday: moment(form.contact.value).format('YYYY-MM-DD'),
+        address: form.address.value,
+        contactnum: form.contact.value,
+        email: form.email.value,
+        password: form.passwordNew.value
+      });
+    } else {
+      this.props.register(
+        'shelter',
+        new FormData({
+          shelter_name: form.shelterName.value,
+          Username: form.usernameNew.value,
+          address: form.address.value,
+          contactnum: form.contact.value,
+          email: form.email.value,
+          password: form.passwordNew.value,
+          file: form.shelterFile.files[0]
+        })
+      );
+    }
   };
 
   componentWillMount() {
@@ -421,9 +436,17 @@ class Signup extends Component {
               {this.props.isCreatingUser || this.props.createdUser
                 ? <div className="uk-overlay-default uk-position-cover" />
                 : ''}
-              <div className="uk-overlay uk-position-center uk-dark">
+              <div className="uk-overlay uk-position-center uk-dark uk-width-1-1">
                 {this.props.isCreatingUser
-                  ? <CenterLoader />
+                  ? this.props.form.accountType === 'user'
+                    ? <CenterLoader />
+                    : <div>
+                        <progress
+                          className="uk-progress"
+                          value={this.props.form.progress}
+                          max="100"
+                        />
+                      </div>
                   : this.props.createdUser
                     ? <p className="uk-text-center">
                         Your account has been created. Login{' '}
