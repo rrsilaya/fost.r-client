@@ -42,18 +42,20 @@ class Signup extends Component {
         password: form.passwordNew.value
       });
     } else {
-      this.props.register(
-        'shelter',
-        new FormData({
-          shelter_name: form.shelterName.value,
-          Username: form.usernameNew.value,
-          address: form.address.value,
-          contactnum: form.contact.value,
-          email: form.email.value,
-          password: form.passwordNew.value,
-          file: form.shelterFile.files[0]
-        })
-      );
+      const formObj = {
+        shelter_name: form.shelterName.value,
+        Username: form.usernameNew.value,
+        address: form.address.value,
+        contactnum: form.contact.value,
+        email: form.email.value,
+        password: form.passwordNew.value,
+        file: form.shelterFile.files[0]
+      };
+      let data = new FormData();
+
+      Object.keys(formObj).forEach(key => data.append(key, formObj[key]));
+
+      this.props.register('shelter', data);
     }
   };
 

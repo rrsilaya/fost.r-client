@@ -24,10 +24,10 @@ export const register = (accountType, form) => {
     });
 
     const config = {
-      onUploadProgress: e => {
+      onUploadProgress: progressEvent => {
         dispatch({
           type: INC_PROGRESS,
-          payload: Math.round(e.loaded * 100 / e.total)
+          payload: Math.round(progressEvent.loaded * 100 / progressEvent.total)
         });
       }
     };
