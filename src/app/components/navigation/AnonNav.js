@@ -6,7 +6,7 @@ import logo from '../../../assets/images/logo3-white.png';
 const AnonNav = () => {
   return (
     <div
-      className="uk-section-primary uk-margin-medium-bottom"
+      className="uk-section-secondary uk-margin-medium-bottom"
       id="nav"
       data-uk-sticky>
       <nav className="uk-navbar-container uk-navbar-transparent" data-uk-navbar>

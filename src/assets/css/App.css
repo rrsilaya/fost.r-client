@@ -149,6 +149,11 @@
 	width: 140px !important;
 }
 
+// Design Hacks
+input.uk-radio {
+	color: #fff !important;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {
