@@ -41,11 +41,11 @@ const Account = () => {
               placeholder="Contact Number"
             />
           </div>
-          <div className="uk-width-1-1@s">
+          <div className="uk-width-1-1@s uk-margin-medium-bottom">
             <input className="uk-input" type="text" placeholder="Address" />
           </div>
         </form>
-        <div className="uk-text-center">
+        <div className="uk-text-center uk-margin-medium-bottom">
           <button className="uk-button uk-button-primary uk-text-center">
             Save Changes
           </button>

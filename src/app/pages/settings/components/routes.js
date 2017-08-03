@@ -1,6 +1,5 @@
 import Account from './Account'; // import all your components here
 import Privacy from './Privacy';
-import Shelter from './Shelter';
 
 const links = [
   // Change these with your links
@@ -15,12 +14,6 @@ const links = [
     label: 'Privacy',
     route: '/settings/privacysettings',
     component: Privacy
-  },
-  {
-    icon: 'home',
-    label: 'Muted Shelters',
-    route: '/settings/mutedshelters',
-    component: Shelter
   }
 ];
 
