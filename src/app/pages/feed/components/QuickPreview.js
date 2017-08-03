@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 import { modal } from 'uikit';
 
 import CenterLoader from '../../../components/CenterLoader';
@@ -45,7 +46,7 @@ const QuickPreview = ({ isLoading, data }) => {
               </div>
             </div>
             <div className="uk-flex uk-flex-middle uk-padding-small uk-text-small">
-              <div>
+              <div className="uk-width-1-1">
                 <h2 className="uk-margin-remove">{data.name}</h2>
                 <div className="uk-margin-small-bottom">
                   <span className="uk-label uk-label-default uk-margin-small-right">
@@ -56,9 +57,7 @@ const QuickPreview = ({ isLoading, data }) => {
                     : ''}
                 </div>
                 <p className="uk-margin-remove">
-                  Edison bulb freegan helvetica unicorn deep v hoodie
-                  microdosing
-                  quinoa. Synth messenger bag
+                  {data.description}
                 </p>
 
                 <ul className="uk-list uk-list-divider">
@@ -67,7 +66,7 @@ const QuickPreview = ({ isLoading, data }) => {
                       className="uk-margin-small-right"
                       data-uk-icon="icon: calendar; ratio: 0.7"
                     />
-                    {data.birthday}
+                    {moment(data.birthday).format('MMMM D,YYYY')}
                   </li>
                   <li>
                     <span

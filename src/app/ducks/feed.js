@@ -80,7 +80,7 @@ export const getQuickData = id => {
     axios.get(`/api/pets/${id}`).then(res => {
       dispatch({
         type: GET_DATA_SUC,
-        payload: res.data
+        payload: res.data[0]
       });
     });
   };
