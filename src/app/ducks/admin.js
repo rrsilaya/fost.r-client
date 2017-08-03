@@ -98,7 +98,8 @@ export const addPet = form => {
         modal('#addpet-modal').hide();
         notification('Successfully added pet.', { status: 'success' });
         dispatch({
-          type: ADD_PET_SUC
+          type: ADD_PET_SUC,
+          payload: res.data
         });
       })
       .catch(err => {
@@ -241,7 +242,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         isAddingPet: false,
         uploadState: 0,
-        addForm: initialState.addForm
+        addForm: initialState.addForm,
+        pets: [action.payload, ...state.pets]
       };
 
     case ADD_PET_FAIL:
