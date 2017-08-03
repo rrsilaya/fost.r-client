@@ -11,6 +11,8 @@ const GET_COMMENTS_FAIL = 'GET_COMMENTS_FAIL';
 const UPDATE_FORM = 'UPDATE_FORM';
 const REPLY_SUC = 'REPLY_SUC';
 const CLEAR_FORM = 'CLEAR_FORM';
+const APPEND_REQ = 'APPEND_REQ';
+const APPEND_SUC = 'APPEND_SUC';
 
 // Action Creators
 export const getPostData = id => {
@@ -24,7 +26,7 @@ export const getPostData = id => {
       .then(res => {
         dispatch({
           type: GET_POST_DATA_SUC,
-          payload: res.data[0][0]
+          payload: res.data[0]
         });
       })
       .catch(err => {
@@ -43,7 +45,7 @@ export const getPostComments = id => {
     });
 
     axios
-      .get(`/api/community/viewAllComments/${id}`)
+      .get(`/api/community/viewAllComments/${id}/page/1`)
       .then(res => {
         dispatch({
           type: GET_COMMENTS_SUC,
@@ -56,6 +58,21 @@ export const getPostComments = id => {
           payload: err
         });
       });
+  };
+};
+
+export const getMoreComments = (id, page) => {
+  return dispatch => {
+    dispatch({
+      type: APPEND_REQ
+    });
+
+    axios.get(`/api/community/viewAllComments/${id}/page/${page}`).then(res => {
+      dispatch({
+        type: APPEND_SUC,
+        payload: res.data
+      });
+    });
   };
 };
 
@@ -103,7 +120,12 @@ const initialState = {
   activePost: {},
   isLoadingComments: true,
   isLoadingCommentsFailed: false,
+
   comments: [],
+  pagination: 1,
+  pageTotal: 1,
+  isAppending: false,
+
   replyForm: {
     title: '',
     content: ''
@@ -150,7 +172,9 @@ const reducer = (state = initialState, action) => {
         ...state,
         isLoadingComments: false,
         isLoadingCommentsFailed: false,
-        comments: action.payload
+        comments: action.payload.comments,
+        pagination: parseInt(action.payload.page, 10),
+        pageTotal: action.payload.pageTotal
       };
 
     case GET_COMMENTS_FAIL:
@@ -159,6 +183,19 @@ const reducer = (state = initialState, action) => {
         isLoadingComments: false,
         isLoadingCommentsFailed: true,
         comments: []
+      };
+
+    case APPEND_REQ:
+      return {
+        ...state,
+        isAppending: true
+      };
+
+    case APPEND_SUC:
+      return {
+        ...state,
+        isAppending: false,
+        pagination: state.pagination + 1
       };
 
     case UPDATE_FORM:

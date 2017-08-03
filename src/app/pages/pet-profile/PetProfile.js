@@ -26,7 +26,7 @@ class PetProfile extends Component {
                 <li>
                   {this.props.match.params.page === 'profile'
                     ? <span>{this.props.data.name}</span>
-                    : <Link to={`/feed/${this.props.data._id}/profile`}>
+                    : <Link to={`/feed/${this.props.data.uuid}/profile`}>
                         {this.props.data.name}
                       </Link>}
                 </li>
@@ -45,11 +45,11 @@ class PetProfile extends Component {
                 : this.props.match.params.page === 'adopt'
                   ? <Adopt
                       name={this.props.data.name}
-                      house={this.props.data.location}
-                      id={this.props.data._id}
+                      house={this.props.data.shelter_Username}
+                      id={this.props.data.uuid}
                     />
                   : <Date
-                      id={this.props.data._id}
+                      id={this.props.data.uuid}
                       name={this.props.data.name}
                     />}
             </div>}

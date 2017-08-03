@@ -58,7 +58,7 @@ export const getFeedPosts = category => {
         `/api/community/${category === 'featured'
           ? 'sortByVotesDesc'
           : category === 'unanswered'
-            ? 'sortByCommentsAsc'
+            ? 'sortByCommentsDesc'
             : 'sortByTimeDesc'}/page/1`
       )
       .then(res => {
@@ -120,7 +120,8 @@ export const addPost = (post_title, text_post) => {
       .then(res => {
         notification('Post successfully created.', { status: 'success' });
         dispatch({
-          type: ADD_POST_SUC
+          type: ADD_POST_SUC,
+          payload: res.data
         });
       })
       .catch(err => {
@@ -242,7 +243,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isAppending: false,
-        userFeedPosts: [...state.userFeedPosts, ...action.payload]
+        userFeedPosts: [...state.userFeedPosts, ...action.payload.posts],
+        feedPagination: state.feedPagination + 1
       };
 
     case UPDATE_FORM:
@@ -257,7 +259,9 @@ const reducer = (state = initialState, action) => {
     case ADD_POST_SUC:
       return {
         ...state,
-        form: initialState.form
+        form: initialState.form,
+        userFeedPosts: [action.payload, ...state.userFeedPosts],
+        userActivePosts: [action.payload, ...state.userActivePosts]
       };
 
     case DELETE_POST_SUC:

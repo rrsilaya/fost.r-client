@@ -58,6 +58,11 @@ class CommunityPost extends Component {
                       isLoading={this.props.isLoadingComments}
                       hasFailed={this.props.isLoadingCommentsFailed}
                       comments={this.props.comments}
+                      pagination={this.props.pagination}
+                      pageTotal={this.props.pageTotal}
+                      isAppending={this.props.isAppending}
+                      getMoreComments={this.props.getMoreComments}
+                      id={this.props.match.params.id}
                     />
                   </div>}
         </div>

@@ -16,6 +16,10 @@ class Feed extends Component {
     return finHeight < 170 ? 170 : finHeight;
   };
 
+  handleAppend = () => {
+    this.props.getMorePets(this.props.page + 1);
+  };
+
   render() {
     return (
       <div>
@@ -51,6 +55,18 @@ class Feed extends Component {
                       </div>
                     )}
                   </StackGrid>
+                  {this.props.page === this.props.pageTotal
+                    ? ''
+                    : <div className="uk-text-center">
+                        <button
+                          className="uk-button uk-button-default append-button"
+                          onClick={this.handleAppend}
+                          disabled={this.isAppending}>
+                          {this.isAppending
+                            ? <div data-uk-spinner="ratio: 0.5" />
+                            : 'Load more'}
+                        </button>
+                      </div>}
                 </div>}
         <QuickPreview
           isLoading={this.props.isGettingQuickData}

@@ -6,6 +6,8 @@ const LOAD_PETS_SUCCESS = 'LOAD_PETS_SUCCESS';
 const LOAD_PETS_FAIL = 'LOAD_PETS_FAIL';
 const GET_DATA_REQ = 'GET_DATA_REQ';
 const GET_DATA_SUC = 'GET_DATA_SUC';
+const APPEND_REQ = 'APPEND_REQ';
+const APPEND_SUC = 'APPEND_SUC';
 
 // Action Creators
 export const loadPets = () => {
@@ -15,7 +17,7 @@ export const loadPets = () => {
     });
 
     axios
-      .get('/api/pets')
+      .get('/api/pets/shelters/viewAllPets/page/1')
       .then(pets => {
         dispatch({
           type: LOAD_PETS_SUCCESS,
@@ -28,6 +30,21 @@ export const loadPets = () => {
           payload: err
         });
       });
+  };
+};
+
+export const getMorePets = page => {
+  return dispatch => {
+    dispatch({
+      type: APPEND_REQ
+    });
+
+    axios.get(`/api/pets/shelters/viewAllPets/page/${page}`).then(pets => {
+      dispatch({
+        type: APPEND_SUC,
+        payload: pets.data
+      });
+    });
   };
 };
 
@@ -63,7 +80,7 @@ export const getQuickData = id => {
     axios.get(`/api/pets/${id}`).then(res => {
       dispatch({
         type: GET_DATA_SUC,
-        payload: res.data
+        payload: res.data[0]
       });
     });
   };
@@ -73,8 +90,11 @@ export const getQuickData = id => {
 const initialState = {
   isFeedLoading: true,
   hasErrorLoading: false,
-  pets: ['Dog', 'Cat', 'Snake', 'Turtle', 'Rodent'],
+  pets: ['Dog', 'Cat', 'Bird', 'Others'],
   feed: [],
+  feedPagination: 1,
+  feedPageTotal: 1,
+  isAppending: false,
 
   quickData: {},
   isGettingQuickData: true
@@ -95,7 +115,9 @@ const reducer = (state = initialState, action) => {
         ...state,
         isFeedLoading: false,
         hasErrorLoading: false,
-        feed: action.payload
+        feed: action.payload.pets,
+        feedPagination: parseInt(action.payload.page, 10),
+        feedPageTotal: action.payload.pageTotal
       };
 
     case LOAD_PETS_FAIL:
@@ -117,6 +139,20 @@ const reducer = (state = initialState, action) => {
         ...state,
         isGettingQuickData: false,
         quickData: action.payload
+      };
+
+    case APPEND_REQ:
+      return {
+        ...state,
+        isAppending: true
+      };
+
+    case APPEND_SUC:
+      return {
+        ...state,
+        isAppending: false,
+        feed: [...state.feed, ...action.payload.pets],
+        feedPagination: state.feedPagination + 1
       };
 
     default:

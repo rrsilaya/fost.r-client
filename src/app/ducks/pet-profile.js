@@ -13,7 +13,7 @@ export const loadProfile = id => {
     });
 
     axios
-      .get(`/adopt?_id=${id}`)
+      .get(`/api/pets/${id}`)
       .then(res => {
         dispatch({
           type: PROFILE_SUC,
