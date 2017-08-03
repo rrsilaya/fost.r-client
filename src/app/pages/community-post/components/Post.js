@@ -81,18 +81,20 @@ const Post = ({
         </div>
         <div className="uk-flex uk-flex-middle uk-text-right">
           <div>
-            <div className="uk-button-group uk-margin-small-right">
-              <button
-                className="uk-button uk-button-default"
-                data-uk-icon="icon: arrow-up"
-                onClick={handleUpVote}
-              />
-              <button
-                className="uk-button uk-button-default"
-                data-uk-icon="icon: arrow-down"
-                onClick={handleDownVote}
-              />
-            </div>
+            {activeUser === author
+              ? ''
+              : <div className="uk-button-group uk-margin-small-right">
+                  <button
+                    className="uk-button uk-button-default"
+                    data-uk-icon="icon: arrow-up"
+                    onClick={handleUpVote}
+                  />
+                  <button
+                    className="uk-button uk-button-default"
+                    data-uk-icon="icon: arrow-down"
+                    onClick={handleDownVote}
+                  />
+                </div>}
             <div className="uk-button-group">
               {type === 'post'
                 ? activeUser === author
@@ -106,11 +108,7 @@ const Post = ({
                       data-uk-icon="icon: reply"
                       data-uk-toggle="target: #reply-form-modal"
                     />
-                : <button
-                    className="uk-button uk-button-secondary"
-                    data-uk-icon="icon: star"
-                    onClick={handleFavorite}
-                  />}
+                : ''}
             </div>
           </div>
         </div>
