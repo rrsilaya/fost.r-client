@@ -21,6 +21,10 @@ class Signup extends Component {
     this.props.updateForm('birthday', date);
   };
 
+  handleFileChange = e => {
+    this.props.updateForm('shelterFile', e.target.files[0]);
+  };
+
   handleFormSubmit = e => {
     e.preventDefault();
     modal('#confirm-password').hide();
@@ -347,7 +351,26 @@ class Signup extends Component {
                           legitimate institution.
                         </span>
                         <div className="uk-placeholder uk-text-center">
-                          Hello
+                          {this.props.form.shelterFile
+                            ? <div>{this.props.form.shelterFile.name}</div>
+                            : ''}
+                          <div data-uk-form-custom>
+                            <input
+                              type="file"
+                              name="shelterFile"
+                              onChange={this.handleFileChange}
+                            />
+                            <button className="uk-button uk-button-link upload-button">
+                              {this.props.form.shelterFile
+                                ? 'Change'
+                                : <span>
+                                    <span
+                                      className="uk-margin-small-right"
+                                      data-uk-icon="icon: image"
+                                    />Click to select file.
+                                  </span>}
+                            </button>
+                          </div>
                         </div>
                       </div>}
 
@@ -371,9 +394,22 @@ class Signup extends Component {
                     <button
                       className="uk-button uk-button-primary"
                       disabled={
-                        Object.values(this.props.form).filter(
-                          input => input === '' || input === false
-                        ).length > 1
+                        ((this.props.form.accountType === 'user' &&
+                          this.props.form.firstname &&
+                          this.props.form.lastname &&
+                          this.props.form.birthday) ||
+                          (this.props.form.accountType === 'shelter' &&
+                            this.props.form.shelterName &&
+                            this.props.form.shelterFile)) &&
+                          (this.props.form.usernameNew &&
+                            this.props.form.contact &&
+                            this.props.form.address &&
+                            this.props.form.email &&
+                            this.props.form.address &&
+                            this.props.form.passwordNew &&
+                            this.props.form.checkbox)
+                          ? false
+                          : true
                       }
                       data-uk-toggle="target: #confirm-password">
                       Create account

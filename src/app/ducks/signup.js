@@ -62,7 +62,8 @@ const initialState = {
     prompt: '',
     checkbox: false,
 
-    shelterName: ''
+    shelterName: '',
+    shelterFile: null
   },
   isCreatingUser: false,
   createdUser: false
