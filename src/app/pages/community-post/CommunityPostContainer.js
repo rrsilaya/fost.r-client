@@ -6,7 +6,8 @@ import {
   getPostComments,
   updateForm,
   replyToPost,
-  resetForm
+  resetForm,
+  getMoreComments
 } from '../../ducks/community-post';
 import { deletePost } from '../../ducks/community';
 
@@ -16,7 +17,12 @@ const mapStateToProps = state => ({
   activePost: state.communityPost.activePost,
   isLoadingComments: state.communityPost.isLoadingComments,
   isLoadingCommentsFailed: state.communityPost.isLoadingCommentsFailed,
+
   comments: state.communityPost.comments,
+  pagination: state.communityPost.pagination,
+  pageTotal: state.communityPost.pageTotal,
+  isAppending: state.communityPost.isAppending,
+
   replyForm: state.communityPost.replyForm,
 
   deleteSuccess: state.community.deleteSuccess,
@@ -29,6 +35,7 @@ const CommunityPostContainer = connect(mapStateToProps, {
   updateForm,
   replyToPost,
   deletePost,
-  resetForm
+  resetForm,
+  getMoreComments
 })(CommunityPost);
 export default CommunityPostContainer;

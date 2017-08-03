@@ -58,7 +58,7 @@ export const getFeedPosts = category => {
         `/api/community/${category === 'featured'
           ? 'sortByVotesDesc'
           : category === 'unanswered'
-            ? 'sortByCommentsAsc'
+            ? 'sortByCommentsDesc'
             : 'sortByTimeDesc'}/page/1`
       )
       .then(res => {
