@@ -19,7 +19,7 @@ export const loadPets = () => {
       .then(pets => {
         dispatch({
           type: LOAD_PETS_SUCCESS,
-          payload: pets.data
+          payload: pets.data.pets
         });
       })
       .catch(err => {

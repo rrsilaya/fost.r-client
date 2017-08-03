@@ -243,7 +243,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isAppending: false,
-        userFeedPosts: [...state.userFeedPosts, ...action.payload]
+        userFeedPosts: [...state.userFeedPosts, ...action.payload],
+        feedPagination: state.feedPagination + 1
       };
 
     case UPDATE_FORM:
