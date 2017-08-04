@@ -16,7 +16,14 @@ class Date extends Component {
     if (this.props.date) {
       modal
         .confirm('Are you sure you want to proceed?', { center: true })
-        .then(() => this.props.submitRequest(this.props.date), () => {});
+        .then(
+          () =>
+            this.props.submitRequest(
+              this.props.id,
+              moment(this.props.date).format('YYYY-MM-DD')
+            ),
+          () => {}
+        );
     }
   };
 
