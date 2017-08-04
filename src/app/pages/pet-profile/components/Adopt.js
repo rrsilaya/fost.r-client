@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { modal } from 'uikit';
 
 const Adopt = ({ id, name, house }) => {
+  const handleProceed = () => {
+    modal
+      .confirm('Are you sure you want to proceed?', { center: true })
+      .then(() => {}, () => {});
+  };
+
   return (
     <div>
       <h2 className="uk-heading-line uk-text-center">
@@ -24,7 +31,9 @@ const Adopt = ({ id, name, house }) => {
           className="uk-button uk-button-default">
           Cancel
         </Link>
-        <button className="uk-button uk-button-primary">Proceed</button>
+        <button className="uk-button uk-button-primary" onClick={handleProceed}>
+          Proceed
+        </button>
       </div>
     </div>
   );

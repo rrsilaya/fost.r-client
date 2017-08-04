@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
+import { modal } from 'uikit';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import CenterLoader from '../../../components/CenterLoader';
@@ -12,7 +13,11 @@ class Date extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    if (this.props.date) this.props.submitRequest(this.props.date);
+    if (this.props.date) {
+      modal
+        .confirm('Are you sure you want to proceed?', { center: true })
+        .then(() => this.props.submitRequest(this.props.date), () => {});
+    }
   };
 
   render() {
