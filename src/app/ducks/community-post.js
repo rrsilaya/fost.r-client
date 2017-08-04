@@ -97,7 +97,8 @@ export const replyToPost = (id, title, content) => {
       .then(res => {
         notification('Successfully sent your reply.', { status: 'success' });
         dispatch({
-          type: REPLY_SUC
+          type: REPLY_SUC,
+          payload: res.data
         });
       })
       .catch(err => {
@@ -212,7 +213,8 @@ const reducer = (state = initialState, action) => {
     case REPLY_SUC:
       return {
         ...state,
-        replyForm: initialState.replyForm
+        replyForm: initialState.replyForm,
+        comments: [action.payload, ...state.comments]
       };
 
     case CLEAR_FORM:

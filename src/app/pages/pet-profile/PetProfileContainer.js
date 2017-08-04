@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
 import PetProfile from './PetProfile';
 
-import { loadProfile } from '../../ducks/pet-profile';
+import { loadProfile, requestAdopt } from '../../ducks/pet-profile';
 
 const mapStateToProps = state => ({
   isLoading: state.petProfile.isLoading,
   data: state.petProfile.data
 });
 
-const PetProfileContainer = connect(mapStateToProps, { loadProfile })(
-  PetProfile
-);
+const PetProfileContainer = connect(mapStateToProps, {
+  loadProfile,
+  requestAdopt
+})(PetProfile);
 export default PetProfileContainer;

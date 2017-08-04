@@ -41,7 +41,7 @@ const Replies = ({
                 )}
               </ul>
               <div className="uk-text-center">
-                {comments.length || pageTotal !== 0
+                {comments.length !== 0 && pageTotal !== 0
                   ? pagination === pageTotal
                     ? ''
                     : <div className="uk-text-center">

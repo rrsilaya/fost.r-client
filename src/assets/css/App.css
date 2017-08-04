@@ -153,6 +153,28 @@
 	display: none;
 }
 
+.full-splash {
+	height: 100vh;
+	width: 100vw;
+}
+	
+.splash-li {
+	text-align: center !important;
+}
+
+.splash-btn {
+	border-radius: 50px !important;
+	padding: 5px !important;
+	font-size: 110% !important;
+	width: 11rem !important;
+	border: 1px solid white !important;
+}
+
+.splash-btn:hover {
+	background-color: white !important;
+	color: #011627 !important;
+}
+
 /* Medium */
 @media (min-width: 960px) {
 	.tm-main {
@@ -175,6 +197,14 @@
   
 	.post-breadcrumb {
 		width: 15rem;
+	}
+	
+	.splash-li {
+		width: 8rem !important;
+	}
+	
+	.splash-logo {
+		width: 256px;
 	}
 }
 
@@ -208,5 +238,13 @@
 	
 	.post-breadcrumb {
 		width: 10rem;
+	}
+	
+	.splash-li {
+		width: 6rem !important;
+	}
+	
+	.splash-logo {
+		width: 192px;
 	}
 }

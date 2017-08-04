@@ -47,6 +47,7 @@ class PetProfile extends Component {
                       name={this.props.data.name}
                       house={this.props.data.shelter_Username}
                       id={this.props.data.uuid}
+                      requestAdopt={this.props.requestAdopt}
                     />
                   : <Date
                       id={this.props.data.uuid}

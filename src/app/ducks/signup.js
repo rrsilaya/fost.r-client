@@ -36,7 +36,8 @@ export const register = (accountType, form) => {
       .post(`/api/signup/${accountType}`, form, config)
       .then(res => {
         dispatch({
-          type: REGISTER_SUC
+          type: REGISTER_SUC,
+          payload: res.data
         });
       })
       .catch(err => {
