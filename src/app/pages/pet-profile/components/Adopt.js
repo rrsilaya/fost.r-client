@@ -2,11 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { modal } from 'uikit';
 
-const Adopt = ({ id, name, house }) => {
+const Adopt = ({ id, name, house, requestAdopt }) => {
   const handleProceed = () => {
-    modal
-      .confirm('Are you sure you want to proceed?', { center: true })
-      .then(() => {}, () => {});
+    modal.confirm('Are you sure you want to proceed?', { center: true }).then(
+      () => {
+        requestAdopt(id);
+      },
+      () => {}
+    );
   };
 
   return (

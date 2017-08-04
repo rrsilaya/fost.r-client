@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { notification } from 'uikit';
 
 // Actions
 const PROFILE_REQ = 'PROFILE_REQ';
@@ -24,6 +25,21 @@ export const loadProfile = id => {
         dispatch({
           type: PROFILE_FAIL
         });
+      });
+  };
+};
+
+export const requestAdopt = id => {
+  return dispatch => {
+    notification('Sending adopt request...');
+
+    axios
+      .post(`/api/pets/adopt/${id}`, {})
+      .then(() => {
+        notification('Successfully sent adopt request.', { status: 'success' });
+      })
+      .catch(() => {
+        notification('Failed to send adopt request.', { status: 'danger' });
       });
   };
 };
