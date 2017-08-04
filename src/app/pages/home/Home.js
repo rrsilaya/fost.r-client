@@ -3,6 +3,9 @@ import DocumentTitle from 'react-document-title';
 import { Link } from 'react-router-dom';
 
 import Navigation from './components/Navigation';
+import Logo from './components/Logo';
+import Feature from './components/Feature';
+import Footer from './components/Footer';
 
 class Home extends Component {
   render() {
@@ -15,8 +18,12 @@ class Home extends Component {
               backgroundImage: `url('http://loremflickr.com/g/1080/720/wildlife')`
             }}>
             <Navigation />
-            hello
+
+            <Logo />
           </div>
+
+          <Feature />
+          <Footer />
         </div>
       </DocumentTitle>
     );

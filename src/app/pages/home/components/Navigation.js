@@ -8,11 +8,11 @@ const Navigation = () => {
     <nav className="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
       <div className="uk-navbar-center">
         <ul className="uk-navbar-nav">
-          <li><Link to="/login">Login</Link></li>
+          <li className="splash-li"><Link to="/login">Login</Link></li>
           <li>
             <Link to="/"><img src={logo} style={{ height: '42px' }} /></Link>
           </li>
-          <li><Link to="/register">SignUp</Link></li>
+          <li className="splash-li"><Link to="/register">SignUp</Link></li>
         </ul>
       </div>
     </nav>
