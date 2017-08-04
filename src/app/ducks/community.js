@@ -31,11 +31,11 @@ export const getActivePosts = user => {
     });
 
     axios
-      .get(`/api/community/${user}/viewPosts/1`)
+      .get(`/api/community/${user}/viewPosts/page/1`)
       .then(res => {
         dispatch({
           type: LOAD_ACTIVE_POSTS_SUC,
-          payload: res.data
+          payload: res.data.posts
         });
       })
       .catch(err => {
