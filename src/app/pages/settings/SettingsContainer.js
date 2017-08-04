@@ -1,8 +1,20 @@
 import { connect } from 'react-redux';
 import Settings from './Settings';
-import updateProfile from './../../ducks/updateProfile';
+import {
+  changeForm,
+  importData,
+  clearCreate,
+  submitChange
+} from './../../ducks/updateProfile';
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  form: state.updateProfile.form
+});
 
-const SettingsContainer = connect(mapStateToProps, {})(Settings);
+const SettingsContainer = connect(mapStateToProps, {
+  changeForm,
+  importData,
+  clearCreate,
+  submitChange
+})(Settings);
 export default SettingsContainer;

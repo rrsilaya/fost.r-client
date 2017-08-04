@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { notification } from 'uikit';
 
 // Actions
 const UPDATE_FORM = 'UPDATE_FORM';
@@ -8,7 +9,7 @@ const CHANGE_FAIL = 'CHANGE_FAIL';
 const CLEAR_CREATE = 'CLEAR_CREATE';
 
 // Action Creators
-export const updateForm = (name, value) => {
+export const changeForm = (name, value) => {
   return {
     type: UPDATE_FORM,
     name,
@@ -16,17 +17,17 @@ export const updateForm = (name, value) => {
   };
 };
 
-export const CHANGE = form => {
+export const importData = () => {
   return dispatch => {
     dispatch({
       type: CHANGE_REQ
     });
-    console.log(form);
     axios
-      .post('/signup/user', form)
+      .get('/accounts/MyAccount')
       .then(res => {
         dispatch({
-          type: CHANGE_SUC
+          type: CHANGE_SUC,
+          payload: res.data[0]
         });
       })
       .catch(err => {
@@ -41,6 +42,21 @@ export const CHANGE = form => {
 export const clearCreate = () => {
   return {
     type: CLEAR_CREATE
+  };
+};
+
+//submit changeinForm
+export const submitChange = form => {
+  return dispatch => {
+    notification('Saving Changes...');
+    axios
+      .put('/accounts/MyAccount', form)
+      .then(() => {
+        notification('You have recently changed your profile info.');
+      })
+      .catch(() => {
+        notification('Something went wrong!');
+      });
   };
 };
 
@@ -88,7 +104,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         isCreatingUser: false,
         createdUser: true,
-        form: initialState.form
+        form: action.payload
       };
 
     case CLEAR_CREATE:
