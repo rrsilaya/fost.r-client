@@ -45,6 +45,11 @@ const RequestList = ({ isLoading, requests, deleteRequest }) => {
               </li>
             )}
           </ul>}
+      {requests.length === 0
+        ? <div className="uk-text-center">
+            Rescue requests for users will appear here.
+          </div>
+        : ''}
     </div>
   );
 };
