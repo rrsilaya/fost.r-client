@@ -1,7 +1,15 @@
 import { connect } from 'react-redux';
 import Notifications from './Notifications';
 
-const mapStateToProps = state => ({});
+import { getNotifications } from '../../ducks/notifications';
 
-const NotificationsContainer = connect(mapStateToProps, {})(Notifications);
+const mapStateToProps = state => ({
+  isLoading: state.notifications.isLoading,
+  hasFailed: state.notifications.hasFailed,
+  notifications: state.notifications.notifications
+});
+
+const NotificationsContainer = connect(mapStateToProps, { getNotifications })(
+  Notifications
+);
 export default NotificationsContainer;
