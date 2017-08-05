@@ -5,22 +5,26 @@ const Feature = () => {
     {
       icon: 'home',
       title: 'Adopt',
-      content: 'Lorem ipsum dolor sit amet lorem ipsum dolor sit amet'
+      content:
+        'Having a companion is now easy. Adopt an animal based on your interestes or preference.'
     },
     {
       icon: 'heart',
       title: 'Date',
-      content: 'Lorem ipsum dolor sit amet lorem ipsum dolor sit amet'
+      content:
+        'Stressed? Lonely? Have a nice date with these cute animals from different shelters.'
     },
     {
       icon: 'social',
       title: 'Connect',
-      content: 'Lorem ipsum dolor sit amet lorem ipsum dolor sit amet'
+      content:
+        'Handling pet can be hard. Join the community to learn about their experiences and difficulties in handling pets.'
     },
     {
       icon: 'lifesaver',
       title: 'Rescue',
-      content: 'Lorem ipsum dolor sit amet lorem ipsum dolor sit amet'
+      content:
+        'Help save these animals from abuse and neglect by reporting to the shelters about the incident.'
     }
   ];
 
