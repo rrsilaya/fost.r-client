@@ -4,8 +4,8 @@
 	fost.r Client
 	<br />
 	<img src="https://img.shields.io/badge/status-development-yellow.svg" />
-	<img src="https://img.shields.io/badge/node-v7.8.0-green.svg" />
-	<img src="https://img.shields.io/badge/react-v15.5.4-green.svg" />
+	<a href=""><img src="https://img.shields.io/badge/node-v7.8.0-green.svg" /></a>
+	<a href="https://facebook.github.io/react/"><img src="https://img.shields.io/badge/react-v15.5.4-green.svg" /></a>
 	<br />
 </h1>
 <h4 align="center">Raise awareness on homeless animals because of neglect or abuse</h4>
@@ -21,6 +21,19 @@ It is assumed that you are using [yarn](http://www.yarnpkg.com/) as your package
 ```
 $ npm install && npm start
 ```
+
+### Technologies Used
+* [ReactJS](https://facebook.github.io/react/)
+* [Redux (React Redux)](https://redux.js.org/)
+* [UIkit](https://getuikit.com/)
+* [MomentJS](https://momentjs.com/)
+* [Axios](https://github.com/mzabriskie/axios)
+
+### Features
+1. **Adopt** - adopt from pets offered by different animal shelters 
+2. **Date** - experience being with a pet in a day
+3. **Connect** - connect with the community of animal lovers and experts
+4. **Rescue** - file a rescue request on animals experiencing neglect or abuse
 
 ### Project Structure
 ```
@@ -64,6 +77,7 @@ $ npm install && npm start
 ```
 
 ### Developers
+This web app is part of the PAD project of Batch o(ctal) in Young Software Engineers' Society (YSES) UPLB.
 ##### API
 * Evangelista, Erlen Mae
 * Sombaes, Kia Mei
