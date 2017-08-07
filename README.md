@@ -80,7 +80,7 @@ $ npm install && npm start
 This web app is part of the PAD project of Batch o(ctal) in Young Software Engineers' Society (YSES) UPLB.
 ##### API
 * Evangelista, Erlen Mae
-* Sombaes, Kia Mei
+* Somabes, Kia Mei
 
 ##### Client
 * Gotis, Ciara Mae
